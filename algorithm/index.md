@@ -3,6 +3,8 @@ layout: default
 title: Algorithm
 nav_order: 2
 permalink: /algorithm/
+has_children: true
+has_toc: false
 ---
 
 # Topics of Algorithm
@@ -22,7 +24,7 @@ permalink: /algorithm/
 
 ## Sorting
  - Insertion Sort
- - Merge Sort
+ - [Merge Sort](sorting/merge-sort)
  - K-way Merge Sort
  - Radix Sort
  - Quick Sort
