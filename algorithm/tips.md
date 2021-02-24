@@ -25,3 +25,12 @@ def all_substrings(text: str, k: int):
    only need at most `len(text) - k` index because otherwise it
    overflows.
  - Accumulate those substrings as a set to remove duplcations.
+
+
+## Comprehensions
+
+``` python
+[exp for x in sequences if ...]  # list
+{exp for x in sequences if ...}  # set
+{key:value for x in sequences if ...}  # dict
+```
