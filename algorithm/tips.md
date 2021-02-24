@@ -34,3 +34,17 @@ def all_substrings(text: str, k: int):
 {exp for x in sequences if ...}  # set
 {key:value for x in sequences if ...}  # dict
 ```
+
+## Index of Sequences
+
+ Python can have a negative index.
+ - If an index is positive, it starts from `0` at the left most of the
+   sequences.
+ - If an index is negative, is starts from `-1` at the right most of
+   the sequences.
+
+``` python
+sequences = ['a', 'b', 'c']
+#             0    1    2    # positive
+#            -3   -2   -1    # negative
+```
