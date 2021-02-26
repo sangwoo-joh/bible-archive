@@ -94,6 +94,15 @@ def bisect_left(arr, x, low=0, high=None):
     return low
 ```
 
+### 뱀발) 코드에서 알 수 있는 것
+ - 파이썬은 오른쪽으로 반쯤 열린 구간 (right half-open interval)을
+   사용한다. 즉, 항상 `[low, high)` 로 구간을 표시하게 되고 `low` 부터
+   `high - 1` 까지가 유효한 인덱스다.
+ - `mid = (low + high) // 2` 를 계산함으로써, `mid`는 항상 버림 계산을
+   하게 된다. 따라서, `[low, mid)` 와 `[mid+1, high)`로 구간이
+   양분되면 항상 오른쪽 구간의 크기가 더 크거나 같게 된다.
+
+
 
 ## How to generate all possible substrings with specific length
 
