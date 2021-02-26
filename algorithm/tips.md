@@ -14,6 +14,14 @@ parent: Algorithm
 1. TOC
 {:toc}
 
+## DFS
+
+| | `visiting = False` | `visiting = True` |
+| --- | --- | --- |
+| `visited = False` | 아직 방문하지 않음 | **싸이클** |
+| `visited = True` | 불가능한 경우 | 탐색이 끝남 |
+
+
 ## Bisection
 
 ### Upper Bound and Lower Bound
