@@ -98,12 +98,56 @@ def longest_palindrome(string):
    start` 보다 길이가 크면 최대값을 업데이트하면 된다.
 
 
-## DFS
+## DFS and Cycle
 
 | | `visiting = False` | `visiting = True` |
 | --- | --- | --- |
 | `visited = False` | 아직 방문하지 않음 | **싸이클** |
 | `visited = True` | 불가능한 경우 | 탐색이 끝남 |
+
+``` python
+class Graph:
+    def __init__(self):
+        self.node_map = {}
+        self.node_set = set()
+
+    def add_edge(self, src, snk):
+        self.node_set.add(src)
+        self.node_set.add(snk)
+
+        sink_set = self.node_map.get(src, None)
+        if sink_set:
+            sink_set.add(snk)
+        else:
+            self.node_map[src] = {snk}
+
+    def __getitem__(self, key):
+        return self.node_map.get(key, set())
+
+    def has_cycle(self):
+        visiting = set()
+        visited = set()
+
+        def dfs(node):
+            visiting.add(node)  # visiting now
+            for succ in self.node_map.get(node, set()):
+                if succ in visiting:  # this is the case - CYCLE
+                    raise TypeError("has cycle")
+                if succ not in visited:
+                    dfs(succ)  # recurse only when not visited
+
+            visiting.remove(node)  # visiting done
+            visited.add(node)  # so, set visited
+
+        try:
+            for node in self.node_set:
+                dfs(node)
+        except TypeError:
+            return False
+
+        return True
+```
+
 
 
 ## Bisection
