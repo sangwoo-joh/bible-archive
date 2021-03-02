@@ -17,6 +17,7 @@ parent: Algorithm
 ## DFS, Cycle, Topological Ordering
 
 ### Condition of Cycle
+
 | | `visiting = False` | `visiting = True` |
 | --- | --- | --- |
 | `visited = False` | 아직 방문하지 않음 | **싸이클** |
