@@ -237,7 +237,7 @@ def bisect_right(arr, x, low=0, high=None):
     while low < high:
         mid = (low + high) // 2
 
-        if arr[mid] > x:
+        if x < arr[mid]:
             high = mid
         else:
             low = mid + 1
@@ -266,7 +266,7 @@ def bisect_left(arr, x, low=0, high=None):
     while low < high:
         mid = (low + high) // 2
 
-        if arr[mid] >= x:
+        if x <= arr[mid]:
             high = mid
         else:
             low = mid + 1
