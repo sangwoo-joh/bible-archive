@@ -154,3 +154,31 @@ Can't put off anymore.
     호출한다. `move_to_end`가 디폴트로 `last=True` 이므로 (즉 최근에
     사용한 애들은 제일 뒤로 가므로), 제일 앞쪽에 있는 아이템이 가장
     최근에 사용하지 않은 (Least Recently Used) 아이템이다.
+
+### deque
+ 일반 리스트를 큐처럼 사용할 수 있긴 하다. 단, 효율적이지 못하다. 특히
+ 큐에서 아이템을 pop 하는 연산은 `list.pop(0)`이 될텐데, 이는 전체
+ 리스트(CPython 구현은 가변 배열)를 한칸 시프트 해야 하기 때문에
+ `O(N)`이 걸린다. 바람직하지 않다.
+
+ 이런 경우에 사용할 수 있는게 바로 `deque`다. 참고로 CPython에는 C
+ 코드의 더블 링크드 리스트로 구현되어 있다. 그러니 맘편히 갖다 쓰면
+ 된다. 아래 함수를 제공한다.
+ - `dq.append(x)`: right side
+ - `dq.appendeft(x)`: left side
+ - `dq.clear()`
+ - `dq.copy()`: shallow copy
+ - `dq.count(x)`
+ - `dq.extend(iterable)`: right side
+ - `dq.extendleft(iterable)`: left side
+ - `dq.index(x)`
+ - `dq.insert(i, x)`
+ - `dq.pop()`: remove & return the right-most side
+ - `dq.popleft()`: remove & return the left-most side
+ - `dq.reverse()`: in-place reverse
+ - `dq.rotate(n=1)`: 오른쪽으로 `n` 스텝만큼 회전한다. 음수면 왼쪽
+   회전. 양수일 경우 `dq.appendleft(dq.pop())` 과 같다. 음수면
+   `dq.append(dq.popleft())`
+ - `dq.maxlen`: 큐의 최대 크기. 처음 생성할 때 `deque(maxlen=N)`으로
+   설정할 수 있다. 이거 넘어가는 순간 다 삭제된다. 따라서 LRU 캐시를
+   deque로 구현할 수도 있다.
