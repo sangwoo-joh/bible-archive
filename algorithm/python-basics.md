@@ -225,3 +225,147 @@ heap[k] <= heap[2*k + 1] and heap[k] <= heap[2*k + 2]
  동작한다. n이 크면 (=거의 모든 정렬된 리스트를 가져 올 거면) 그냥
  정렬하는게 낫다. `n==1`이면 그냥 min/max를 쓰는게 낫다. 반복적으로
  쓸때만 iterable에 실제 힙을 넘기는게 좋다.
+
+
+# functools
+ Higher Order Function 모듈임. 즉 함수에 뭔가 이것저것 할 수 있는 걸
+ 제공.
+
+## cache
+ `@functools.cache` 데코레이터. `@functools.lru_cache(maxsize=None)`과
+ 같다. 메모아이제이션함수. 팩토리얼 같은데 쓰면 복잡도를 줄일 수 있다.
+
+
+# itertools
+ 여기 개꿀같은 함수들이 많다. 하스켈이랑 SML에 영향을 받아서 그런
+ 것인가.
+
+
+## itertools.accumulate
+ 부분 합을 구해준다.
+
+``` python
+def accumulate(iterable, func=operator.acc, *, initial=None):
+  # accumulate([1,2,3,4,5]) --> 1 3 6 10 15
+  # accumulate([1,2,3,4,5], initial=100) --> 100 101 103 106 110 115
+  # accumulcate([1,2,3,4,5], operator.mul) --> 1 2 6 24 120
+  it = iter(iterable)
+  total = initial
+  if initial is None:
+    try:
+      total = next(it)
+    except StopIteration:
+      return
+  yield total
+  for elt in it:
+    total = func(total, elt)
+    yield total
+```
+
+ - `func`는 여러가지 용도로 쓰일 수 있다. 누적 최소를 구하고 싶으면
+   `min`을, 누적 최대는 `max`를, 누적 곱은 `operator.mul`을 넘기면
+   쉽게 구할 수 있다.
+
+
+## itertools.chain
+ 들어온 시퀀스를 순서대로 합쳐서 하나씩 반환함.
+
+```python
+def chain(*iterables):
+  # chain('ABC', 'DEF') --> A B C D E F
+  for it in iterables:
+    for elt in it:
+      yield elt
+```
+
+## itertools.compress
+ 데이터와 셀렉터를 받은 다음 셀렉터가 참인 애들만 남긴다. `filter`랑
+ 유사한데 selector도 시퀀스인 점이 좀 다르다.
+
+```python
+def compres(data, selectors):
+  # compress('ABCDEF', [1,0,1,0,1,1]) --> A C E F
+  return (d for d, s in zip(data, selectors) if s)
+```
+
+## itertools.groupby
+ 유닉스의 `uniq`랑 비슷하게 동작한다. 키 함수 값이 변할 때마다 멈추고
+ 새 맵핑(그룹)을 만든다. 그러므로 같은 키 함수로 이미 정렬한
+ iterable을 입력으로 줘야 한다. (따라서 SQL의 GROUP BY랑은 다르다)
+
+ 대략 아래와 동일하다.
+
+```python
+class groupby:
+    # [k for k, g in groupby('AAAABBBCCDAABBB')] --> A B C D A B
+    # [list(g) for k, g in groupby('AAABBBCCD')]  --> AAAA BBB CC D
+    def __init__(self, iterable, key=None):
+        if key is None:
+            key = lambda x: x
+        self.keyfunc = key
+        self.it = iter(iterable)
+        self.tgtkey = self.curkey = self.curvalue = object()
+    def __iter__(self):
+        return self
+    def __next__(self):
+        self.id = object()
+        while self.curkey == self.tgtkey:
+            self.curvalue = next(self.it)  # StopIteration 에서 종료
+            self.curkey = self.keyfunc(self.curvalue)
+        self.tgtkey = self.curkey
+        return (self.curkey, self._grouper(self.tgtkey, self.id))
+    def _grouper(self, tgtkey, id):
+        while self.id is id and self.curkey == tgtkey:
+            yield self.curvalue
+            try:
+                self.curvalue = next(self.it)
+            except StopIteration:
+                return
+            self.curkey = self.keyfunc(self.curvalue)
+```
+
+## itertools.combinations
+ 말 그대로 조합을 짜준다(!) 대략 다음과 동등하다.
+
+```python
+def combinations(iterable, r):
+    # combinations(range(4), 3) --> (0,1,2) (0,1,3) (0,2,3) (1,2,3)
+    pool = tuple(iterable)
+    n = len(pool)
+    if r > n:
+        return
+
+    indices = list(range(r))
+    yield tuple(pool[i] for i in indices)
+    while True:
+        for i in reversed(range(r)):
+            if indices[i] != i + n - r:
+                break
+        else:
+            return
+        indices[i] += 1
+        for j in range(i + 1, r):
+            indices[j] = indices[j - 1] + 1
+        yield tuple(pool[i] for i in indices)
+```
+
+## itertools.product
+ 데카르트 곱을 계산한다. 중첩된 for 루프랑 동등하다. 예를 들면
+ `product(A, B)` 는 `((x, y) for x in A for y in B)`와 동등하다.
+
+ 스스로의 곱을 만들려면 `repeat` 값을 지정해주면 된다. 예를 들면
+ `product(A, repeat=4)`는 `product(A, A, A, A)`와 동등하다.
+
+ 실제로는 더 메모리 효율적이란 것만 제외하면 아래와 같다.
+
+```python
+def product(*iterables, repeat=1):
+    # product('ABCD', 'xy') --> Ax Ay Bx By Cx Cy Dx Dy
+    # product(range(2), repeat=3) --> 000 001 010 011 100 101 110 111
+    pools = [tuple(pool) for pool in iterables] * repeat
+    result = [[]]
+    for pool in pools:
+        result = [x + [y] for x in result for y in pool]
+    for prod in result:
+        yield tuple(prod)
+```
