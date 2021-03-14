@@ -155,6 +155,14 @@ Can't put off anymore.
     사용한 애들은 제일 뒤로 가므로), 제일 앞쪽에 있는 아이템이 가장
     최근에 사용하지 않은 (Least Recently Used) 아이템이다.
 
+### defaultdict
+ dict 에서 맵핑이 없어도 초기값을 제공해준다. 정확히는, `KeyError`
+ 예외가 발생하면, `__missing__(key)` 함수를 호출해서 디폴트 값을
+ 지정하는 원리이다. 기본은 `None`으로 설정된다.
+
+ 그래프나 문자열 문제를 풀 때 `defaultdict([])` 혹은
+ `defaultdict(set())` 로 지정하면 풀기 편하다.
+
 ### deque
  일반 리스트를 큐처럼 사용할 수 있긴 하다. 단, 효율적이지 못하다. 특히
  큐에서 아이템을 pop 하는 연산은 `list.pop(0)`이 될텐데, 이는 전체
