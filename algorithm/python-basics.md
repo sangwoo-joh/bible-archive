@@ -190,3 +190,38 @@ Can't put off anymore.
  - `dq.maxlen`: 큐의 최대 크기. 처음 생성할 때 `deque(maxlen=N)`으로
    설정할 수 있다. 이거 넘어가는 순간 다 삭제된다. 따라서 LRU 캐시를
    deque로 구현할 수도 있다.
+
+
+# heapq
+ 힙을 구현하는 가장 쉬운 방법 중 하나인 배열을 이용한 최소 힙을 구현한
+ 것이다.
+
+ 아래 invariant를 유지한다:
+
+```python
+heap[k] <= heap[2*k + 1] and heap[k] <= heap[2*k + 2]
+```
+
+ - 이때 인덱스는 0부터 시작한다.
+ - 부모 노드 인덱스는 `(k-1) // 2` 로 구할 수 있다.
+ - 파이썬은 최소힙만 제공한다. 따라서 최대힙을 하려면 비교 연산 결과를
+   뒤집어서 쓰면 된다.
+
+  아래 함수들을 제공한다. 참고로 `heapq` 라는 타입을 따로 제공하는게
+  아니라, 그냥 있는 리스트에서 힙 연산을 제공하는 것이다.
+  - `heapq.heapify(x)`: 리스트 x를 힙으로 변환한다 (in-place).
+  - `heapq.heappush(heap, item)`: heap에 item을 추가한다.
+  - `heapq.heappop(heap)`: heap에서 최소 값 (`heap[0]`)을 반환하면서
+    삭제한다.
+  - `heapq.nlargest(n, iterable, key=None)`: n개의 가장 큰 원소를 담은
+    리스트를 반환한다. key 함수는 비교할 때 쓰일 키를 *추출*하는
+    용도로 쓰인다 (e.g. `key=str.lower`). 이 함수의 결과는
+    `sotred(iterable, key=key, reverse=True)[:n]`과 동일하다.
+  - `heapq.nsmallest(n, iterable, key=None)`: n개의 가장 작은 원소를
+    담은 리스트를 반환한다. `sorted(iterable, key=key)[:n]`과
+    동일하다.
+
+ 참고로 마지막 두 함수인 `nlargest`와 `nsmallest`는 n이 작아야 잘
+ 동작한다. n이 크면 (=거의 모든 정렬된 리스트를 가져 올 거면) 그냥
+ 정렬하는게 낫다. `n==1`이면 그냥 min/max를 쓰는게 낫다. 반복적으로
+ 쓸때만 iterable에 실제 힙을 넘기는게 좋다.
