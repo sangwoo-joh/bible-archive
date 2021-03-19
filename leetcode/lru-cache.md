@@ -1,7 +1,6 @@
 ---
 layout: default
 title: LRU Cache
-permalink: /leetcode/lru-cache
 parent: LeetCode
 ---
 

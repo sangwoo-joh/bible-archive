@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Rotate Image
-permalink: /leetcode/rotate-image
 parent: LeetCode
 ---
 
