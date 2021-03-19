@@ -6,14 +6,12 @@ parent: LeetCode
 ---
 
 {: .no_toc }
-# Tips
+# Rotate Image
 ## Table of Contents
 {: .no_toc .text-delta }
 
-1. TOC
+ - TOC
 {:toc}
-
-# Rotate Image
 
  n x n 2D 매트릭스를 시계 방향으로 90도 회전할껀데,
  *제자리에서(in-place)* 회전해야 한다.
