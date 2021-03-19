@@ -88,7 +88,16 @@ def rotate(matrix):
 
  이 외에도 유사한 많은 알고리즘들이 있다. 예를 들면 여기서는 reverse를
  행 단위(i)로 했지만, 열 단위(j)로 하고 transpose를 먼저 해도
- 된다. 혹은, 4각 꼭지점에 있는 애들의 인덱스를 각각 구해서 원소 4개를
- 회전시켜도 된다.
+ 된다. 혹은 다음과 같이 4각 꼭지점에 있는 애들의 인덱스를 각각 구해서
+ 원소 4개를 회전시켜도 된다.
+
+```python
+def rotate(matrix):
+  n = len(matrix)
+  for i in range(n//2 + n%2):
+    for j in range(n//2):
+      matrix[i][j], matrix[n-1-j][i], matrix[n-1-i][n-1-j], matrix[j][n-1-i] = \
+        matrix[n-1-j][i], matrix[n-1-i][n-1-j], matrix[j][n-1-i], matrix[i][j]
+```
 
  하지만 제일 덜 복잡해보이는 방법(...)이 이거라서 이걸로 풀어봤다.
