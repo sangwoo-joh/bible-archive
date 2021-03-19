@@ -4,13 +4,7 @@ title: Number of Islands
 parent: LeetCode
 ---
 
-{: .no_toc }
 # Number of Islands
-## Table of Contents
-{: .no_toc .text-delta }
-
- - TOC
-{:toc}
 
  m x n 2D 그리드가 지도로 주어진다. `1`은 땅이고 `0`은 물일 때, 섬의
  개수를 세는 문제다.

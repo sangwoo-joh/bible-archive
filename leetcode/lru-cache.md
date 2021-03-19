@@ -4,13 +4,7 @@ title: LRU Cache
 parent: LeetCode
 ---
 
-{: .no_toc }
 # LRU Cache
-## Table of Contents
-{: .no_toc .text-delta }
-
- - TOC
-{:toc}
 
  말 그대로 LRU Cache를 만드는 문제다.
 
