@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Leet Code
-permalink: /algorithm/leet-code
-parent: Algorithm
+title: Rotate Image
+permalink: /leetcode/rotate-image
+parent: LeetCode
 ---
 
 {: .no_toc }
