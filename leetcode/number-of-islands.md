@@ -53,3 +53,37 @@ def numIslands(grid):
    땅에 첫 발을 내딛는 순간 섬의 개수가 하나 증가하고 그 섬에 속한
    모든 땅을 방문한 것으로 기록하기 때문에, 이후 노드 중 이미 방문
    기록된 노드는 이전 DFS 에서 섬으로 카운트 된 땅이다.
+
+## BFS
+ BFS로도 구현해보았다. DFS와 마찬가지로 첫 땅을 밟는 순간 섬 개수를
+ 늘리고, 인접한 모든 땅(섬)을 방문으로 기록한다.
+
+ collections 모듈에 deque가 있으니 이걸 쓰면 된다.
+
+```python
+from collections import deque
+def numIslands(grid):
+    visited = set()
+    m, n = len(grid), len(grid[0])
+
+    def bfs(x, y):
+        visited.add((x, y))
+        q = deque()
+        q.append((x, y))
+
+        while q:
+            cx, cy = q.pop()
+            for nx, ny in [(cx+1, cy), (cx-1, cy), (cx, cy+1), (cx, cy-1)]:
+                if 0 <= nx < m and 0 <= ny < n and grid[nx][ny] == '1' and (nx, ny) not in visited:
+                    visited.add((nx, ny))
+                    q.append((nx, ny))
+
+    num = 0
+    for x in range(m):
+        for y in range(n):
+            if grid[x][y] == '1' and (x, y) not in visited:
+                bfs(x, y)
+                num += 1
+
+    return num
+```
