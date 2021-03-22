@@ -98,9 +98,11 @@ def max_sub_array_sum(nums, target):
 
     for end in range(n):
         if (cur_sum + nums[end]) <= target:
+            # Can I do better?
             cur_sum += nums[end]
             max_len = max(max_len, end - start + 1)
         else:
+            # Constraint not satisfied. move to the next.
             cur_sum = cur_sum - nums[start] + nums[end]
             start += 1
 
