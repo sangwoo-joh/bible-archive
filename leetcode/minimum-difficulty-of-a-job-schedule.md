@@ -160,25 +160,73 @@ def min_difficulty(jobDifficulty, d):
 
 ```python
 from functools import cache
+
 def min_difficulty(jobDifficulty, d):
     if len(jobDifficulty) < d:
         return -1
-
     @cache
-    def dfs(idx, d):
-        if d == 1:
+    def dfs(idx, day):
+        if day == d:
             # no more division is possible.
             # return the maximum among all remainings
             return max(jobDifficulty[idx:])
 
-        min_diff = float('inf')
-        day_diff = 0
+        min_diff = float('inf')  # accum minimum sum of each day's difficulties
+        day_diff = 0  # accum day's possible maximum difficulty
 
-        for i in range(idx, len(jobDifficulty) - (d - 1)):
+        for i in range(idx, len(jobDifficulty) - d + day)):
             day_diff = max(day_diff, jobDifficulty[i])
-            min_diff = min(min_diff, day_diff + dfs(i + 1, d - 1))
+            min_diff = min(min_diff, day_diff + dfs(i + 1, d + 1))
 
         return min_diff
 
-    return dfs(0, d)
+    return dfs(0, 1)
 ```
+
+
+# 번외: 구간 평균의 합 중에서 가장 큰 합 구하기
+ Largest Sum of Averages 를 아주 유사한 접근으로 풀 수 있다. 숫자 배열
+ `A`를 `K` 개의 그룹으로 쪼갤 때, "점수"는 각 그룹의 평균의
+ 합이다. 이때 가장 큰 합은 뭘까?
+
+ 위의 DFS 접근이 결국 인덱스마다 상태(최대값)을 구하고 이 상태로부터
+ 가능한 다음 상태(난이도의 합) 중에서 최소 값을 구하는 문제였다면, 이
+ 문제는 인덱스마다 상태(평균값)을 구하고 이로부터 가능한 다음
+ 상태(점수의 합) 중에서 최대 값을 구하는 문제이다. 거의 유사하게 풀 수
+ 있다.
+
+```python
+from functools import cache
+from statistics import mean
+
+def largest_score(A, K):
+    if K == 1:
+        return
+
+    n = len(A)
+
+    @cache
+    def seg_mean(start, end):
+        return mean(A[start:end])
+
+    @cache
+    def dfs(idx, k):
+        if k == K:
+            return seg_mean(idx, n)
+
+        max_sum = 0
+        for i in range(idx, n - K + k):
+            max_sum = max(max_sum, seg_mean(idx, i + 1) + dfs(i + 1, k + 1))
+        return max_sum
+    return dfs(0, 1)
+```
+ - 평균 값을 구하기 위해서 `statistics` 모듈의 `mean` 함수를
+   활용했다. 그리고 매 구간마다 평균 값을 계속 계산할 필요는 없기
+   때문에, 이 값도 메모아이즈한다.
+ - 여기서도 매번 최대 `len(A) - K + k` 까지의 범위가 가능하다. 그리고
+   범위가 늘어갈 때마다 시작 인덱스는 `idx` 그대로인 채로 끝 구간만
+   변하므로, `seg_mean` 함수를 십분 활용 가능하다.
+ - 한 가지 주의할 점은, 평균 값을 계산할 때 `start`은 인덱스지만
+   `end`는 인덱스가 아니라 파이썬의 `range` 형식과 같이 마지막 다음
+   위치를 가리키므로, 매 범위마다 `seg_mean`을 호출할 때 `(idx, i)`가
+   아니라 `(idx, i+1)` 범위에 대해서 호출해야 한다는 점이다.
