@@ -13,6 +13,7 @@ permalink: /
 
 ## Table of Contents
  - [Algorithm](algorithm/)
- - [PL Theory](pl/)
- - [English](english/)
- - [Daily Record](daily/)
+ - [LeetCode](leetcode/)
+ <!-- - [PL Theory](pl/) -->
+ <!-- - [English](english/) -->
+ <!-- - [Daily Record](daily/) -->
