@@ -3,6 +3,11 @@ layout: default
 title: Critical Connections in a Network
 parent: LeetCode
 ---
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
 
 # Critical Connections in a Network
  `n`개의 서버가 있고 `0`부터 `n-1`까지 번호가 매겨져있다. 서버끼리는

@@ -4,6 +4,12 @@ title: Minimum Window Substring
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Minimum Window Substring
  두 문자열 `s`랑 `t`가 주어졌을 때, `t`에 있는 모든 문자를 담은 `s`의
  부분 문자열(window) 중 가장 짧은 것을 구하는 문제다. 없으면 ""를

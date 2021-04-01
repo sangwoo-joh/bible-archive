@@ -4,6 +4,12 @@ title: Minimum Difficulty of a Job Schedule
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Minimum Difficulty of a Job Schedule
  `d` 일의 기간 안에 업무 일정을 스케쥴링 하려고 한다. 업무는 서로
  의존적이다. 즉, `i` 번째 업무를 하려면 모든 `0 <= j < i` 인 `j`

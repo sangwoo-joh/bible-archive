@@ -4,6 +4,12 @@ title: Minimum Size Subarray Sum
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Minimum Size Subarray Sum
  *양수*만 담은 배열 `nums`와 양수 `target`이 주어졌을 때, 합이
  `target`보다 크거나 같게 되는 **연속되는 부분 배열** `[nums_(l),

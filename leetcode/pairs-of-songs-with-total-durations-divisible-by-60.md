@@ -4,6 +4,12 @@ title: Pairs of Songs With Total Durations Divisible by 60
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Pairs of Songs With Total Durations Divisible by 60
  노래 리스트가 주어지고 `i` 번째 노래의 길이는 `time[i]` 초다.
 

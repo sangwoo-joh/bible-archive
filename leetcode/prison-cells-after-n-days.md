@@ -4,6 +4,12 @@ title: Prison Cells After N Days
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Prison Cells After N Days
  8명을 수용할 수 있는 독방이 있다. 누가 들어가있거나(1) 비어있다(0).
 

@@ -4,6 +4,12 @@ title: Decode Ways
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Decode Ways
  `A-Z`를 담은 메시지는 다음과 같은 규칙에 의해서 숫자로 인코딩할 수
  있다:

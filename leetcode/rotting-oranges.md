@@ -4,6 +4,12 @@ title: Rotting Oranges
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Rotting Oranges
  `m x n` 격자가 주어지는데 각 쎌은 세 종류의 값을 갖는다.
   - `0`: 비어 있는 쎌

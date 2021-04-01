@@ -4,6 +4,12 @@ title: Rotate Image
 parent: LeetCode
 ---
 
+{: .no_toc }
+## Table of Contents
+{: .no_toc .text-delta }
+- TOC
+{:toc}
+
 # Rotate Image
 
  n x n 2D 매트릭스를 시계 방향으로 90도 회전할껀데,
