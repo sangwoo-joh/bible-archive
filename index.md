@@ -15,5 +15,5 @@ permalink: /
  - [Algorithm](algorithm/)
  - [LeetCode](leetcode/)
  <!-- - [PL Theory](pl/) -->
- <!-- - [English](english/) -->
+ - [English](english/)
  <!-- - [Daily Record](daily/) -->
