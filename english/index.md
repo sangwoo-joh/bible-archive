@@ -35,3 +35,20 @@ permalink: /english/
 ### back to square one
  - 원점으로 되돌아가는 것. 진전도 없고. 도로마이타불.
  - If this suggesion isn't accepted, we'll be back to square one.
+
+## TODO
+### bounce back
+### by word of mouth
+### get down to business
+### have the floor
+### bite the bullet
+### on the same page
+### touch base
+### pull one's weight
+### learn the ropes
+### outside the box
+### bring to the table
+### on board
+### get one's foot in the door
+### in the loop / out of the loop
+### stay on top of things
