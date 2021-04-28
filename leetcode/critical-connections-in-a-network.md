@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Critical Connections in a Network
 parent: LeetCode
 ---

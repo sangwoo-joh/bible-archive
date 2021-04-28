@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Rotate Image
 parent: LeetCode
 ---

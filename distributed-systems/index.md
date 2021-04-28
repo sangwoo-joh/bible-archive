@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Distributed Systems
 nav_order: 2
 permalink: /distributed-systems/

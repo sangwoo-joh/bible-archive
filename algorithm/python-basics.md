@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Python Basics
 permalink: /algorithm/python-basics
 parent: Algorithm

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Longest Consecutive Sequence.
 parent: LeetCode
 ---

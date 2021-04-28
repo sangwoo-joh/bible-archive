@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Longest Substring Without Repeating Characters
 parent: LeetCode
 ---

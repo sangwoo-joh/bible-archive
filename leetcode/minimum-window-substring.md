@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Minimum Window Substring
 parent: LeetCode
 ---

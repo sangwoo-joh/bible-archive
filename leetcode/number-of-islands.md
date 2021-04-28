@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Number of Islands I, II
 parent: LeetCode
 ---

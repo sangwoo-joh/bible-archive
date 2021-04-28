@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Number of Provinces
 parent: LeetCode
 ---

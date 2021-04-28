@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Pairs of Songs With Total Durations Divisible by 60
 parent: LeetCode
 ---

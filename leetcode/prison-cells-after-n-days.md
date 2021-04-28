@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Prison Cells After N Days
 parent: LeetCode
 ---

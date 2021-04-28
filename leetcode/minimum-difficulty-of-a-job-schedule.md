@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Minimum Difficulty of a Job Schedule
 parent: LeetCode
 ---

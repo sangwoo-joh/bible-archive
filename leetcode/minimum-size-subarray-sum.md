@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Minimum Size Subarray Sum
 parent: LeetCode
 ---

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: LeetCode
 nav_order: 2
 permalink: /leetcode/
