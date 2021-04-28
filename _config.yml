@@ -100,6 +100,7 @@ color_scheme: nil
 # e.g, UA-1234567-89
 ga_tracking: UA-145416085-1
 ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
+disqus: blog-utrcmpd2xa
 
 plugins:
   - jekyll-seo-tag
