@@ -13,6 +13,7 @@ permalink: /
 
 ## Table of Contents
  - [Algorithm](algorithm/)
+ - [Distributed Systems](distributed-systems/)
  - [LeetCode](leetcode/)
  <!-- - [PL Theory](pl/) -->
  - [English](english/)
