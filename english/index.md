@@ -53,3 +53,26 @@ has_children: true
 ### get one's foot in the door
 ### in the loop / out of the loop
 ### stay on top of things
+### over the moon
+### in seventh heaven
+### on cloud nine
+### on top of the world
+### down in the dumps
+### feeling blue
+### grinning from ear to ear
+### jump for joy
+### paint the town red
+### have the time of one's life
+### guilty pleasure
+### make one's day
+### get bent ouf of shape
+### be/get worked up about something
+### kick oneself
+### keep one's chin up
+### take something apart
+### take something in
+### take somebody in
+### take in something
+### be taken in by someone/something
+### take something off
+### take off
