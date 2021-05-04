@@ -16,4 +16,3 @@ permalink: /
  - [Distributed Systems](distributed-systems/)
  - [LeetCode](leetcode/)
  - [English](english/)
- <!-- - [Daily Record](daily/) -->
