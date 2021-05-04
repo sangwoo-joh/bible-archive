@@ -12,7 +12,12 @@ permalink: /
  are in English.
 
 ## Table of Contents
+
+### Personal Trainings
  - [Algorithm](algorithm/)
- - [Distributed Systems](distributed-systems/)
  - [LeetCode](leetcode/)
  - [English](english/)
+
+### Lecture Note Interpretation (WIP)
+ - [Distributed Systems](distributed-systems/)
+ - [Using, Understanding, and Unraveling The OCaml Language](u3-ocaml/)
