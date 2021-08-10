@@ -370,6 +370,7 @@ def product(*iterables, repeat=1):
 ```
 
 
+# Useful Techniques
 ## Remove n-th Node From End of List
 
  Pioneer가 n 만큼 먼저 땅을 밝히고, 이후에 Follower와 Pioneer가
