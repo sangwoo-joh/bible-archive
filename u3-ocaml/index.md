@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using, Understanding, and Unraveling The OCaml Language
+title: U3 OCaml
 nav_order: 2
 permalink: /u3-ocaml/
 has_children: true
