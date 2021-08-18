@@ -14,7 +14,7 @@ permalink: /
 ## Table of Contents
 
 ### Personal Trainings
- - [Algorithm](algorithm/)
+ - [Python](python/)
  - [LeetCode](leetcode/)
  - [English](english/)
 
