@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Binary search
+title: Binary Search
 parent: Python for PS
 ---
 

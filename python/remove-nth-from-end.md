@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Remove n-th node from end of a list
+title: Remove n-th Node from End of a List
 parent: Python for PS
 ---
 

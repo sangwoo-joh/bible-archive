@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Topological ordering
+title: Topological Ordering
 parent: Python for PS
 ---
 

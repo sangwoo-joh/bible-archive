@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Generate all possible substrings
+title: Generate All Possible Substrings
 parent: Python for PS
 ---
 
