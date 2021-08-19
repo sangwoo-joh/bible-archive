@@ -15,6 +15,7 @@ permalink: /
 
 ### Personal Trainings
  - [Python](python/)
+ - [Jongman Book](jongmanbook/)
  - [LeetCode](leetcode/)
  - [English](english/)
 
