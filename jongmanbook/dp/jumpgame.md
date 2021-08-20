@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Jump Game
-parent: Jongman Book Training
+parent: Dynamic Programming
+grand_parent: Jongman Book Training
 ---
 
 {: .no_toc }
