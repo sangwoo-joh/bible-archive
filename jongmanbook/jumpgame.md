@@ -35,7 +35,7 @@ jumpable(x, y) = jumpable(x + k, y) || jumpable(x, y + k)
  중복 문제가 있다. 따라서 이 부분을 메모아이제이션 하면 된다.
 
 
-# Code
+## Code
 
 ```python
 import sys

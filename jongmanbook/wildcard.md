@@ -44,7 +44,7 @@ parent: Jongman Book Training
 
  이걸 한땀 한땀 구현해보자.
 
-## Code
+### Code
 
 ``` python
 def match_bf(p, w):
@@ -86,7 +86,7 @@ def match_bf(p, w):
  따라서 이 부분을 캐싱해보자. 서브 스트링을 넘기지말고 인덱스를 넘겨서
  캐싱을 좀더 똑똑하게 할 수 있다.
 
-## Code
+### Code
 
 ```python
 @lru_cache(maxsize=None)
@@ -133,7 +133,7 @@ def match_n3(p, pi, w, wi):
  추가로 대응시키거나, 이 두 가지를 반복하고 있다. 그러므로 0 글자와 한
  글자 대응을 모두 재귀호출로 확인하고 싹 캐싱해버리면 된다.
 
-## Code
+### Code
 
 ```python
 @lru_cache(maxsize=None)

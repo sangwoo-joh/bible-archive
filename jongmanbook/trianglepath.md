@@ -55,7 +55,7 @@ parent: Jongman Book Training
  합을 반환하는 함수를 메모아이제이션 한 후에 `(0, 0)`(맨 꼭대기)에서
  시작하면 우리가 원하는 답을 구할 수 있다.
 
-# Code
+## Code
 
 ```python
 @lru_cache(maxsize=None)
