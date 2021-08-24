@@ -24,6 +24,11 @@ parent: Python for PS
  삽입된다. 그러니까, Upper Bound에는 `x` 보다 크거나 같은 값을 넣을 수
  있고, Lower Bound에는 `x` 보다 작거나 같은 값을 넣을 수 있다.
 
+ 참고로, 만약 `arr`에 없는 키 값으로 쿼리하면, upper bound와 lower
+ bound 값이 같다. 즉, `x = 2` 이면 LB, UB 모두 1 (1과 첫번째 3 사이),
+ `x = 0`일 때는 둘다 0(즉, 리스트의 첫번째 인덱스), `x = 999` 일 때는
+ 둘다 5 (즉, 리스트 인덱스 범위를 벗어남)가 된다.
+
  Pythonic 하게 설명하면,
  - Upper Bound를 ub(index)라고 한다면, `arr[:ub] <= x < arr[ub:]` 를
    만족한다.
