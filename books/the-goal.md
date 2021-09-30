@@ -6,7 +6,7 @@ parent: Books
 
 # The Goal
 
-![cover]({{site.url}}/assets/images/the-goal.jpg)
+![cover](/assets/images/the-goal.jpg)
 
 ## 한줄 요약
  - 병목자원과 비병목자원을 잘 관리해서 기업의 목표(=돈을 버는 것)를
