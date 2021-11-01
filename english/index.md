@@ -9,6 +9,10 @@ has_children: true
 # Notes on English
 
 ## Idioms
+### walk on water
+ - 물 위를 걷는다, 말 그대로 기적을 행한다는 뜻. 뭔가 기적처럼
+   엄청나게 잘 하거나 특별한 것을 뜻함.
+
 ### gain ground
  - 뭔가 더 성공해서 강력해진다는 뜻. 뒤에 on이 붙으면 "..에
    접근해가다, 점점 가까워지다" 로 뜻이 달라지기 때문에 주의.
