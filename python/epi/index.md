@@ -10,7 +10,7 @@ has_toc: false
 # EPI in Python
 
 ## Data Structures and Algorithms
- - **[0/11]** [Primitive Types](primitives)
+ - **[1/11]** [Primitive Types](primitives)
  - **[0/20]** [Arrays](arrays)
  - **[0/13]** [strings](strings)
  - **[0/13]** [linked Lists](lists)
