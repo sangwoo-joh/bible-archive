@@ -22,3 +22,7 @@ permalink: /
 ### Lecture Note Interpretation (WIP)
  - [Distributed Systems](distributed-systems/)
  - [Using, Understanding, and Unraveling The OCaml Language](u3-ocaml/)
+
+### Others
+ - [Books](books/)
+ - [Record](daily/)
