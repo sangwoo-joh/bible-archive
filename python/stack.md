@@ -111,9 +111,69 @@ for p in sys.stdin.readline().rstrip():
 print(count)
 ```
 
- - 레이저는 오직 `()`에서만 발사된다는 사실을 고려해야함
+ - 레이저는 오직 `()`에서만 발사된다는 사실을 고려해야 한다.
  - 레이저가 발사되면, 그 순간 스택에 쌓여있는 `(`의 개수만큼 막대기가
-   짤림
+   짤린다.
  - 레이저가 발사될 수 있는 구간이 아닌데 `)`를 만나면 이는 곧 막대기
    하나가 끝났다는 뜻으로 다르게 말해 막대기가 하나 짤렸다는 것과
-   동치임. 이를 고려해서 카운트를 세면 됨
+   동치이다. 따라서 이를 고려해서 카운트를 세면 된다.
+
+### [2504: 괄호의 값](https://www.acmicpc.net/problem/2504)
+
+```python
+import sys
+stack, valid, temp, answer = [], True, 1, 0
+line = sys.stdin.readline().rstrip()
+for i in range(len(line)):
+    p = line[i]
+    if p == '(':
+        temp *= 2
+        stack.append(p)
+    elif p == '[':
+        temp *= 3
+        stack.append(p)
+    elif p == ')':
+        if not stack or stack[-1] != '(':
+            valid = False
+            break
+        # accumulate answer iff exact previous matching
+        if i > 0 and line[i - 1] == '(':
+            answer += temp
+        # restore temp
+        stack.pop()
+        temp //= 2
+    elif p == ']':
+        if not stack or stack[-1] != '[':
+            valid = False
+            break
+        if i > 0 and line[i - 1] == '[':
+            answer += temp
+        stack.pop()
+        temp //= 3
+
+if stack:
+    valid = False
+
+print(answer if valid else 0)
+```
+
+ 전체적인 구조는 괄호 균형 체크하는 문제랑 거의 같다. 다만 점수를
+ 계산하는 방법을 떠올리는 게 좀 까다로웠다.
+
+ 예시를 보면 `(()[[]])`의 점수를 계산할 때 `(2 + 3*3)*2` 와 같이
+ 계산했는데, 이렇게 계산하는 순서는 괄호를 제일 안쪽부터 세어나가는
+ 방법과 같아서 비효율적이다. 따라서 이걸 풀어서 생각해보면 `2*2 +
+ 2*3*3`이 되는데, 즉 분배법칙이 적용됨을 알 수 있다. 이 아이디어에
+ 착안해서 다음과 같이 할 수 있다.
+  - 정답을 누적할 `answer`와 중간 임시값 `temp`를 유지한다.
+  - 스택에 여는 괄호를 쌓을 때, 괄호의 종류에 따라 `temp`에 `2` 또는
+    `3`을 곱한다.
+  - 닫힌 괄호를 만났을 때, **입력의 바로 직전과 짝이 맞을 때에만**
+    `answer`에 `temp`를 누적한다. 그 후 스택을 팝함과 동시에 `temp`
+    값을 원복한다.
+
+ 즉, `(()[[]])`에서 처음 `((`를 지나면 `temp`는 `2*2`가 되고, 이 값은
+ 제일 첫 `()`일 때에만 누적하도록 한다. 이후 `[[]]`를 만날 때에는
+ `temp = 2 * 3 * 3`이 되고 제일 안쪽 `]`을 만날 때에만 이 값이
+ 누적된다. 이렇게 분배법칙만을 고려하면 닫힌 괄호일 때 복잡한 점수
+ 계산을 하지 않아도 된다.
