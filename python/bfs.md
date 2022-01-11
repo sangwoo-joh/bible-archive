@@ -20,6 +20,9 @@ parent: Python for PS
  - `deque.pop()`: 끝
  - `deque.popleft()`: 앞
 
+ 따라서, "큐"의 Functionality를 얻으려면 `append()`와 **popleft()**를
+ 써야한다. `pop()`을 써버리면 스택과 다름없다.
+
 ## 정석
  1. 큐, 집합 초기화
  2. 시작 지점을 하나 잡아서, 큐와 집합에 둘다 넣는다.
@@ -52,7 +55,7 @@ def bfs(y, x):
     q.append((y, x))
     area = 1
     while q:
-        y, x = q.pop()
+        y, x = q.popleft()
         for ny, nx in ((y+1, x), (y-1, x), (y, x+1), (y, x-1)):
             if 0 <= ny < n and 0 <= nx < m and graph[ny][nx] == '1' and (ny, nx) not in visited:
                 visited.add((ny, nx))
