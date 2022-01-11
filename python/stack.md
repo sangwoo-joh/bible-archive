@@ -91,3 +91,29 @@ for line in sys.stdin:  # fast scanner
         valid = False
     print('yes' if valid else 'no')
 ```
+
+
+### [10799: 쇠막대기](https://www.acmicpc.net/problem/10799)
+
+```python
+import sys
+stack, laserable, count = [], False, 0
+for p in sys.stdin.readline().rstrip():
+    if p == '(':
+        if not laserable:
+            laserable = True
+        stack.append(p)
+    else:
+        stack.pop()
+        count += len(stack) if laserable else 1
+        laserable = False
+
+print(count)
+```
+
+ - 레이저는 오직 `()`에서만 발사된다는 사실을 고려해야함
+ - 레이저가 발사되면, 그 순간 스택에 쌓여있는 `(`의 개수만큼 막대기가
+   짤림
+ - 레이저가 발사될 수 있는 구간이 아닌데 `)`를 만나면 이는 곧 막대기
+   하나가 끝났다는 뜻으로 다르게 말해 막대기가 하나 짤렸다는 것과
+   동치임. 이를 고려해서 카운트를 세면 됨
