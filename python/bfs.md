@@ -131,3 +131,53 @@ print(path[n-1][m-1])
  계산하지 못한다.
 
  이 점만 주의하면 나머지는 Trivial 하다.
+
+## [7576번: 토마토](https://www.acmicpc.net/problem/7576)
+
+```python
+import sys
+from collections import deque
+load = lambda: sys.stdin.readline().rstrip().split()
+n, m = map(int, load())
+box = []
+for _ in range(m):
+    box.append(load())
+
+ripes, total = 0, 0
+path = [[-1 for _ in range(n)] for _ in range(m)]
+q = deque()
+
+for y in range(m):
+    for x in range(n):
+        if box[y][x] != '-1':
+            total += 1
+        if box[y][x] == '1':
+            ripes += 1
+            q.append((y, x))
+            path[y][x] = 0
+
+while q:
+    y, x = q.popleft()
+    for ny, nx in ((y+1,x), (y-1,x), (y,x+1), (y,x-1)):
+        if 0 <= ny < m and 0 <= nx < n and box[ny][nx] == '0' and path[ny][nx] == -1:
+            q.append((ny, nx))
+            path[ny][nx] = path[y][x] + 1
+            ripes += 1
+
+if ripes != total:
+    print(-1)
+else:
+    elapsed = 0
+    for p in path:
+        elapsed = max(elapsed, max(p))
+    print(elapsed)
+```
+
+ 문제를 잘 읽어보면 BFS로 시뮬레이션 할 수 있음을 알 수 있다. 익은
+ 토마토부터 시작해서 모든 경로의 최단 거리를 구하고 그 중 가장 큰 값이
+ 답이다. 마찬가지로 시작점이 여러 개일 수 있는데, 이것도 미리 구해서
+ 큐에 넣어두면 된다.
+
+ 주의해야 할 한 가지는, 익지 않는 토마토 체크(일종의 Reachability
+ 체크)를 따로 해줘야 한다는 점이다. 여기서는 그냥 손쉽게 전체 토마토
+ 개수랑 익은 토마토 개수를 구해서 비교했다.
