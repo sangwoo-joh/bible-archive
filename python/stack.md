@@ -68,3 +68,26 @@ stack: (empty)
 ---
 
  따라서, 이런 코너 케이스를 잘 처리하면서 스택의 성질을 응용하면 된다.
+
+### [4949: 균형잡힌 세상](https://www.acmicpc.net/problem/4949)
+
+```python
+import sys
+m = {'(': ')', '[': ']'}  # matching parentheses infor
+for line in sys.stdin:  # fast scanner
+    line = line.rstrip()  # strip out right-most newline
+    if line == '.':
+        break
+    stack, valid = [], True
+    for char in line:  # must consider characters only!!
+        if char in m:
+            stack.append(char)
+        elif char in m.values():
+            if not stack or char != m[stack[-1]]:
+                valid = False
+                break
+            stack.pop()
+    if stack:
+        valid = False
+    print('yes' if valid else 'no')
+```
