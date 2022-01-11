@@ -86,3 +86,48 @@ print(max_area)
  그림의 크기는 `bfs`에서 큐에 넣을 때마다, 혹은 방문했다고 기록할
  때마다 크기가 1씩 증가하므로 이 사실을 이용해서 계속 누적해 나아가면
  된다.
+
+## [2178번: 미로 탐색](https://www.acmicpc.net/problem/2178)
+
+```python
+import sys
+from collections import deque
+
+n, m = map(int, sys.stdin.readline().rstrip().split())
+board = []
+for _ in range(n):
+    board.append(sys.stdin.readline().rstrip())
+
+path = [[0 for _ in range(m)] for _ in range(n)]
+q = deque()
+
+q.append((0, 0))
+path[0][0] = 1
+
+while q:
+    cy, cx = q.popleft()
+    for y, x in ((cy+1, cx), (cy-1, cx), (cy, cx+1), (cy, cx-1)):
+        if y < 0 or y >= n or x < 0 or x >= m:
+            continue
+        if board[y][x] == '0' or path[y][x] != 0:
+            continue
+        path[y][x] = path[cy][cx] + 1
+        q.append((y, x))
+
+print(path[n-1][m-1])
+```
+
+ 최단 경로를 구할 때 BFS를 활용할 수 있다. 방문 체크를 집합으로 하지
+ 않고, 원래의 맵과 똑같은 사이즈의 맵을 만든 뒤 여기에 경로를 기록하면
+ 된다. 이런 문제에서는 보통 시작점은 주어지기 때문에, 이 경로 맵에는
+ 시작점으로부터 해당 위치까지의 경로를 계속 기록하면 된다. 그러면
+ BFS의 특성 상 경로 맵을 다 채우고 나면 시작점으로부터 모든 점까지의
+ 최단 경로를 알 수 있다.
+
+ 이를 위해서 `path`를 만들 때, 파이썬에서는 위와 같이 `range`를
+ 이용해서 만들어줘야 한다. 그냥 곱 연산으로 `[[0] * m] * n` 처럼
+ 만들면, 처음 `m` 만큼은 깊은 복사가 일어나지만 이후 이 리스트를
+ `n`만큼 곱할 때에는 얕은 복사가 일어나기 때문에 제대로 된 경로를
+ 계산하지 못한다.
+
+ 이 점만 주의하면 나머지는 Trivial 하다.
