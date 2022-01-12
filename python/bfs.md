@@ -23,6 +23,9 @@ parent: Python for PS
  따라서, "큐"의 Functionality를 얻으려면 `append()`와 **popleft()**를
  써야한다. `pop()`을 써버리면 스택과 다름없다.
 
+## 연관 키워드
+ 길 찾기, 최소 경로 찾기,
+
 ## 정석
  1. 큐, 집합 초기화
  2. 시작 지점을 하나 잡아서, 큐와 집합에 둘다 넣는다.
@@ -252,3 +255,41 @@ print(escaped_time if escaped_time else "IMPOSSIBLE")
    빠져나가는 순간의 시간은 `직전 위치의 시간 + 1`이다.
  - 옮겨갈 수 있는 위치: 불이 아예 못오는 경우도 고려해야 한다. 불과
    지훈이가 벽으로 분리되어 있는 경우가 해당한다.
+
+## [1697번: 숨바꼭질](https://www.acmicpc.net/problem/1697)
+ 이게 BFS인가? 싶은데 문제를 잘 읽어보면 결국 시뮬레이션으로 최단
+ 거리를 구하는 문제로 환원할 수 있어서 BFS를 적용해볼 수 있다.
+
+```python
+import sys
+from collections import deque
+n, k = map(int, sys.stdin.readline().rstrip().split())
+
+def bfs(n, k):
+    if n == k:
+        return 0
+    q = deque()
+    q.append(n)
+    time = {n: 0}
+
+    while q:
+        now = q.popleft()
+        for after in (now+1, now-1, 2*now):
+            if after < 0 or after > 100000:
+                continue
+            if after == k:
+                return time[now] + 1
+            if after in time:
+                continue
+            time[after] = time[now] + 1
+            q.append(after)
+
+print(bfs(n,k))
+```
+
+ - 코너 케이스 하나를 잘 고려해야 한다. 시작부터 수빈이랑 동생이 같은
+   지점에 있으면 0초만에 찾을 수 있다.
+ - 움직일 수 있는 범위가 0과 100000 사이인데, 수빈이가 이 범위를
+   벗어나도록 움직이면 최단 시간 안에 동생을 찾을 수 없으므로 제외해야
+   한다. 그리고 이렇게 제외를 해야 수빈이가 움직이는 시간에 대한
+   기록을 덜 해서 메모리 초과가 나지 않는다.
