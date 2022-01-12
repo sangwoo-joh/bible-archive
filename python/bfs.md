@@ -181,3 +181,74 @@ else:
  주의해야 할 한 가지는, 익지 않는 토마토 체크(일종의 Reachability
  체크)를 따로 해줘야 한다는 점이다. 여기서는 그냥 손쉽게 전체 토마토
  개수랑 익은 토마토 개수를 구해서 비교했다.
+
+## [4179번: 불!](https://www.acmicpc.net/problem/4179)
+ 지훈이가 옮겨다닐 때 불을 끌 수 없다는 강력한 제약 조건 덕분에 BFS 두
+ 번 돌려서 풀 수 있는 문제다. 즉, 시작 지점이 두 개인 BFS이면서 동시에
+ 서로 영향을 주지 않는다.
+
+```python
+import sys
+from collections import deque
+load = lambda: sys.stdin.readline().rstrip()
+r, c = map(int, load().split())
+labyrinth = []
+for _ in range(r):
+    labyrinth.append(load())
+
+fire_q = deque()
+fire_map = [[-1 for _ in range(c)] for _ in range(r)]
+jihun_q = deque()
+jihun_run = [[-1 for _ in range(c)] for _ in range(r)]
+
+# 일단 불과 지훈이를 찾아야 한다.
+for y in range(r):
+    for x in range(c):
+        if labyrinth[y][x] == 'J':
+            jihun_q.append((y, x))
+            jihun_run[y][x] = 0
+        elif labyrinth[y][x] == 'F':
+            fire_q.append((y, x))
+            fire_map[y][x] = 0
+
+# 먼저 불을 시뮬레이션 한다.
+while fire_q:
+    y, x = fire_q.popleft()
+    for ny, nx in ((y+1,x), (y-1,x), (y,x+1), (y,x-1)):
+        if 0 <= ny < r and 0 <= nx < c and labyrinth[ny][nx] != '#' and fire_map[ny][nx] == -1:
+            fire_q.append((ny, nx))
+            fire_map[ny][nx] = fire_map[y][x] + 1
+
+# 지훈이를 달리게 하면서 시간을 기록한다.
+escaped_time = None
+while jihun_q:
+    y, x = jihun_q.popleft()
+    this_turn = jihun_run[y][x] + 1
+    for ny, nx in ((y+1,x), (y-1,x), (y,x+1), (y,x-1)):
+        if ny < 0 or ny >= r or nx < 0 or nx >= c:
+            # 범위 밖으로 빠져나온 건 탈출에 성공했다는 얘기다.
+            escaped_time = this_turn
+            break
+        if labyrinth[ny][nx] == '#' or jihun_run[ny][nx] != -1:
+            # 갈 수 없는 길이거나, 이미 더 빨리 올 수 있으면 다음으로
+            continue
+        if fire_map[ny][nx] == -1 or this_turn < fire_map[ny][nx]:
+            # case 1: 불이 아예 못오거나
+            # case 2: 이번 턴에 불 보다 빨리 갈 수 있어야 갈 수 있다.
+            jihun_run[ny][nx] = this_turn
+            jihun_q.append((ny, nx))
+    if escaped_time:
+        break
+
+print(escaped_time if escaped_time else "IMPOSSIBLE")
+```
+
+ 따라서, 먼저 불을 BFS로 시뮬레이션해서 불이 퍼져나가는 시간을 전부
+ 기록한 다음, 지훈이를 조심스럽게 달리게 하면 된다. 불을 퍼뜨리는 것은
+ 일반적인 BFS라서 그냥 하면 되고, 지훈이는 다음 턴에 달릴 때 다음과
+ 같은 조건을 살펴봐야 한다.
+ - 탈출 성공: 미로 범위 바깥으로 나가게 되면 탈출 성공이다.
+ - 탈출 시간: 지훈이가 BFS로 옮겨다니는 시간을 기록해뒀다면,
+   빠져나가는 순간의 시간은 `직전 위치의 시간 + 1`이다.
+ - 옮겨갈 수 있는 위치: 불이 아예 못오는 경우도 고려해야 한다. 불과
+   지훈이가 벽으로 분리되어 있는 경우가 해당한다.
