@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: x86 Assembly Guide
 nav_order: 1
 ---
