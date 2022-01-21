@@ -17,11 +17,14 @@ permalink: /
  - [Python](python/)
  - [Jongman Book](jongmanbook/)
  - [LeetCode](leetcode/)
- - [English](english/)
+ <!-- - [English](english/) -->
 
-### Lecture Note Interpretation (WIP)
- - [Distributed Systems](distributed-systems/)
- - [Using, Understanding, and Unraveling The OCaml Language](u3-ocaml/)
+<!-- ### Lecture Note Interpretation (WIP) -->
+<!--  - [Distributed Systems](distributed-systems/) -->
+<!--  - [Using, Understanding, and Unraveling The OCaml Language](u3-ocaml/) -->
+
+### Translations
+ - [x86 Assembly Guide](x86-assembly-guide/)
 
 ### Others
  - [Books](books/)
