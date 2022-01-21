@@ -131,5 +131,5 @@ def bisect_left(arr, x, low=0, high=None):
 
 ---
 
-[^1]: 출처: http://bajamircea.github.io/coding/cpp/2018/08/09/lower-bound.html
-[^2]: https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html
+[^1]: [출처](http://bajamircea.github.io/coding/cpp/2018/08/09/lower-bound.html)
+[^2]: [참고](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)
