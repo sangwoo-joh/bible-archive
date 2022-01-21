@@ -11,7 +11,7 @@ parent: Python for PS
 {:toc}
 
 # Upper Bound and Lower Bound
-## Mathemtical Definition
+## Mathematical Definition
  Upper Bound와 Lower Bound의 수학적인 정의는 다음과 같다. 어떤 순서
  있는 집합(구체적으로는 Preorder, 즉 reflexive + transitive 한
  순서이고, 보통은 `<=` 라고 이해하면 된다)의 부분 집합 `S`에 대해서,
@@ -130,5 +130,6 @@ def bisect_left(arr, x, low=0, high=None):
 ```
 
 ---
-[^1] 출처: http://bajamircea.github.io/coding/cpp/2018/08/09/lower-bound.html
-[^2] https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html
+
+[^1]: 출처: http://bajamircea.github.io/coding/cpp/2018/08/09/lower-bound.html
+[^2]: https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html
