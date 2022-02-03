@@ -38,7 +38,7 @@ class TrieNode:
  implicit하게 정수형으로 타입 캐스팅 되어서 뺄셈을 할 수 있지만
  파이썬에서 이러면 `unsupported operand type` 에러가 뜬다. 따라서
  `ord` 함수를 통해 정수 타입으로 바꿔준 다음 인덱스로 사용해야
- 한다. 그 후 __getitem__`이랑 `__setitem__`을 오버라이딩해주면 마치
+ 한다. 그 후 `__getitem__`이랑 `__setitem__`을 오버라이딩해주면 마치
  배열 인덱스처럼 트라이 노드의 자식 노드에 편하게 접근할 수 있다.
 
 ``` python
