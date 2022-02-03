@@ -68,7 +68,7 @@ def build_trie(root, str):
  하지만 PyPy3로 제출하면 7초라는 끔찍한 시간이 걸리긴 하지만
  통과하므로 연습삼아 풀어보았다.
 
-```python3
+```python
 import sys
 
 load = lambda: sys.stdin.readline().rstrip()
@@ -143,7 +143,7 @@ print(total)
 
  설명이 주절주절 길었는데 코드는 다음과 같다.
 
-```python3
+```python
 import sys
 load = lambda: sys.stdin.readline().rstrip()
 
