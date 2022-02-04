@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Elements of Programming Interviews in Python
-nav_order: 2
-parent: Python for PS
-has_children: true
-has_toc: false
+<!-- nav_order: 2 -->
+<!-- parent: Python for PS -->
+<!-- has_children: true -->
+<!-- has_toc: false -->
 ---
 
 # EPI in Python
