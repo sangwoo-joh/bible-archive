@@ -24,7 +24,7 @@ permalink: /
 <!--  - [Using, Understanding, and Unraveling The OCaml Language](u3-ocaml/) -->
 
 ### Translations
- - [x86 Assembly Guide](x86-assembly-guide/)
+ - [x86 Assembly Guide](translations/x86-assembly-guide/)
 
 ### Others
  - [Books](books/)
