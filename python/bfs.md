@@ -1,6 +1,6 @@
 ---
 layout: page
-title: BFS
+title: Breadth First Search
 parent: Python for PS
 ---
 

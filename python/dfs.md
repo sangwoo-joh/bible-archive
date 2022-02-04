@@ -1,6 +1,6 @@
 ---
 layout: page
-title: DFS
+title: Depth First Search
 parent: Python for PS
 ---
 

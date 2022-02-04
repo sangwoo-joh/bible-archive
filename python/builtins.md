@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Built-in
+title: Builtin Libraries
 parent: Python for PS
 ---
 
