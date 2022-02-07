@@ -14,14 +14,11 @@ permalink: /
 ## Table of Contents
 
 ### Personal Trainings
- - [Python](python/)
+ - [Python for PS](python/)
  - [Jongman Book](jongmanbook/)
  - [LeetCode](leetcode/)
- <!-- - [English](english/) -->
 
-<!-- ### Lecture Note Interpretation (WIP) -->
-<!--  - [Distributed Systems](distributed-systems/) -->
-<!--  - [Using, Understanding, and Unraveling The OCaml Language](u3-ocaml/) -->
+### [Learning](learning/)
 
 ### [Translations](translations)
  - [x86 Assembly Guide](translations/x86-assembly-guide/)
