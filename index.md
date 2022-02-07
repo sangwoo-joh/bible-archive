@@ -17,6 +17,7 @@ permalink: /
  - [Python for PS](python/)
  - [Jongman Book](jongmanbook/)
  - [LeetCode](leetcode/)
+ - [Multicore OCaml](multicore-ocaml/)
 
 ### [Learning](learning/)
 
