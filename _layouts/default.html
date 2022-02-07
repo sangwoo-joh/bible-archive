@@ -150,12 +150,11 @@ layout: table_wrappers
           {{ content }}
           {% endif %}
 
-
-
           {% capture footer_custom %}
           {%- include footer_custom.html -%}
           {% endcapture %}
           {% if footer_custom != "" or site.last_edit_timestamp or site.gh_edit_link %}
+
           <hr>
           <footer>
             {% if site.back_to_top %}

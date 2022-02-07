@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<button type="button" name="clear" class="btn" data-tag="clear">clear</button>
+{% for tag in site.data.tags %}
+<button type="button" name="{{tag}}" class="btn" data-tag="{{tag}}">{{tag}}</button>
+{% endfor %}
+
+<hr />
+[<span class="count"></span>]
+
+<ul>
+  {% for page in site.pages %}
+  {% if page.tags.size > 0 %}
+  <div class="post-wrapper" {% for tag in page.tags %} data-{{tag}} {% endfor %}>
+    <li>
+      <article class="page-preview">
+        <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+      </article>
+    </li>
+  </div>
+  {% endif %}
+  {% endfor %}
+</ul>

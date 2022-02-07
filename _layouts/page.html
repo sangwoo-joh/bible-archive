@@ -4,6 +4,11 @@ layout: default
 
 {{ content }}
 
+{% if page.tags.size > 0 %}
+{% for tag in page.tags %}
+<a href="/posts?tag={{tag}}"><button type="button" name="{{tag}}" class="btn">{{tag}}</button></a>
+{% endfor %}
+{% endif %}
 
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   MathJax.Hub.Config({
