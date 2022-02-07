@@ -23,7 +23,7 @@ permalink: /
 <!--  - [Distributed Systems](distributed-systems/) -->
 <!--  - [Using, Understanding, and Unraveling The OCaml Language](u3-ocaml/) -->
 
-### Translations
+### [Translations](translations)
  - [x86 Assembly Guide](translations/x86-assembly-guide/)
 
 ### Others

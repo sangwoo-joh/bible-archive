@@ -3,6 +3,7 @@ layout: default
 title: 01. Introduction (WIP)
 permalink: /distributed-systems/intro
 parent: Distributed Systems
+grand_parent: Learning
 ---
 
 {: .no_toc }
