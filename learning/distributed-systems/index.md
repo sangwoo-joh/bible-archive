@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Distributed Systems
 nav_order: 2
 parent: Learning
