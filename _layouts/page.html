@@ -4,9 +4,15 @@ layout: default
 
 {{ content }}
 
+{% if jekyll.environment != "development" %}
+{% assign url = site.url | append: "/bible" %}
+{% else %}
+{% assign url = site.url %}
+{% endif %}
+
 {% if page.tags.size > 0 %}
 {% for tag in page.tags %}
-<a href="/posts?tag={{tag}}"><button type="button" name="{{tag}}" class="btn">{{tag}}</button></a>
+<a href="{{url}}/posts?tag={{tag}}"><button type="button" name="{{tag}}" class="btn">{{tag}}</button></a>
 {% endfor %}
 {% endif %}
 
