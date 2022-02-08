@@ -3,7 +3,9 @@ layout: default
 ---
 
 <button type="button" name="clear" class="btn" data-tag="clear">clear</button>
-{% for tag in site.data.tags %}
+{% assign tags = site.data.tags | sort %}
+
+{% for tag in tags %}
 <button type="button" name="{{tag}}" class="btn" data-tag="{{tag}}">{{tag}}</button>
 {% endfor %}
 
@@ -13,10 +15,10 @@ layout: default
 <ul>
   {% for page in site.pages %}
   {% if page.tags.size > 0 %}
-  <div class="post-wrapper" {% for tag in page.tags %} data-{{tag}} {% endfor %}>
+  <div class="post-wrapper hidden" {% for tag in page.tags %} data-{{tag}} {% endfor %}>
     <li>
       <article class="page-preview">
-        <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+        <a href="{{ page.url | relative_url }}">{{ page.title }}</a> {% if page.parent %}({{ page.parent }}){% endif %}
       </article>
     </li>
   </div>

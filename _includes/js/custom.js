@@ -1,4 +1,8 @@
 $(document).ready( () => {
+    var tags = document.getElementsByTagName("button");
+    for (let tag of tags) {
+        updateTagCounts(tag.dataset.tag);
+    }
     let currentTag = "";
     const queryTag = getQuery().tag;
 
@@ -17,6 +21,22 @@ $(document).ready( () => {
         }
     });
 });
+
+function updateTagCounts(tagName) {
+    if (tagName == "clear"){
+        return;
+    }
+    var counter = 0;
+    $('.post-wrapper').each((index, elt) => {
+        if (elt.hasAttribute(`data-${tagName}`)) {
+            counter += 1;
+        }
+    });
+
+    var updated = $(`.btn[data-tag=${tagName}]`).text() + " (" + counter + ")";
+    console.log(updated);
+    $(`.btn[data-tag=${tagName}]`).html(updated);
+}
 
 function getQuery() {
     var params = {};
