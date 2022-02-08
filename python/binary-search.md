@@ -11,8 +11,10 @@ parent: Python for PS
 - TOC
 {:toc}
 
+# Binary Search
 
-# Binary search + rotated sorted array
+
+## Binary Search in Rotated Sorted Array
 
  정렬된 리스트(배열)에서 `k` (`0 <= k < len(arr)`) 번째 인덱스를
  기준으로 회전을 시킨 경우, 어디서 회전되었는지를 찾고 (피벗) 이 값을
