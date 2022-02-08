@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, dynamic-programming, string]
 title: Wildcard
 parent: Dynamic Programming
 grand_parent: Jongman Book Training

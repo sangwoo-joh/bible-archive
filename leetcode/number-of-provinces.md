@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, graph]
 title: Number of Provinces
 parent: LeetCode
 ---

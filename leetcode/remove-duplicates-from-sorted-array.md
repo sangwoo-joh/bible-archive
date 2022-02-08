@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, hash-table]
 title: Remove Duplicates from Sorted Array
 parent: LeetCode
 ---

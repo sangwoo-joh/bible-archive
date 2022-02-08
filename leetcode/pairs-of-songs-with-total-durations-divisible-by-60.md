@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, hash-table]
 title: Pairs of Songs With Total Durations Divisible by 60
 parent: LeetCode
 ---

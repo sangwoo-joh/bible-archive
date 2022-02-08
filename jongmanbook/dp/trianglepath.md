@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, dynamic-programming]
 title: Triangle Path
 parent: Dynamic Programming
 grand_parent: Jongman Book Training

@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [translation, tips, wip]
 title: Why numbering should start at zero (WIP)
 parent: Translations
 ---

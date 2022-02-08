@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, string, simulation]
 title: Text Justification
 parent: LeetCode
 ---

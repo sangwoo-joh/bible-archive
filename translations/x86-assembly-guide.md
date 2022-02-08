@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [translation]
 title: x86 Assembly Guide
 parent: Translations
 ---

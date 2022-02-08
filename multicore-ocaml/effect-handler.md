@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [ocaml, effect-handler, wip]
 title: Retrofitting Effect Handlers onto OCaml (WIP)
 parent: Multicore OCaml
 ---

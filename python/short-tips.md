@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, python, tips]
 title: Short Tips
 parent: Python for PS
 ---

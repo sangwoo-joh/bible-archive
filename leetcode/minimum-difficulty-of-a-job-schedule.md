@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, dynamic-programming, lru-cache]
 title: Minimum Difficulty of a Job Schedule
 parent: LeetCode
 ---

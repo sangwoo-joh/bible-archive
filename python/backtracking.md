@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, boj, python, backtracking]
 title: Backtracking (WIP)
 parent: Python for PS
 ---

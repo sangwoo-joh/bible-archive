@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, graph, tree, cycle, disjoint-set]
 title: Graph Valid Tree
 parent: LeetCode
 ---

@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, graph, cycle]
 title: Critical Connections in a Network
 parent: LeetCode
 ---

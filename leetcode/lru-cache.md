@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, lru-cache]
 title: LRU Cache
 parent: LeetCode
 ---

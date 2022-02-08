@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, simulation]
 title: Prison Cells After N Days
 parent: LeetCode
 ---

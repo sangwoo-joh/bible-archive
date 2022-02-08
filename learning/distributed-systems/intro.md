@@ -1,5 +1,6 @@
 ---
 layout: default
+tags: translation
 title: 01. Introduction (WIP)
 permalink: /distributed-systems/intro
 parent: Distributed Systems

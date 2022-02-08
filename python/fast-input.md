@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, boj, tips]
 title: Fast Input
 parent: Python for PS
 ---

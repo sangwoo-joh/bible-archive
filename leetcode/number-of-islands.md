@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, graph, disjoint-set]
 title: Number of Islands I, II
 parent: LeetCode
 ---

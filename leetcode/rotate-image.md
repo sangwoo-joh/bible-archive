@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, tips]
 title: Rotate Image
 parent: LeetCode
 ---

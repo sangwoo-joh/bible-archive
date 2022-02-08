@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [ocaml, memory-model, translation]
 title: Memory Model
 parent: Multicore OCaml
 ---

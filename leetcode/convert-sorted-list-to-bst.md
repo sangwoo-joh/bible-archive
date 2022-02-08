@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, tree]
 title: Convert Sorted List to Binary Search Tree (WIP)
 parent: LeetCode
 ---

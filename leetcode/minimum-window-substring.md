@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, string, two-pointer]
 title: Minimum Window Substring
 parent: LeetCode
 ---

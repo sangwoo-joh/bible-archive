@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, boj, python, graph, cycle]
 title: Topological Ordering
 parent: Python for PS
 ---

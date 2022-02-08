@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [ocaml, translation, multi-core]
 title: Bounding Data Races in Space and Time
 parent: Multicore OCaml
 ---

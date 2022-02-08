@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, boj, python, binary-search]
 title: Binary Search
 parent: Python for PS
 ---

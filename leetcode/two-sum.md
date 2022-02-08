@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, hash-table]
 title: Two Sum
 parent: LeetCode
 ---

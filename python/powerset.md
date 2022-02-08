@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, python, tips, recursion]
 title: Powerset
 parent: Python for PS
 ---

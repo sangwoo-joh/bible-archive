@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [translation]
 title: org-roam
 parent: Translations
 ---

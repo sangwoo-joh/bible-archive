@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, dynamic-programming, string]
 title: Decode Ways
 parent: LeetCode
 ---

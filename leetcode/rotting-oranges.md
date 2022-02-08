@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, graph, simulation]
 title: Rotting Oranges
 parent: LeetCode
 ---

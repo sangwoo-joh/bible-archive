@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [lock-free, memory-model, translation]
 title: An Introduction to Lock-Free Programming
 parent: Multicore OCaml
 ---

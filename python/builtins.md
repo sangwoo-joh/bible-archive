@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [python, tips, libraries]
 title: Builtin Libraries
 parent: Python for PS
 ---

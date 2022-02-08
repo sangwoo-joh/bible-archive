@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, leetcode, python, sorting, hash-table]
 title: Longest Consecutive Sequence.
 parent: LeetCode
 ---

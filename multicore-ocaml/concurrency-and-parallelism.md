@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [ocaml, translation, multi-core, concurrency, parallelism]
 title: Concurrency and Parallelism Design Notes
 parent: Multicore OCaml
 ---

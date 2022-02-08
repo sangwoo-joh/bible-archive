@@ -1,5 +1,6 @@
 ---
 layout: page
+tags: [problem-solving, boj, python, string, palindrome]
 title: Palindrome
 parent: Python for PS
 ---
