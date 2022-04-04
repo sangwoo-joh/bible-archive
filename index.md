@@ -14,10 +14,8 @@ permalink: /
 ## Table of Contents
 
 ### Personal Trainings
- - [Python for PS](python/)
- - [Jongman Book](jongmanbook/)
- - [LeetCode](leetcode/)
- - [Multicore OCaml](multicore-ocaml/)
+ - [Python](python/)
+ - [Problem Solving](ps/)
 
 ### [Learning](learning/)
 
