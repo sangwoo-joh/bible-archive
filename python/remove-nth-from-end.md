@@ -2,7 +2,7 @@
 layout: page
 tags: [problem-solving, python, tips, linked-list]
 title: Remove n-th Node from End of a List
-parent: Python for PS
+parent: Python
 ---
 
 {: .no_toc }

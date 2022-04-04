@@ -2,7 +2,7 @@
 layout: page
 tags: [problem-solving, boj, python, string, trie]
 title: Trie
-parent: Python for PS
+parent: Python
 ---
 
 {: .no_toc }

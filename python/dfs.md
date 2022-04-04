@@ -2,7 +2,7 @@
 layout: page
 tags: [problem-solving, graph]
 title: Depth First Search
-parent: Python for PS
+parent: Python
 ---
 
 {: .no_toc }

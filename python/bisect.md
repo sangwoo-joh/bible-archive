@@ -2,7 +2,7 @@
 layout: page
 tags: [problem-solving, boj, python, binary-search]
 title: Upper Bound and Lower Bound
-parent: Python for PS
+parent: Python
 ---
 
 {: .no_toc }

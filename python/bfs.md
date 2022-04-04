@@ -2,7 +2,7 @@
 layout: page
 tags: [problem-solving, boj, python, graph]
 title: Breadth First Search
-parent: Python for PS
+parent: Python
 ---
 
 {: .no_toc }

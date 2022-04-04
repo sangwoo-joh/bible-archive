@@ -2,7 +2,7 @@
 layout: page
 title: Hash Tables
 parent: Elements of Programming Interviews in Python
-grand_parent: Python for PS
+grand_parent: Python
 ---
 
 # Hash Tables

@@ -2,7 +2,7 @@
 layout: page
 title: Recursion
 parent: Elements of Programming Interviews in Python
-grand_parent: Python for PS
+grand_parent: Python
 ---
 
 
