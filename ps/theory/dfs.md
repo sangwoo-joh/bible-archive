@@ -2,7 +2,8 @@
 layout: page
 tags: [problem-solving, graph]
 title: Depth First Search
-parent: Problem Solving
+grand_parent: Problem Solving
+parent: Theory
 ---
 
 {: .no_toc }

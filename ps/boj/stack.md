@@ -2,7 +2,8 @@
 layout: page
 tags: [problem-solving, boj, python, stack]
 title: Stack
-parent: Problem Solving
+grand_parent: Problem Solving
+parent: Baekjoon
 ---
 
 {: .no_toc }

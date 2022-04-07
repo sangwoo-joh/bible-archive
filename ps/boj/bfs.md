@@ -2,7 +2,8 @@
 layout: page
 tags: [problem-solving, boj, python, graph]
 title: Breadth First Search
-parent: Problem Solving
+grand_parent: Problem Solving
+parent: Baekjoon
 ---
 
 {: .no_toc }

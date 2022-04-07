@@ -2,7 +2,8 @@
 layout: page
 tags: [problem-solving, boj, python, binary-search]
 title: Upper Bound and Lower Bound
-parent: Problem Solving
+grand_parent: Problem Solving
+parent: Theory
 ---
 
 {: .no_toc }

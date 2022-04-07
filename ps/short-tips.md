@@ -12,6 +12,124 @@ parent: Problem Solving
 {:toc}
 
 
+# 파이썬 특화
+
+## `map`, `filter`
+ 적용할 함수가 먼저 온다. 즉,
+
+```python
+map(lambda x: x, seq)
+filter(lambda x: return True, seq)
+```
+
+## `pow`
+ 세 번째 파라미터 `mod`를 넘겨주는게 직접 계산하는 것보다 효율적임.
+
+```python
+pow(base, exp, mod) == pow(base, exp) % mod
+```
+
+## `sorted`, `.sort()`
+ 아래 두 연산은 같은 의미이다.
+
+```python
+seq.sort()
+seq = sorted(seq)
+```
+
+ 둘 다 정렬 비교에 쓰일 `key` 함수를 named parameter로 넘겨줄 수 있다.
+
+## `all`, `any`
+
+```python
+all([True, True]) == True
+all([]) == True
+
+any([True, False]) == True
+any([]) == False
+```
+
+## String
+
+```python
+str.isalpha(), str.isdecimal(), str.isdigit(), str.isalnum(), str.isnumeric()
+str.islower(), str.isupper()
+str.lower(), str.upper(), str.swapcase()
+str.lstrip(), str.rstrip(), str.strip()
+"abc d asdf".partition('d') == ("abc ", "q", " asdf")
+str.count(substring)
+str.find(substring)
+```
+
+## Deque
+
+```python
+from collections import deque
+dq = deque()
+dq.append(x)
+dq.appendleft(y)
+dq.pop()
+dq.popleft()
+dq.reverse()  # in-place reverse
+dq.rotate(n=1) == dq.appendleft(dq.pop())
+dq.count(x)
+```
+
+## Heapq
+
+```python
+import heapq
+l = [ .... some list]
+heapq.heapify(l)  # make l as heap in-place
+heapq.heappush(l, item)
+heapq.heappop(l)
+heapq.nlargest(n, l, key=None) == sorted(l, key=None, reverse=True)[:n]
+heapq.nsmallest(n, l, key=None) == sorted(l, key=None)[:n]
+```
+
+## Random
+
+```python
+import random
+
+random.choice([1, 2, 3, ...])  # pick random item
+random.shuffle(l)  # shuffle l in-place
+random.uniform(a, b)  # pick random **float x** in a <= x <= b
+```
+
+## Bisect
+
+```python
+import bisect
+
+bisect.bisect_left(l, x)
+bisect.bisect_right(l, x) == bisect.bisect(l, x)
+```
+
+## Package
+
+```python
+from collections import defaultdict
+from collections import OrderedDict
+from collections import Counter
+from collections import deque
+
+import heapq
+
+from functools import cache, lru_cache
+
+from itertools import accumulate
+from itertools import chain
+from itertools import compress
+from itertools import groupby
+from itertools import combinations
+from itertools import product
+
+import random
+
+import bisect
+```
+
 # 어떤 문자열의 길이 `k`인 모든 부분 문자열 생성하기
 
 ``` python

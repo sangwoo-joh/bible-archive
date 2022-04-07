@@ -2,7 +2,8 @@
 layout: page
 tags: [problem-solving, python, tips, linked-list]
 title: Remove n-th Node from End of a List
-parent: Problem Solving
+grand_parent: Problem Solving
+parent: Theory
 ---
 
 {: .no_toc }

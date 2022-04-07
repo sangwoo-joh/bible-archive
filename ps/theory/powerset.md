@@ -2,7 +2,8 @@
 layout: page
 tags: [problem-solving, python, tips, recursion]
 title: Powerset
-parent: Problem Solving
+grand_parent: Problem Solving
+parent: Theory
 ---
 
 {: .no_toc }

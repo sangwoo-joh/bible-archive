@@ -2,7 +2,8 @@
 layout: page
 tags: [problem-solving, boj, python, graph, cycle]
 title: Topological Ordering
-parent: Problem Solving
+grand_parent: Problem Solving
+parent: Theory
 ---
 
 {: .no_toc }
