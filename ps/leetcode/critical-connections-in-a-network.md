@@ -5,13 +5,8 @@ title: Critical Connections in a Network
 parent: LeetCode
 grand_parent: Problem Solving
 ---
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
 
-# Critical Connections in a Network
+# [Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)
  `n`개의 서버가 있고 `0`부터 `n-1`까지 번호가 매겨져있다. 서버끼리는
  연결되어 있을 수 있는데 이 정보가 `connections`에 담겨 있고
  `connections[i] = (a, b)` 이면 `a`서버와 `b`서버가 연결되어 있다는

@@ -6,13 +6,7 @@ grand_parent: Problem Solving
 parent: LeetCode
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Unique Paths
+# [Unique Paths](https://leetcode.com/problems/unique-paths/)
  `m x n` 격자판이 주어지고 왼쪽 제일 위에 로봇이 있다. 로봇은 한 번에
  한 칸 오른쪽 또는 아래로 움직일 수 있다. 최종적으로는 오른쪽 제일
  아래로 가려고 한다. 이때 가능한 "유니크 경로"의 개수는?

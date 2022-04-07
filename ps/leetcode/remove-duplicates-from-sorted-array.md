@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Remove Duplicates from Sorted Array
+# [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
  정렬된 배열이 들어오면, 여기서 중복되는 원소를 **제자리에서**
  수정하여 모든 값이 단 한번만 나오게 수정하고, 수정된 배열의 길이를
  리턴하는 문제이다.

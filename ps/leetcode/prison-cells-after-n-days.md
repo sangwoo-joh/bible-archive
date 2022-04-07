@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Prison Cells After N Days
+# [Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)
  8명을 수용할 수 있는 독방이 있다. 누가 들어가있거나(1) 비어있다(0).
 
  하루가 지날 때마다 다음 규칙이 적용된다:

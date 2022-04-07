@@ -6,13 +6,7 @@ grand_parent: Problem Solving
 parent: LeetCode
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Two Sum
+# [Two Sum](https://leetcode.com/problems/two-sum/)
  상징적인 리트코드 1번 문제다.
 
  정수 배열 `nums`와 어떤 정수 `target`이 주어졌을 때, 정수 배열의 두

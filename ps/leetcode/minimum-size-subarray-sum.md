@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Minimum Size Subarray Sum
+# [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
  *양수*만 담은 배열 `nums`와 양수 `target`이 주어졌을 때, 합이
  `target`보다 크거나 같게 되는 **연속되는 부분 배열** `[nums_(l),
  nums_(l+1), ..., nums_(r)]`의 최소 길이를 구하는 문제이다. 없으면

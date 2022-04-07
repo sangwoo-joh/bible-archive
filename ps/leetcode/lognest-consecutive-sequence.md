@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Longest Consecutive Sequence
+# [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
  정렬 안된 `nums` 에 대해서, 연속되는 원소 시퀀스의 가장 긴 길이를
  구해라.
 

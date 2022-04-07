@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Rotate Image
+# [Rotate Image](https://leetcode.com/problems/rotate-image/)
 
  n x n 2D 매트릭스를 시계 방향으로 90도 회전할껀데,
  *제자리에서(in-place)* 회전해야 한다.

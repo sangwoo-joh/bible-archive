@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Number of Provinces
+# [Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
  주(Province)의 개수를 세는 문제이다. `n` 개의 도시가 있는데 도시끼리
  연결되어 있기도 하고 아니기도 하다. **주**는 직접/간접적으로 연결된
  도시의 그룹이다. `a`랑 `b`가 연결되어 있으면 이건 직접적으로 연결된

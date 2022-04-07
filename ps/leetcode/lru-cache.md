@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# LRU Cache
+# [LRU Cache](https://leetcode.com/problems/lru-cache/)
 
  말 그대로 LRU Cache를 만드는 문제다.
 

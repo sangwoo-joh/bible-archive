@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Text Justification
+# [Text Justification](https://leetcode.com/problems/text-justification/)
  (뱀발: justify 뜻 중에 "인쇄되는 텍스트의 행 끝을 나란히 맞추다"라는
  뜻이 있더라...)
 

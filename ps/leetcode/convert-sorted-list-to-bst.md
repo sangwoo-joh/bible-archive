@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-# Convert Sorted List to Binary Search Tree
-## Table of Contents
-{: .no_toc .text-delta }
-
- - TOC
-{:toc}
+# [Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
 
  *오름차순으로 정렬*된 링크드 리스트의 헤드 노드가 입력으로 들어왔을
  때, 이걸 *밸런스가 맞춰진* 바이너리 서치 트리로 바꾸는

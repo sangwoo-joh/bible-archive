@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Pairs of Songs With Total Durations Divisible by 60
+# [Pairs of Songs With Total Durations Divisible by 60](https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/)
  노래 리스트가 주어지고 `i` 번째 노래의 길이는 `time[i]` 초다.
 
  노래 한 쌍의 전체 길이가 60으로 나누어지는 모든 쌍의 개수를

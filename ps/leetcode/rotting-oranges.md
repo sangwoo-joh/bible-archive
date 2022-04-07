@@ -6,13 +6,7 @@ grand_parent: Problem Solving
 parent: LeetCode
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Rotting Oranges
+# [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
  `m x n` 격자가 주어지는데 각 쎌은 세 종류의 값을 갖는다.
   - `0`: 비어 있는 쎌
   - `1`: 신선한 오렌지

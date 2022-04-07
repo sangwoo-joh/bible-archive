@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Number of Islands I
+# [Number of Islands](https://leetcode.com/problems/number-of-islands/)
 
  m x n 2D 그리드가 지도로 주어진다. `1`은 땅이고 `0`은 물일 때, 섬의
  개수를 세는 문제다.
@@ -97,7 +91,7 @@ def numIslands(grid):
 ```
 
 
-# Number of Islands II
+# [Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/)
  위 문제를 살짝 비튼 문제다.
 
  `m x n` 2D 그리드의 *사이즈*가 주어진다. 처음에 **모든** 그리드는

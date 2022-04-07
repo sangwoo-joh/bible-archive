@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Graph Valid Tree
+# [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
  `0`부터 `n-1`까지 레이블링 된 `n` 개의 노드가 있는 그래프가
  있다. 엣지 정보를 담은 `edges` 가 주어지고, `edges[i] = (a_i, b_i)`는
  노드 `a_i`와 `b_i` 사이에 무향 엣지가 있음을 나타낸다.

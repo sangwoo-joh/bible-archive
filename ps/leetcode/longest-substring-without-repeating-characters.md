@@ -6,13 +6,7 @@ parent: LeetCode
 grand_parent: Problem Solving
 ---
 
-{: .no_toc }
-## Table of Contents
-{: .no_toc .text-delta }
-- TOC
-{:toc}
-
-# Longest Substring Without Repeating Characters
+# [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
  문자열이 주어졌을 때, 반복되는 문자 없이 만들 수 있는 가장 긴 부분
  분자열의 길이를 구하자.
 
