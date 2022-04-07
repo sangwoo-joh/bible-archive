@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 tags: [translation, wip]
 title: 01. Introduction (WIP)
 permalink: /distributed-systems/intro

@@ -21,7 +21,3 @@ permalink: /
 
 ### [Translations](translations)
  - [x86 Assembly Guide](translations/x86-assembly-guide/)
-
-### Others
- - [Books](books/)
- - [Record](daily/)
