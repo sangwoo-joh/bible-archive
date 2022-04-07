@@ -121,3 +121,18 @@ has_toc: false
  - [ ] [Merge K Sorted Lists](merge-k-sorted-lists)
  - [ ] [Top K Frequent Elements](top-k-frequent-elements)
  - [ ] [Find Median from Data Stream](find-median-from-data-stream)
+
+
+### Solved
+
+ - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
+ - [x] [Critical Connections in a Network](critical-connections-in-a-network)
+ - [x] [LRU Cache](lru-cache)
+ - [x] [Minimum Difficulty of a Job Schedule](minimum-difficulty-of-a-job-schedule)
+ - [x] [Minimum Size Subarray Sum](minimum-size-subarray-sum)
+ - [x] [Number of Provinces](number-of-provinces)
+ - [x] [Pairs of Songs with Total Durations Divisible by 60](pairs-of-songs-with-total-durations-divisible-by-60)
+ - [x] [Prison Cells after N Days](prison-cells-after-n-days)
+ - [x] [Remove Duplicates from Sorted Array](remove-duplicates-from-sorted-array)
+ - [x] [Rotting Oranges](rotting-oranges)
+ - [x] [Text Justification](text-justification)
