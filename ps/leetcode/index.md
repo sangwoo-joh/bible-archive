@@ -13,7 +13,7 @@ has_toc: false
 
 ### Array
 
- - [ ] [Two Sum](two-sum)
+ - [x] [Two Sum](two-sum)
  - [ ] [Best Time to Buy and Sell Stock](best-time-to-buy-and-sell-stock)
  - [ ] [Contains Duplicate](contains-duplicate)
  - [ ] [Product of Array Except Self](product-of-array-except-self)
@@ -44,8 +44,8 @@ has_toc: false
  - [ ] [Combination Sum](combination-sum)
  - [ ] [House Robber](house-robber)
  - [ ] [House Robber II](house-robber-ii)
- - [ ] [Decode Ways](decode-ways)
- - [ ] [Unique Paths](unique-paths)
+ - [x] [Decode Ways](decode-ways)
+ - [x] [Unique Paths](unique-paths)
  - [ ] [Jump Game](jump-game)
 
 ### Graph
@@ -53,10 +53,10 @@ has_toc: false
  - [ ] [Clone Graph](clone-graph)
  - [ ] [Course Schedule](course-schedule)
  - [ ] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
- - [ ] [Number of Islands](number-of-islands)
- - [ ] [Longest Consecutive Sequence](longest-consecutive-sequence)
+ - [x] [Number of Islands](number-of-islands)
+ - [x] [Longest Consecutive Sequence](longest-consecutive-sequence)
  - [ ] [Alien Dictionay](alien-dictionay)
- - [ ] [Graph Valid Tree](graph-valid-tree)
+ - [x] [Graph Valid Tree](graph-valid-tree)
  - [ ] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
 
 
@@ -82,14 +82,14 @@ has_toc: false
 
  - [ ] [Set Matrix Zeroes](set-matrix-zeroes)
  - [ ] [Spiral Matrix](spiral-matrix)
- - [ ] [Rotate Image](rotate-image)
+ - [x] [Rotate Image](rotate-image)
  - [ ] [Word Search](word-search)
 
 ### String
 
- - [ ] [Longest Substring Without Repeating Characters](longest-substring-without-repeating-characters)
+ - [x] [Longest Substring Without Repeating Characters](longest-substring-without-repeating-characters)
  - [ ] [Longest Repeating Character Replacement](longest-repeating-character-replacement)
- - [ ] [Minimum Window Substring](minimum-window-substring)
+ - [x] [Minimum Window Substring](minimum-window-substring)
  - [ ] [Valid Anagram](valid-anagram)
  - [ ] [Group Anagrams](group-anagrams)
  - [ ] [Valid Parentheses](valid-parentheses)
