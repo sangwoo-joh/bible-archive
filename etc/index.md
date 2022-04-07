@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Books
+title: And So On
 nav_order: 3
-permalink: /books/
+permalink: /etc/
 has_children: true
 ---

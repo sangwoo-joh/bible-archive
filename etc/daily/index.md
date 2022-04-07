@@ -3,6 +3,7 @@ layout: default
 title: Daily Record
 nav_order: 3
 permalink: /daily/
+parent: And So On
 ---
 
 # Daily Record
