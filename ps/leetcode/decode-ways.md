@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, dynamic-programming, string]
 title: Decode Ways
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Decode Ways](https://leetcode.com/problems/decode-ways/)

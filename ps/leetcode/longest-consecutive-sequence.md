@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, sorting, hash-table]
 title: Longest Consecutive Sequence.
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)

@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, lru-cache]
 title: Unique Paths
 grand_parent: Problem Solving
 parent: LeetCode
+nav_exclude: true
 ---
 
 # [Unique Paths](https://leetcode.com/problems/unique-paths/)

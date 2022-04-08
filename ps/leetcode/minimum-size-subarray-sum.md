@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, two-pointer]
 title: Minimum Size Subarray Sum
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)

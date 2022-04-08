@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, lru-cache]
 title: LRU Cache
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [LRU Cache](https://leetcode.com/problems/lru-cache/)

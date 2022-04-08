@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, string, two-pointer]
 title: Minimum Window Substring
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)

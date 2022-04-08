@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, interval]
 title: Insert Interval
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Insert Interval](https://leetcode.com/problems/insert-interval/)

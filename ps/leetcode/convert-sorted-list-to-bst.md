@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, tree, wip]
 title: Convert Sorted List to Binary Search Tree (WIP)
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)

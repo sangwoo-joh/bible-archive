@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, string, two-pointer]
 title: Longest Substring Without Repeating Characters
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)

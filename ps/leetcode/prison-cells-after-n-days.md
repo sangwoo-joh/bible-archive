@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, simulation]
 title: Prison Cells After N Days
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)

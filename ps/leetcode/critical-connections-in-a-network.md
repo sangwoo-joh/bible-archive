@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, graph, cycle]
 title: Critical Connections in a Network
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)

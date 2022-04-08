@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, tips]
 title: Rotate Image
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Rotate Image](https://leetcode.com/problems/rotate-image/)

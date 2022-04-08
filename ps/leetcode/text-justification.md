@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, string, simulation]
 title: Text Justification
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Text Justification](https://leetcode.com/problems/text-justification/)

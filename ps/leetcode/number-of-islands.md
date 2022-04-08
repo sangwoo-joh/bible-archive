@@ -4,6 +4,7 @@ tags: [problem-solving, leetcode, python, graph, disjoint-set]
 title: Number of Islands I, II
 parent: LeetCode
 grand_parent: Problem Solving
+nav_exclude: true
 ---
 
 # [Number of Islands](https://leetcode.com/problems/number-of-islands/)
