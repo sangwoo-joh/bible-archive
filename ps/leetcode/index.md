@@ -71,7 +71,7 @@ has_toc: false
 
 ### Linked List
 
- - [ ] [Reverse a Linked List](reverse-a-linked-list)
+ - [x] [Reverse Linked List](reverse-linked-list)
  - [ ] [Detect Cycle in a Linked List](detect-cycle-in-a-linked-list)
  - [ ] [Merge Two Sorted Lists](merge-two-sorted-lists)
  - [ ] [Merge K Sorted Lists](merge-k-sorted-lists)
