@@ -14,7 +14,7 @@ has_toc: false
 ### Array
 
  - [x] [Two Sum](two-sum)
- - [ ] [Best Time to Buy and Sell Stock](best-time-to-buy-and-sell-stock)
+ - [x] [Best Time to Buy and Sell Stock](best-time-to-buy-and-sell-stock)
  - [ ] [Contains Duplicate](contains-duplicate)
  - [ ] [Product of Array Except Self](product-of-array-except-self)
  - [ ] [Maximum Subarray](maximum-subarray)
