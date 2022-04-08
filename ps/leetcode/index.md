@@ -19,7 +19,7 @@ has_toc: false
  - [ ] [Product of Array Except Self](product-of-array-except-self)
  - [ ] [Maximum Subarray](maximum-subarray)
  - [ ] [Maximum Product Subarray](maximum-product-subarray)
- - [ ] [Find Minimum in Rotated Sorted Array](find-minimum-in-rotated-sorted-array)
+ - [x] [Find Minimum in Rotated Sorted Array](find-minimum-in-rotated-sorted-array)
  - [ ] [Search in Rotated Sorted Array](search-in-rotated-sorted-array)
  - [ ] [3Sum](3sum)
  - [ ] [Container With Most Water](container-with-most-water)
