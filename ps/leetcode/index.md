@@ -95,7 +95,7 @@ has_toc: false
  - [ ] [Valid Parentheses](valid-parentheses)
  - [ ] [Valid Palindrome](valid-palindrome)
  - [ ] [Longest Palindromic Substring](longest-palindromic-substring)
- - [ ] [Palindromic Substrings](palindromic-substrings)
+ - [x] [Palindromic Substrings](palindromic-substrings)
  - [ ] [Encode and Decode Strings](encode-and-decode-strings)
 
 ### Tree
