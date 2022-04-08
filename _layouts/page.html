@@ -10,6 +10,8 @@ layout: default
 {% assign url = site.url %}
 {% endif %}
 
+<br />
+
 {% if page.tags.size > 0 %}
 {% for tag in page.tags %}
 <a href="{{url}}/posts?tag={{tag}}"><button type="button" name="{{tag}}" class="btn">{{tag}}</button></a>
@@ -23,6 +25,8 @@ layout: default
   });
 </script>
 
+
+<hr />
 
 <center>
   <!-- LikeBtn.com BEGIN -->
