@@ -111,7 +111,7 @@ has_toc: false
  - [ ] [Validate Binary Search Tree](validate-binary-search-tree)
  - [ ] [Kth Smallest Element in a BST](kth-smallest-element-in-a-bst)
  - [ ] [Lowest Common Ancestor of BST](lowest-common-ancestor-of-bst)
- - [ ] [Implement Trie](implement-trie)
+ - [x] [Implement Trie](implement-trie)
  - [ ] [Add and Search Word](add-and-search-word)
  - [ ] [Word Search II](word-search-ii)
 
