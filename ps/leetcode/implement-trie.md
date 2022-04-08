@@ -46,7 +46,6 @@ class Trie:
 
     def insert(self, word):
         node = self.trie
-
         for char in word:
             if node[char] is None:
                 node[char] = Trie.Node()
@@ -55,7 +54,6 @@ class Trie:
 
     def search(self, word):
         node = self.trie
-
         for char in word:
             if node[char] is None:
                 return False
@@ -64,7 +62,6 @@ class Trie:
 
     def startsWith(self, prefix):
         node = self.trie
-
         for char in word:
             if node[char] is None:
                 return False
