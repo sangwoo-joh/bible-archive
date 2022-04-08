@@ -21,7 +21,7 @@ nav_exclude: true
 
 ## 팰린드롬 세기
 
- 내 블로그 이전 글 중 [팰린드롬](ps/theory/palindrome)을 참조하면
+ 내 블로그 이전 글 중 [팰린드롬](/ps/theory/palindrome)을 참조하면
  좋다.
 
  팰린드롬을 셀 때 앞이나 뒤에서 세면 좀 까다롭다. 팰린드롬의 성질을
