@@ -95,3 +95,40 @@ def twoSumII(numbers, target):
 
     raise ValueError
 ```
+
+
+# [Two Sum IV - Input is a BST](https://leetcode.com/problems/two-sum-iv-input-is-a-bst/)
+
+ 만약 입력이 배열이 아니라 BST면 어떻게 해야할까?
+
+ 역시 앞의 두 접근을 모두 사용할 수 있는데,
+  1. BST를 한번 순회하면서 보수의 해시 테이블을 만든 다음, 다시 한번
+     BST를 순회하면서 해시 테이블을 확인하는 방법과,
+  2. BST로부터 정렬된 배열을 복원한 뒤 투 포인터로 확인하는 방법
+
+ 두 가지가 모두 가능하다. BST를 중위순회하면 정렬된 순서로 노드를
+ 방문할 수 있다는 성질을 이용한 2번 접근을 코드로 구현하면 다음과
+ 같다.
+
+```python
+def findTarget(root, k):
+    ordered = []
+    def inorder(node):
+        if not node:
+            return
+        inorder(node.left)
+        ordered.append(node.val)
+        inorder(node.right)
+    inorder(root)
+
+    low, high = 0, len(ordered)-1
+    while low < high:
+        cand = ordered[low] + ordered[high]
+        if cand == k:
+            return True
+        elif cand < k:
+            low += 1
+        else:
+            high -= 1
+    return False
+```
