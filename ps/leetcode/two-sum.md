@@ -60,3 +60,38 @@ def two_sum(nums, target):
 ```
 
  이렇게 하면 `O(n)`의 해답을 얻을 수 있다.
+
+
+# [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+
+ 만약 입력으로 들어온 배열이 **정렬**되어 있다면 어떻게 할 수 있을까?
+ 물론 위에서 했던 접근법을 그대로 사용해도 `O(n)`의 시간 복잡도를 얻을
+ 수 있다. 하지만 해시 테이블을 준비해야하기 때문에 공간 복잡도 역시
+ 여전히 `O(n)`이다. 정렬되어 있다는 성질을 활용하면 시간 복잡도는
+ 그대로 `O(n)`이지만 공간 복잡도 `O(1)`의 접근을 할 수 있다.
+
+ 일종의 이분 탐색을 한다고 생각해보자. 두 개의 포인터를 두고 하나는
+ 0부터, 다른 하나는 끝에서부터 출발한다. 만약 이 두 위치의 값의 합이
+ 구하고자 하는 값이라면 그냥 바로 리턴해도 된다. 만약 이 합이 더
+ 작다면? 둘 중 더 작은 값을 좀더 큰 값으로 바꾸는 방법만 존재하므로
+ 0에서 시작한 포인터를 옮긴다. 합이 더 크다면 반대로 더 큰 값을 좀더
+ 작은 값으로 바꾸는 방법만 존재하므로 이때는 끝에서 시작한 포인터를
+ 옮긴다.
+
+ 이 아이디어를 코드로 옮기면 다음과 같다.
+
+```python
+def twoSumII(numbers, target):
+    low, high = 0, len(numbers)-1
+    cand = 0
+    while low < high:
+        cand = numbers[low] + numbers[high]
+        if cand == target:
+            return [low+1, high+1]  # the problem is 1-indexed.
+        elif cand < target:
+            low += 1
+        else:
+            high -= 1
+
+    raise ValueError
+```
