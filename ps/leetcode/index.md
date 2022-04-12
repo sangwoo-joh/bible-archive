@@ -75,7 +75,7 @@ has_toc: false
  - [x] [Linked List Cycle](linked-list-cycle)
  - [x] [Merge Two Sorted Lists](merge-two-sorted-lists)
  - [ ] [Merge K Sorted Lists](merge-k-sorted-lists)
- - [ ] [Remove Nth Node From End Of List](remove-nth-node-from-end-of-list)
+ - [x] [Remove Nth Node From End Of List](remove-nth-node-from-end-of-list)
  - [ ] [Reorder List](reorder-list)
 
 ### Matrix
