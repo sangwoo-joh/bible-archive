@@ -63,7 +63,7 @@ has_toc: false
 ### Interval
 
  - [x] [Insert Interval](insert-interval)
- - [ ] [Merge Intervals](merge-intervals)
+ - [x] [Merge Intervals](merge-intervals)
  - [ ] [Non-overlapping Intervals](non-overlapping-intervals)
  - [ ] [Meeting Rooms](meeting-rooms)
  - [ ] [Meeting Rooms II](meeting-rooms-ii)
