@@ -103,7 +103,7 @@ has_toc: false
 
  - [x] [Maximum Depth of Binary Tree](maximum-depth-of-binary-tree)
  - [x] [Same Tree](same-tree)
- - [ ] [Invert/Flip Binary Tree](invert-flip-binary-tree)
+ - [x] [Invert/Flip Binary Tree](invert-flip-binary-tree)
  - [ ] [Binary Tree Maximum Path Sum](binary-tree-maximum-path-sum)
  - [ ] [Binary Tree Level Order Traversal](binary-tree-level-order-traversal)
  - [ ] [Serialize and Deserialize Binary Tree](serialize-and-deserialize-binary-tree)
