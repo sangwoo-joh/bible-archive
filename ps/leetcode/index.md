@@ -74,7 +74,7 @@ has_toc: false
  - [x] [Reverse Linked List](reverse-linked-list)
  - [x] [Linked List Cycle](linked-list-cycle)
  - [x] [Merge Two Sorted Lists](merge-two-sorted-lists)
- - [ ] [Merge K Sorted Lists](merge-k-sorted-lists)
+ - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
  - [x] [Remove Nth Node From End Of List](remove-nth-node-from-end-of-list)
  - [ ] [Reorder List](reorder-list)
 
