@@ -16,7 +16,7 @@ has_toc: false
  - [x] [Two Sum](two-sum)
  - [x] [Best Time to Buy and Sell Stock](best-time-to-buy-and-sell-stock)
  - [x] [Contains Duplicate](contains-duplicate)
- - [ ] [Product of Array Except Self](product-of-array-except-self)
+ - [x] [Product of Array Except Self](product-of-array-except-self)
  - [ ] [Maximum Subarray](maximum-subarray)
  - [ ] [Maximum Product Subarray](maximum-product-subarray)
  - [x] [Find Minimum in Rotated Sorted Array](find-minimum-in-rotated-sorted-array)
