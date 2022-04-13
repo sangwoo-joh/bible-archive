@@ -101,7 +101,7 @@ has_toc: false
 
 ### Tree
 
- - [ ] [Maximum Depth of Binary Tree](maximum-depth-of-binary-tree)
+ - [x] [Maximum Depth of Binary Tree](maximum-depth-of-binary-tree)
  - [x] [Same Tree](same-tree)
  - [ ] [Invert/Flip Binary Tree](invert-flip-binary-tree)
  - [ ] [Binary Tree Maximum Path Sum](binary-tree-maximum-path-sum)
