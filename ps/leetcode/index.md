@@ -76,7 +76,7 @@ has_toc: false
  - [x] [Merge Two Sorted Lists](merge-two-sorted-lists)
  - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
  - [x] [Remove Nth Node From End Of List](remove-nth-node-from-end-of-list)
- - [ ] [Reorder List](reorder-list)
+ - [x] [Reorder List](reorder-list)
  - [x] [Middle of the Linked List](middle-of-the-linked-list)
 
 ### Matrix

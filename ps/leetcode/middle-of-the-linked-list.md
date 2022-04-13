@@ -1,7 +1,7 @@
 ---
 layout: page
 tags: [problem-solving, leetcode, python, linked-list]
-title: Reorder List
+title: Middle of the Linked List
 grand_parent: Middle of the Linked List
 parent: LeetCode
 nav_exclude: true
