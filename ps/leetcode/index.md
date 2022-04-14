@@ -18,7 +18,7 @@ has_toc: false
  - [x] [Contains Duplicate](contains-duplicate)
  - [x] [Product of Array Except Self](product-of-array-except-self)
  - [x] [Maximum Subarray](maximum-subarray)
- - [ ] [Maximum Product Subarray](maximum-product-subarray)
+ - [x] [Maximum Product Subarray](maximum-product-subarray)
  - [x] [Find Minimum in Rotated Sorted Array](find-minimum-in-rotated-sorted-array)
  - [ ] [Search in Rotated Sorted Array](search-in-rotated-sorted-array)
  - [ ] [3Sum](3sum)
