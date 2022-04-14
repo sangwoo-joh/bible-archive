@@ -83,3 +83,30 @@ def levelOrder(root):
  사용해도 무방한 것이다. 만약 순서가 보장되지 않는다면 먼저
  `items()`를 가져와서 `(key, value)` 쌍의 리스트를 만들고, `key`를
  기준으로 정렬하는 과정을 반드시 거쳐야 한다.
+
+## Queue
+
+ 트리의 레벨 오더 순회는 본질적으로는 루트로부터 시작한 BFS와
+ 같다. 따라서 큐를 이용한 BFS로도 구현할 수 있다. 다만 여전히 레벨에서
+ 방문한 목록은 기록해야 하기 때문에 `defaultdict`에 저장하는 것은
+ 필요하다.
+
+```python
+from collections import deque, defaultdict
+def levelOrder(root):
+    traversal = defaultdict(list)
+    q = deque()
+    q.append((0, root))
+    while q:
+        lv, node = q.popleft()
+        if node is None:
+            continue
+        traversal[lv].append(node.val)
+        q.append((lv+1, node.left))
+        q.append((lv+1, node.right))
+    return traversal.values()
+```
+
+ - 큐에 노드를 곧바로 집어넣는 것이 아니라 `(레벨, 노드)` 정보를
+   넣는다. 그러면 (1) 레벨 오더 순회가 보장되면서 (2) 현재 레벨을 같이
+   알 수 있다.
