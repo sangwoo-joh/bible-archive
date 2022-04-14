@@ -120,7 +120,7 @@ has_toc: false
 ### Heap
 
  - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
- - [ ] [Top K Frequent Elements](top-k-frequent-elements)
+ - [x] [Top K Frequent Elements](top-k-frequent-elements)
  - [ ] [Find Median from Data Stream](find-median-from-data-stream)
 
 
