@@ -106,7 +106,7 @@ has_toc: false
  - [x] [Invert/Flip Binary Tree](invert-flip-binary-tree)
  - [x] [Binary Tree Maximum Path Sum](binary-tree-maximum-path-sum)
  - [x] [Binary Tree Level Order Traversal](binary-tree-level-order-traversal)
- - [ ] [Serialize and Deserialize Binary Tree](serialize-and-deserialize-binary-tree)
+ - [x] [Serialize and Deserialize Binary Tree](serialize-and-deserialize-binary-tree)
  - [ ] [Subtree of Another Tree](subtree-of-another-tree)
  - [ ] [Construct Binary Tree from Preorder and Inorder Traversal](construct-binary-tree-from-preorder-and-inorder-traversal)
  - [ ] [Validate Binary Search Tree](validate-binary-search-tree)
