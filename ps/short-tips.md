@@ -61,8 +61,37 @@ str.count(substring)
 str.find(substring)
 ```
 
-## Deque
+## collections
 
+### defaultdict
+
+```python
+from collections import defaultdict
+
+dl = defaultdict(list)
+dl[0].append(1)  # not exception!
+print(dl[1])  # also not exception! shows []
+
+di = defaultdict(int)
+di[0] += 1  # not exception!
+print(di[100])  # also not exception! shows 0
+```
+
+### Counter
+
+```python
+from collections import Counter
+s = "aabbcacaa"
+c = Counter(s)  # Counter({'a':5, 'b':2, 'c':2})
+c.elements()  # ['a', ..., 'b', .. 'c']
+c.keys()  # ['a', 'b', 'c']
+c.values()  # [5, 2, 2]
+c.items()  # [('a', 5), ('b', 2), ('c', 2)]
+c.most_common()  # return a list of n most common elements and their counts
+c.most_common(1)  # top most common elements as list, so [('a', 5)]
+```
+
+### Deque
 ```python
 from collections import deque
 dq = deque()
@@ -106,7 +135,9 @@ bisect.bisect_left(l, x)
 bisect.bisect_right(l, x) == bisect.bisect(l, x)
 ```
 
-## Package
+## 정리
+
+---
 
 ```python
 from collections import defaultdict
@@ -129,6 +160,8 @@ import random
 
 import bisect
 ```
+
+---
 
 # 어떤 문자열의 길이 `k`인 모든 부분 문자열 생성하기
 
