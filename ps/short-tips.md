@@ -83,6 +83,7 @@ print(di[100])  # also not exception! shows 0
 from collections import Counter
 s = "aabbcacaa"
 c = Counter(s)  # Counter({'a':5, 'b':2, 'c':2})
+c.get('a')  # get count of the element, None if not exists -> 5
 c.elements()  # ['a', ..., 'b', .. 'c']
 c.keys()  # ['a', 'b', 'c']
 c.values()  # [5, 2, 2]
