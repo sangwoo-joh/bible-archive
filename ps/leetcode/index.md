@@ -25,29 +25,6 @@ has_toc: false
  - [ ] [Container With Most Water](container-with-most-water)
 
 
-### Binary
-
- - [ ] [Sum of Two Integers](sum-of-two-integers)
- - [ ] [Number of 1 Bits](number-of-1-bits)
- - [ ] [Counting Bits](counting-bits)
- - [ ] [Missing Number](missing-number)
- - [ ] [Reverse Bits](reverse-bits)
-
-
-### DP
-
- - [ ] [Climbing Stairs](climbing-stairs)
- - [ ] [Coin Change](coin-change)
- - [ ] [Longest Increasing Subsequence](longest-increasing-subsequence)
- - [ ] [Longest Common Subsequence](longest-common-subsequence)
- - [ ] [Word Break Problem](word-break-problem)
- - [ ] [Combination Sum](combination-sum)
- - [ ] [House Robber](house-robber)
- - [ ] [House Robber II](house-robber-ii)
- - [x] [Decode Ways](decode-ways)
- - [x] [Unique Paths](unique-paths)
- - [ ] [Jump Game](jump-game)
-
 ### Graph
 
  - [x] [Clone Graph](clone-graph)
@@ -122,6 +99,29 @@ has_toc: false
  - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
  - [x] [Top K Frequent Elements](top-k-frequent-elements)
  - [ ] [Find Median from Data Stream](find-median-from-data-stream)
+
+### Binary
+
+ - [ ] [Sum of Two Integers](sum-of-two-integers)
+ - [ ] [Number of 1 Bits](number-of-1-bits)
+ - [ ] [Counting Bits](counting-bits)
+ - [ ] [Missing Number](missing-number)
+ - [ ] [Reverse Bits](reverse-bits)
+
+
+### DP
+
+ - [ ] [Climbing Stairs](climbing-stairs)
+ - [ ] [Coin Change](coin-change)
+ - [ ] [Longest Increasing Subsequence](longest-increasing-subsequence)
+ - [ ] [Longest Common Subsequence](longest-common-subsequence)
+ - [ ] [Word Break Problem](word-break-problem)
+ - [ ] [Combination Sum](combination-sum)
+ - [ ] [House Robber](house-robber)
+ - [ ] [House Robber II](house-robber-ii)
+ - [x] [Decode Ways](decode-ways)
+ - [x] [Unique Paths](unique-paths)
+ - [ ] [Jump Game](jump-game)
 
 
 ### Solved
