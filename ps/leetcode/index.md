@@ -21,7 +21,7 @@ has_toc: false
  - [x] [Maximum Product Subarray](maximum-product-subarray)
  - [x] [Find Minimum in Rotated Sorted Array](find-minimum-in-rotated-sorted-array)
  - [x] [Search in Rotated Sorted Array](search-in-rotated-sorted-array)
- - [ ] [3Sum](3sum)
+ - [x] [3Sum](3sum)
  - [ ] [Container With Most Water](container-with-most-water)
 
 
