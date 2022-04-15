@@ -60,24 +60,86 @@ prerequisites = [(1,0), (0,1)]
  파이썬에서 그래프를 표현하기 위한 가장 쉬운 방법은 그래프를 **집합의
  딕셔너리**로 만드는 것이다. 즉, 말하자면 엣지 정보만 담은 일종의
  Adjacency List라고 볼 수 있다. Matrix로 표현하는 것도 가능하지만
- 파이썬은 이게 훨씬 편하다.
+ 파이썬은 이게 훨씬 편하다. 이때 한 가지 주의할 점은
+ `defaultdict(set)`으로 구현하는 것보다는, 전체 노드 정보를 알고
+ 있다면 `{node: set() for node ...}`로 초기화하는 것이 좋다는
+ 점이다. `defaultdict(set)`으로 만든 그래프 딕셔너리는 원소가 없는
+ `(source, sink)` 쌍을 무지성으로 넣기에는 편하지만, 그래프 자체에다가
+ `for` 반복문을 아무 생각없이 돌려버리면 `dictionary size changed
+ during iteration` 예외가 발생한다. 왜냐하면, 아무런 엣지도 없는
+ 노드를 키 값으로 접근하는 순간 `KeyError` 예외가 발생하게 되고,
+ `defaultdict`의 구현에 따라 `__missing__`이 호출되면서 해당 키 값에
+ `set()`을 추가하게 되는데, 이렇게 되면 예외 메시지가 뜻하는 것처럼
+ 딕셔너리 사이즈가 변하기 때문이다.
 
  싸이클을 찾기 위한 탐색은 DFS가 좋다. BFS로도 할 수 있는데, 구현이
  까다롭다.
 
 ```python
-from collections import set
+def canFinish(numCourses, prerequisites):
+    graph = {node: set() for node in range(numCourses)}
+    for (src, snk) in prerequisites:
+        graph[src].add(snk)
 
+    visiting = set()
+    visited = set()
+    def dfs(node):
+        nonlocal visited
+        nonlocal visiting
+        if node in visited:
+            return
+        visiting.add(node)
+        for sink in graph[node]:
+            if sink in visiting:
+                raise TypeError("Cycle detected")
+            if sink not in visited:
+                dfs(sink)
+        visiting.remove(node)
+        visited.add(node)
+
+    try:
+        for node in graph:
+            dfs(node)
+    except TypeError:
+        return False
+
+    return True
+```
+
+ - 정석대로 `visiting`과 `visited` 집합과 DFS를 이용해서 그래프에서의
+   싸이클 체크를 구현하였다. 싸이클이 발견되면 `TypeError`를 던지도록
+   했다.
+
+---
+
+ 풀고나서 파이썬 라이브러리를 뒤져봤더니, 3.10 버전부터는 아예
+ [`graphlib`](https://docs.python.org/3/library/graphlib.html) 이라는,
+ 이터러블 객체의 딕셔너리를 그래프로 입력받아서 위상 정렬을 할 수 있는
+ 라이브러리가 추가된 것을 확인할 수 있었다. 사용법은 대충 그래프를
+ 위와 같은 방법으로 만든 다음 `graphlib.TopologicalSorter(graph)`에다
+ 넘기고 `static_order()`를 호출해서 위상 정렬을 진행하는 것인데, 이
+ 문제처럼 단순히 싸이클 유무만 판단하고 싶을 때에는 그냥 `prepare()`를
+ 호출하면 된다. 그리고 구현을 잘 해놔서 `defaultdict(set)`을 그래프로
+ 사용해도 잘 동작한다.
+
+```python
+import graphlib
+from collections import defaultdict
 def canFinish(numCourses, prerequisites):
     graph = defaultdict(set)
     for (src, snk) in prerequisites:
         graph[src].add(snk)
 
-    stack = []
-    visited = set()
-
-    for node in graph:
-        stack.append(node)
-        while stack:
-            n = stack.pop()
+    try:
+        graphlib.TopologicalSorter(graph).prepare()
+    except graphlib.CycleError:
+        return False
+    return True
 ```
+
+ - 문서에 따르면 `TopologicalSorter().static_order()`가 동작하는 도중
+   싸이클을 발견하면 `CycleError`를 던지고, 실제로 `prepare()`를
+   호출하는 코드와 동일한 의미라고 하는데, 버그가 있는 것인지
+   리트코드에서 `static_order()`를 호출해서 제출하면 싸이클이 있는
+   테스트 케이스를 통과하지 못한다. 그러니 이정도 구현은 그냥
+   라이브러리의 힘을 빌리지말고 직접 구현하는 것이 더 나을 것 같다.
