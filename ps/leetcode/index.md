@@ -88,7 +88,7 @@ has_toc: false
  - [ ] [Construct Binary Tree from Preorder and Inorder Traversal](construct-binary-tree-from-preorder-and-inorder-traversal)
  - [ ] [Validate Binary Search Tree](validate-binary-search-tree)
  - [ ] [Kth Smallest Element in a BST](kth-smallest-element-in-a-bst)
- - [ ] [Lowest Common Ancestor of BST](lowest-common-ancestor-of-bst)
+ - [ ] [Lowest Common Ancestor of a Binary Search Tree](lowest-common-ancestor-of-a-binary-search-tree)
  - [x] [Implement Trie](implement-trie)
  - [ ] [Add and Search Word](add-and-search-word)
  - [ ] [Word Search II](word-search-ii)
