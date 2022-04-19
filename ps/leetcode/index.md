@@ -85,7 +85,7 @@ has_toc: false
  - [x] [Binary Tree Level Order Traversal](binary-tree-level-order-traversal)
  - [x] [Serialize and Deserialize Binary Tree](serialize-and-deserialize-binary-tree)
  - [x] [Subtree of Another Tree](subtree-of-another-tree)
- - [ ] [Construct Binary Tree from Preorder and Inorder Traversal](construct-binary-tree-from-preorder-and-inorder-traversal)
+ - [x] [Construct Binary Tree from Preorder and Inorder Traversal](construct-binary-tree-from-preorder-and-inorder-traversal)
  - [ ] [Validate Binary Search Tree](validate-binary-search-tree)
  - [x] [Kth Smallest Element in a BST](kth-smallest-element-in-a-bst)
  - [ ] [Lowest Common Ancestor of a Binary Search Tree](lowest-common-ancestor-of-a-binary-search-tree)
