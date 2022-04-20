@@ -28,7 +28,7 @@ has_toc: false
 ### Graph
 
  - [x] [Clone Graph](clone-graph)
- - [ ] [Course Schedule](course-schedule)
+ - [x] [Course Schedule](course-schedule)
  - [ ] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
  - [x] [Number of Islands](number-of-islands)
  - [x] [Longest Consecutive Sequence](longest-consecutive-sequence)
