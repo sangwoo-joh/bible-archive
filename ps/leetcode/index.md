@@ -13,6 +13,7 @@ has_toc: false
 
 ### Array
 
+ - [x] [Minimum Size Subarray Sum](minimum-size-subarray-sum)
  - [x] [Two Sum](two-sum)
  - [x] [Best Time to Buy and Sell Stock](best-time-to-buy-and-sell-stock)
  - [x] [Contains Duplicate](contains-duplicate)
@@ -23,7 +24,9 @@ has_toc: false
  - [x] [Search in Rotated Sorted Array](search-in-rotated-sorted-array)
  - [x] [3Sum](3sum)
  - [ ] [Container With Most Water](container-with-most-water)
-
+ - [x] [Pairs of Songs with Total Durations Divisible by 60](pairs-of-songs-with-total-durations-divisible-by-60)
+ - [x] [Prison Cells after N Days](prison-cells-after-n-days)
+ - [x] [Remove Duplicates from Sorted Array](remove-duplicates-from-sorted-array)
 
 ### Graph
 
@@ -35,6 +38,9 @@ has_toc: false
  - [ ] [Alien Dictionay](alien-dictionay)
  - [x] [Graph Valid Tree](graph-valid-tree)
  - [ ] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
+ - [x] [Critical Connections in a Network](critical-connections-in-a-network)
+ - [x] [Number of Provinces](number-of-provinces)
+ - [x] [Rotting Oranges](rotting-oranges)
 
 
 ### Interval
@@ -55,6 +61,7 @@ has_toc: false
  - [x] [Remove Nth Node From End Of List](remove-nth-node-from-end-of-list)
  - [x] [Reorder List](reorder-list)
  - [x] [Middle of the Linked List](middle-of-the-linked-list)
+ - [x] [LRU Cache](lru-cache)
 
 ### Matrix
 
@@ -75,6 +82,7 @@ has_toc: false
  - [ ] [Longest Palindromic Substring](longest-palindromic-substring)
  - [x] [Palindromic Substrings](palindromic-substrings)
  - [ ] [Encode and Decode Strings](encode-and-decode-strings)
+ - [x] [Text Justification](text-justification)
 
 ### Tree
 
@@ -123,17 +131,4 @@ has_toc: false
  - [x] [Decode Ways](decode-ways)
  - [x] [Unique Paths](unique-paths)
  - [ ] [Jump Game](jump-game)
-
-
-### Solved
-
- - [x] [Critical Connections in a Network](critical-connections-in-a-network)
- - [x] [LRU Cache](lru-cache)
  - [x] [Minimum Difficulty of a Job Schedule](minimum-difficulty-of-a-job-schedule)
- - [x] [Minimum Size Subarray Sum](minimum-size-subarray-sum)
- - [x] [Number of Provinces](number-of-provinces)
- - [x] [Pairs of Songs with Total Durations Divisible by 60](pairs-of-songs-with-total-durations-divisible-by-60)
- - [x] [Prison Cells after N Days](prison-cells-after-n-days)
- - [x] [Remove Duplicates from Sorted Array](remove-duplicates-from-sorted-array)
- - [x] [Rotting Oranges](rotting-oranges)
- - [x] [Text Justification](text-justification)
