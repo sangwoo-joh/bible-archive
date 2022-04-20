@@ -98,7 +98,7 @@ has_toc: false
 
  - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
  - [x] [Top K Frequent Elements](top-k-frequent-elements)
- - [ ] [Find Median from Data Stream](find-median-from-data-stream)
+ - [x] [Find Median from Data Stream](find-median-from-data-stream)
 
 ### Binary
 
