@@ -92,6 +92,7 @@ has_toc: false
  - [x] [Implement Trie](implement-trie)
  - [ ] [Add and Search Word](add-and-search-word)
  - [ ] [Word Search II](word-search-ii)
+ - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
 
 
 ### Heap
@@ -126,7 +127,6 @@ has_toc: false
 
 ### Solved
 
- - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
  - [x] [Critical Connections in a Network](critical-connections-in-a-network)
  - [x] [LRU Cache](lru-cache)
  - [x] [Minimum Difficulty of a Job Schedule](minimum-difficulty-of-a-job-schedule)
