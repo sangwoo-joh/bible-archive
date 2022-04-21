@@ -77,7 +77,7 @@ has_toc: false
  - [x] [Minimum Window Substring](minimum-window-substring)
  - [x] [Valid Anagram](valid-anagram)
  - [ ] [Group Anagrams](group-anagrams)
- - [ ] [Valid Parentheses](valid-parentheses)
+ - [x] [Valid Parentheses](valid-parentheses)
  - [ ] [Valid Palindrome](valid-palindrome)
  - [ ] [Longest Palindromic Substring](longest-palindromic-substring)
  - [x] [Palindromic Substrings](palindromic-substrings)
