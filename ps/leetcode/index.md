@@ -14,6 +14,10 @@ has_toc: false
 ### $$ \alpha $$
  - [ ] [Basic Calculator II](basic-calculator-ii)
  - [ ] [Basic Calculator](basic-calculator)
+ - [ ] [Basic Calculator III](basic-calculator-iii)
+ - [ ] [Expression Add Operators](expression-add-operators)
+ - [ ] [Evaluate Reverse Polish Notation](evaluate-reverse-polish-notation)
+
 
 ### Array
 
