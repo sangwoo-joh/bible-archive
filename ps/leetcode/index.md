@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: LeetCode
 nav_order: 2
 parent: Problem Solving
@@ -9,7 +9,11 @@ has_toc: false
 
 # Leetcode
 
-## [Blind 75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU)
+## [Blind 75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU) + $$ \alpha $$
+
+### $$ \alpha $$
+ - [ ] [Basic Calculator II](basic-calculator-ii)
+ - [ ] [Basic Calculator](basic-calculator)
 
 ### Array
 
