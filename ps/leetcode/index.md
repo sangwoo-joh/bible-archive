@@ -75,7 +75,7 @@ has_toc: false
  - [x] [Longest Substring Without Repeating Characters](longest-substring-without-repeating-characters)
  - [ ] [Longest Repeating Character Replacement](longest-repeating-character-replacement)
  - [x] [Minimum Window Substring](minimum-window-substring)
- - [ ] [Valid Anagram](valid-anagram)
+ - [x] [Valid Anagram](valid-anagram)
  - [ ] [Group Anagrams](group-anagrams)
  - [ ] [Valid Parentheses](valid-parentheses)
  - [ ] [Valid Palindrome](valid-palindrome)
