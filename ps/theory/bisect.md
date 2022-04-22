@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, boj, python, binary-search]
+tags: [problem-solving, theory, python, binary-search]
 title: Upper Bound and Lower Bound
 grand_parent: Problem Solving
 parent: Theory

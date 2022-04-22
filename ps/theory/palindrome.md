@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, boj, python, string, palindrome]
+tags: [problem-solving, theory, python, string, palindrome]
 title: Palindrome
 grand_parent: Problem Solving
 parent: Theory

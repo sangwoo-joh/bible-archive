@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, backtracking]
+tags: [problem-solving, theory, backtracking]
 title: Backtracking
 grand_parent: Problem Solving
 parent: Theory

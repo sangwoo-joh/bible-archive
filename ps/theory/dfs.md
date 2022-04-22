@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, graph]
+tags: [problem-solving, theory, graph]
 title: Depth First Search
 grand_parent: Problem Solving
 parent: Theory

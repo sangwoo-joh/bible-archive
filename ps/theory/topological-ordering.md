@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, boj, python, graph, cycle]
+tags: [problem-solving, theory, python, graph, cycle]
 title: Topological Ordering
 grand_parent: Problem Solving
 parent: Theory

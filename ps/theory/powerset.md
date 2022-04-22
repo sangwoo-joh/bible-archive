@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, python, tips, recursion]
+tags: [problem-solving, theory, python, tips, recursion]
 title: Powerset
 grand_parent: Problem Solving
 parent: Theory
