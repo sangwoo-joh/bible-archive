@@ -15,6 +15,7 @@ has_toc: false
  - [x] [Basic Calculators](basic-calculators)
  - [ ] [Expression Add Operators](expression-add-operators)
  - [ ] [Evaluate Reverse Polish Notation](evaluate-reverse-polish-notation)
+ - [ ] [Parsing A Boolean Expression](parsing-a-boolean-expression)
 
 
 ### Array
