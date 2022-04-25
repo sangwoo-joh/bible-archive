@@ -12,9 +12,7 @@ has_toc: false
 ## [Blind 75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU) + $$ \alpha $$
 
 ### $$ \alpha $$
- - [ ] [Basic Calculator II](basic-calculator-ii)
- - [ ] [Basic Calculator](basic-calculator)
- - [ ] [Basic Calculator III](basic-calculator-iii)
+ - [x] [Basic Calculators](basic-calculators)
  - [ ] [Expression Add Operators](expression-add-operators)
  - [ ] [Evaluate Reverse Polish Notation](evaluate-reverse-polish-notation)
 
