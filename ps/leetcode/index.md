@@ -13,9 +13,15 @@ has_toc: false
 
 ### $$ \alpha $$
  - [x] [Basic Calculators](basic-calculators)
- - [ ] [Expression Add Operators](expression-add-operators)
  - [ ] [Evaluate Reverse Polish Notation](evaluate-reverse-polish-notation)
  - [ ] [Parsing A Boolean Expression](parsing-a-boolean-expression)
+
+
+### $$ \beta $$
+ - [ ] [Expression Add Operators](expression-add-operators)
+ - [ ] [Walking Robot Simulation](walking-robot-simulation)
+ - [ ] [Stream of Characters](stream-of-characters)
+ - [ ] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
 
 
 ### Array
