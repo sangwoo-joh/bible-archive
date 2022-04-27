@@ -21,7 +21,7 @@ has_toc: false
  - [ ] [Expression Add Operators](expression-add-operators)
  - [x] [Walking Robot Simulation](walking-robot-simulation)
  - [x] [Stream of Characters](stream-of-characters)
- - [ ] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
+ - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
 
 
 ### Array
