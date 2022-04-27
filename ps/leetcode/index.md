@@ -20,7 +20,7 @@ has_toc: false
 ### $$ \beta $$
  - [ ] [Expression Add Operators](expression-add-operators)
  - [x] [Walking Robot Simulation](walking-robot-simulation)
- - [ ] [Stream of Characters](stream-of-characters)
+ - [x] [Stream of Characters](stream-of-characters)
  - [ ] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
 
 
