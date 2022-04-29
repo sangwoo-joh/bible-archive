@@ -54,6 +54,7 @@ has_toc: false
  - [x] [Critical Connections in a Network](critical-connections-in-a-network)
  - [x] [Number of Provinces](number-of-provinces)
  - [x] [Rotting Oranges](rotting-oranges)
+ - [x] [Is Graph Bipartite?](is-graph-bipartite)
 
 
 ### Interval
