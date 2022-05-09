@@ -181,10 +181,368 @@ fun x -> let y = x in y
  우리의 토이 언어는 표준적인 순수 람다 대수에 `let`을 추가한 것이다.
 
 ```ocaml
+type exp =
+    | Var of varname
+    | App of exp * exp
+    | Lam of varname * exp
+    | Let of varname * exp * exp
+```
 
+ 타입은 (자유 또는 묶인) 타입 변수, 양화된 타입 변수, 함수 타입으로
+ 구성된다.
+
+```ocaml
+type qname = string
+type typ =
+    | TVar of tv ref
+    | QVar of qname
+    | TArrow of typ * typ
+and tv = Unbound of string | Link of typ
+```
+
+ `QVar` 타입은 타입 스키마이다. 즉, 단순 타입이 아니다. 힌들리 밀너
+ 시스템에서의 타입 스키마, 또는 양화된 타입은 전치형(prenex form), 즉
+ 보편 양화사가 모두 바깥에 붙는데, 그래서 양화사를 명시적으로
+ 표현해주지 않아도 된다.
+
+ 프롤로그 언어로부터 내려온 전통에 따라, 타입 변수는 레퍼런스 쎌로
+ 표현된다. 언바운드 변수(자유 변수)는 널 또는 셀프 포인터를 담고
+ 있다. 또는, 우리의 경우, 쉬운 출력을 위해서 변수 이름을 담고
+ 있다. 자유 타입 변수가 다른 타입 `t'`과 합쳐질 때(unified), 레퍼런스
+ 쎌은 `t'` 포인터로 덮어 써진다. 원형 타입(즉, 불안전한 타입)을 막기
+ 위해서, "나타나는지 체크(occur check)"를 먼저 수행한다. `occurs tv
+ t'`는 `t'`를 탐색하면서 만약 타입 변수 `tv`를 만나면 예외를
+ 발생시킨다.
+
+```ocaml
+let rec unify : typ -> typ -> unit = fun t1 t2 ->
+    if t1 == t2 then ()  (* t1 and t2 are physically the same *)
+    else match (t1, t2) with
+    | (TVar ({contents= Unbound _} as tv), t')
+    | (t', TVar ({contents= Unbound _} as tv)) ->
+        occurs tv t' ;
+        tv := Link t'
+    | (TVar {contents= Link t1}, t2) | (t1, TVar {contents= Link t2}) ->
+        unify t1 t2
+    | (TArrow (tyl1, tyl2), TArrow (tyr1, tyr2)) ->
+        unify tyl1 tyr1 ;
+        unify tyl2 tyr2
+    (* everything else is error *)
+```
+
+ 타입 체커는 완전히 표준적인 구현이다. 타입 환경 `env`에서의 표현식
+ `exp`의 타입을 추론한다.
+
+```ocaml
+type env = (varname * typ) list
+let rec typeof : env -> exp -> typ = fun env -> function
+    | Var x -> inst (List.assoc x env)
+    | Lam (x, e) ->
+        let ty_x = newvar () in
+        let ty_e = typeof ((x, ty_x) :: env) e in
+        TArrow (ty_x, ty_e)
+    | App (e1, e2) ->
+        let ty_fun = typeof env e1 in
+        let ty_arg = typeof env e2 in
+        let ty_res = newvar () in
+        unify ty_fun (TArrow (ty_arg, ty_res)) ;
+        ty_res
+    | Let (x, e, e2) ->
+        let ty_e = typeof env e in
+        typeof ((x, gen ty_e) :: env) e2
+```
+
+ `newvar` 함수는 새로운 `TVar`를 유니크한 이름으로 할당한다. `inst`
+ 함수는 타입 스키마를 인스턴스화하는데, 즉 모든 `QVar`를 새로운
+ `TVar`로 대체한다. 이것도 표준적 구현이다. 일반화 함수는
+ 불안전(unsound)하다: 타입 환경과 상관없이 타입에 있는 모든 자유
+ 변수를 양화해버린다.
+
+```ocaml
+let rec gen : typ -> typ = function (* unsound! *)
+    | TVar {contents= Unbound name} -> QVar name
+    | TVar {contents= Link ty} -> gen ty
+    | TArrow (ty1, ty2) -> TArrow (gen ty1, gen ty2)
+    | ty -> ty
+```
+
+ 양화는 `TVar`를 해당하는 `QVar`로 대체한다. 따라서 원래의 `TVar`는
+ 암묵적으로 해제(deallocated)된다: 자유 변수가 묶일 때, 말 그대로
+ "사라지고(disappears)", 바인더를 가리키는 포인터로 대체된다. 즉,
+ - `TVar`를 할당 (`newvar ()`) <-> 메모리 할당
+ - `TVar`를 `QVar`로 대체 (양화, 즉 일반화) <-> 메모리 해제
+
+ 의 비유가 성립한다.
+
+ 타입 변수의 관점에서 보면, `typeof`는 자유 변수를 할당하고, 이것들을
+ 합친 다음, 양화를 한 다음 다시 해제한다. 자유 타입 변수에 영향을 주는
+ 이 세 가지 메인 연산의 시퀀스를 관찰할 수 있는 단순한 예시를 타입
+ 체크해보자. 첫 번째 예시는 아무 문제가 없어야 하는 예이다.
+
+```ocaml
+fun x -> let y = fun z -> z in y
+```
+
+ 타입 체킹의 트레이스에서 타입 변수와 관계된 연산만 보여주면 다음과
+ 같다.
+
+```ocaml
+1 ty_x = newvar ()         (* fun x -> .... *)
+2   ty_e =                 (* let y = fun z -> z in y *)
+3     ty_z = newvar ();    (* fun z -> ... *)
+3     TArrow (ty_z, ty_z)  (* inferred for: fun z -> z *)
+2   ty_y = gen ty_e        (* ty_z remains free, and so *)
+2   deallocate ty_z        (* quantified and disposed of *)
+1 TArrow (ty_x, inst ty_y) (* inferred for: fun x -> ...*)
+```
+
+ 각 줄에 있는 번호는 `typeof` 재귀 함수의 호출 깊이이다. `typeof`가
+ AST의 리프가 아닌 각 노드에 대해서 재귀하기 때문에, 재귀 호출의
+ 깊이는 곧 아직 타입 체킹되지 않은 AST 노드의 깊이와 같다. 추론된
+ 타입은 예상대로 `'a -> 'b -> 'b` 이다. 아무 문제가 없다.
+
+ 두 번째 예시는 앞에서 본 것인데, 불안전한 일반화가 불안전한 타입 `'a
+ -> 'b`를 추론하는 것이다.
+
+```ocaml
+fun x -> let y = x in y
+```
+
+ 마찬가지로 `TVar` 연산 트레이스를 살펴보면 문제점이 드러난다.
+
+```ocaml
+1 ty_x = newvar ()         (* fun x -> .... *)
+2   ty_e =                 (* let y = x in y *)
+3     inst ty_x            (* inferred for x, same as ty_x *)
+2   ty_y = gen ty_e        (* ty_x remains free, and is *)
+2   deallocate ty_x        (* quantified and disposed of *)
+1 TArrow (ty_x, inst ty_y) (* inferred for: fun x -> ...*)
+```
+
+ 타입 변수 `ty_x`가 깊이 1에서 쓰였고 리턴 타입의 일부이다. 그런데
+ 양화되고 나서 깊이 2에서 버려진다. 여전히 쓰이고 있는 변수가 버려진
+ 것이다!
+
+ 세 번째 예시도 문제가 있다. 불안전한 일반화가 또 불안전한 타입 `('a
+ -> 'b) -> ('c -> 'd)`를 추론해버린다.
+
+```ocaml
+fun x -> let y = fun z -> x z in y
+```
+
+ 이 트레이스는 메모리 관리 문제를 또 보여준다.
+
+```ocaml
+1 ty_x = newvar ()           (* fun x -> .... *)
+2   ty_e =                   (* let y = ... *)
+3     ty_z = newvar ()       (* fun z -> ... *)
+4       ty_res = newvar ()   (* typechecking: x z *)
+4       ty_x :=              (* as the result of unify *)
+4         TArrow (ty_z, ty_res)
+4       ty_res               (* inferred for: x z *)
+3     TArrow (ty_z, ty_res)  (* inferred for: fun z -> x z*)
+2   ty_y = gen ty_e          (* ty_z, ty_res remain free *)
+2   deallocate ty_z          (* quantified and disposed of *)
+2   deallocate ty_res        (* quantified and disposed of *)
+1 TArrow (ty_x, inst ty_y)   (* inferred for: fun x -> ... *)
+```
+
+ 타입 변수 `ty_z`와 `ty_res`가 양화되고 난 후 깊이 2에서 버려지는데,
+ 여전히 `TArrow (ty_z, ty_res)` 타입의 일부로 할당되어 있는 채로
+ `ty_x`에 할당되고 결과의 일부로 리턴된다.
+
+ 모든 불안전한 예시는 여전히 사용 중인 메모리(`TVar`)를 해제하는
+ 이른바 "메모리 관리 문제"를 보여준다. 타입 변수가 양화될 때, 나중에
+ 그 어떤 타입이든 간에 이것과 함께 인스턴스화 될 수 있다. 하지만, 타입
+ 환경에 나타나는 타입 변수는 나머지 타입 체킹에 영향을 주지 않고서는
+ 어떤 타입으로도 대체될 수 없다. 비슷하게, 우리가 메모리를 해제할 때,
+ 우리는 런타임에 그 메모리를 재할당해서 임의의 데이터로 덮어쓸 수 있는
+ 권한을 준다. 프로그램의 나머지 부분은 해제된 메모리에 어떤 식으로든
+ 의존해서는 안된다. 마치 정말로 해제된 것처럼 가정해서, 프로그램에서
+ 더 이상 필요하지 않은 것처럼 다뤄야 한다. 사실, "사용하지 않는
+ 메모리"는 프로그램의 나머지 부분에 영향을 미치지 않는 메모리에 대한
+ 임의의 변경으로 정의할 수 있다. 여전히 사용 중인 메모리를 해제하는
+ 것은 프로그램의 나머지 부분에 영향을 미쳐서, 크래시를 내기도
+ 한다. 덧붙여서, 위의 예시에서 추론된 불안전한 타입은 종종 동일한
+ 결과를 초래하기도 한다 (즉, 크래시 난다).
+
+### 참조: 불안전한 타입 체커 전체 코드
+
+```ocaml
+type varname = string
+
+type exp =
+    | Var of varname
+    | App of exp * exp
+    | Lam of varname * exp
+    | Let of varname * exp * exp
+
+type qname = string
+type typ =
+    | TVar of tv ref
+    | QVar of qname
+    | TArrow of typ * typ
+and tv = Unbound of string | Link of typ
+
+let gensym_counter = ref 0
+let reset_gensym : unit -> unit =
+    fun () -> gensym_counter := 0
+
+let gensym : unit -> string = fun () ->
+    let n = !gensym_counter in
+    let () = incr gensym_counter in
+    if n < 26 then String.make 1 (Char.chr (Char.code 'a' + n))
+        else "t" ^ string_of_int n
+
+let newvar : unit -> typ =
+    fun () -> TVar (ref (Unbound (gensym ())))
+
+let rec occurs : tv ref -> typ -> unit = fun tvr -> function
+    | TVar tvr' when tvr == tvr' -> failwith "occurs check"
+    | TVar {contents= Link ty} -> occurs tvr ty
+    | TTArrow (t1, t2) ->
+        occurs tvr t1 ;
+        occurs tvr t2
+    | _ -> ()
+
+let rec unify : typ -> typ -> unit = fun t1 t2 ->
+    if t1 == t2 then ()
+    else match (t1, t2) with
+    | (TVar ({contents= Unbound _} as tv), t')
+    | (t', TVar ({contents= Unbound _} as tv)) ->
+        occurs tv t' ;
+        tv := Link t'
+    | (TVar {contents= Link t1}, t2) | (t1, TVar {contents= Link t2}) -> unify t1 t2
+    | (TArrow (tyl1, tyl2), TArrow (tyr1, tyr2)) ->
+        unify tyl1 tyr1 ;
+        unify tyl2 tyr2
+    (* everything else is error *)
+
+type env = (varname * typ) list
+
+let rec gen : typ -> typ = function
+    | TVar {contents= Unbound name} -> QVar name
+    | TVar {contents= Link ty} -> gen ty
+    | TArrow (ty1, ty2) -> TArrow (gen ty1, gen ty2)
+    | ty -> ty
+
+let inst : typ -> typ =
+    let rec loop subst = function
+        | QVar name ->
+            (try (List.assoc name subst, subst)
+             with Not_found ->
+                 let tv = newvar () in
+                 (tv, (name, tv) :: subst))
+        | TVar {contents= Link ty} -> loop subst ty
+        | TArrow (ty1, ty2) ->
+            let (ty1, subst) = loop subst ty1 in
+            let (ty2, subst) = loop subst ty2 in
+            (TArrow (ty1, ty2), subst)
+        | ty -> (ty, subst)
+    in
+    fun ty -> fst (loop [] ty)
+
+let rec typeof : env -> exp -> typ = fun env -> function
+    | Var x -> inst (List.assoc x env)
+    | Lam (x, e) ->
+        let ty_x = newvar () in
+        let ty_e = typeof ((x, ty_x)::env) e in
+        TArrow (ty_x, ty_e)
+    | App (e1, e2) ->
+        let ty_fun = typeof env e1 in
+        let ty_arg = typeof env e2 in
+        let ty_res = newvar () in
+        unify ty_fun (TArrow (ty_arg, ty_res)) ;
+        ty_res
+    | Let (x, e, e2) ->
+        let ty_e = typeof env e in
+        typeof ((x, gen ty_e)::env) e2
 ```
 
 ## Efficient generalization with levels
+
+ 여기서는 레미의 알고리즘 뒤에 있는 아이디어를 계속해서 설명한다. 이제
+ 우리는 불안전한 일반화가 아직 사용 중인 메모리를 해제하는 것과 어떻게
+ 관련되는지 보았기 때문에, 성급한 해제에 대한 표준적인 해결책인
+ 소유권(또는 구역; owership or regions) 추적을 적용해서 많은 오버헤드
+ 없이 이를 해결하려고 한다. 레미의 알고리즘의 주요 특징을 포착한
+ 최적의 방법인 `sound_lazy`는 다음에 나온다.
+
+ 분명히, 메모리를 해제하기 전에 메모리가 여전히 사용 중인지 반드시
+ 확인해야 한다. 나이브하게 구현하면, 우리는 해제 후보의 참조를 찾기
+ 위해서 지금 사용 중인 모든 메모리를 스캔할 수도 있다. 즉, 일종의 GC의
+ 전체 마킹 페이즈를 수행해서 후보가 마킹됐는지 확인할 수 있다. 이런
+ 식으로 하면, 이 확인 방법은 엄청나게 비쌀 것이다. 최소한 우리는
+ 가비지가 쌓일 때까지는 기다려야 한번에 수집할 수 있다. 아, 힌들리
+ 밀너 타입 시스템에서 우리는 양화를 임의로 지연할 수 없는데, 왜냐하면
+ 일반화된 타입은 아마 곧바로 쓰일 수 있기 때문이다.
+
+ 좀더 괜찮은 방법은 이른바 소유권(ownership) 추적이다: 할당된 자원을
+ 소유자, 개체, 또는 함수 활성화(activation)과 연결한다. 오직
+ 소유자만이 자원을 해제할 수 있다. 이것과 유사한 전략은 이른바 구역,
+ 즉 `letregion` 프리미티브로 사전적 범위로 지정된 힙 메모리의
+ 영역이다(areas of heap memory created by a lexically-scoped so-called
+ `letregion` primitive). `letregion`이 범위를 벗어나면, 그 전체 영역이
+ 즉시 해제된다. 이 아이디어는 일반화와도 잘 맞는다. 힌들리 밀너
+ 시스템에서 일반화는 항상 `let`의 일부이다. `let x = e in e2` 에서의
+ `let` 표현식은 `e`의 타입을 추론할 때 할당되는 모든 타입 변수의
+ 자연스러운 소유자이다. `e`의 타입이 발견되면, `let` 표현식이 소유하고
+ 있는 모든 자유 타입 변수는 버려질 수 있다. 즉, 양화될 수 있다.
+
+ 이러한 직관은 안전하고 효율적인 일반화 알고리즘의 기초가 된다. 먼저
+ `sound_eager`를 설명한다. 이 방법의 구현은 이전의 작은 힌들리 밀너
+ 추론기에서 조금만 다르지만, 굉장히 중요하다. 여기서는 이 차이점만
+ 설명한다. 전체 코드는 밑에 있다. 주요한 차이점은 자유 타입 변수가
+ 언바운드(자유)일 지라도, 이제 소유자에게 소유되어 소유자를 참조한다는
+ 것이다. 소유자는 항상 `let` 표현식이고, 이는 `level` 이라고 불리는
+ 양의 정수로 식별된다. 이것은 드 브루인(De Bruijin) 레벨 또는 해당
+ `let` 표현식의 중첩되는 깊이를 나타낸다. 레벨 1은 암묵적으로 최상위의
+ `let`에 해당한다. 참고로, `(let x = e1 in eb1, let y = e2 in eb2)`에
+ 있는 두 `let`은 모두 레벨 2를 갖지만, 두 `let` 모두 서로의 범위에
+ 없으므로 구역이 분리되어 있기 때문에 혼동이 발생할 수 없다. `let`
+ 중첩 깊이는 `let` 표현식의 타입 체킹 재귀 깊이와 동일하고 이는 하나의
+ 레퍼런스 쎌만 있으면 알아내기 쉽다.
+
+```ocaml
+type level = int
+let current_level = ref 1
+let enter_level () = incr current_level
+let leave_level () = decr current_level
+```
+
+ 타입 추론기는 이제 `let` 표현식을 타입 체킹할 때 깊이를 유지한다.
+
+```ocaml
+let rec typeof : env -> exp -> typ = fun env -> function
+    ... (* the other cases are the same as before *)
+    | Let (x, e, e2) ->
+        enter_level () ;
+        let ty_e = typeof env e in
+        leave_level () ;
+        typeof ((x, gen ty_e) :: env) e2
+```
+
+ 메인 타입 추론 함수에서 바뀐 점은 `enter_level`과 `leave_level`
+ 함수를 호출해서 레벨을 추적하는 것 뿐이다. 나머지 부분은 그대로다.
+
+ 자유 타입 변수는 이제 그 소유자를 확인할 수 있는 레벨과 같이
+ 간다. 새로 할당된 타입 변수는 `current_level`을 통해 가장 최근에 타입
+ 체킹된 `let` 표현식, 즉 소유자를 알 수 있다. 구역 기반 메모리
+ 관리에서, 모든 새로운 메모리는 가장 안쪽의 살아있는 구역에 할당되는
+ 것과 같다.
+
+```ocaml
+type typ =
+    | TVar of tv ref
+    | QVar of qname
+    | TArrow of typ * typ
+and tv = Unbound of string * level | Link of typ
+
+let newvar = fun () -> TVar (ref (Unbound (gensym (), !current_level)))
+```
+
+
+
 ## Even more efficient level-based generalization
 ## Type Regions
 ## Discovery of levels
