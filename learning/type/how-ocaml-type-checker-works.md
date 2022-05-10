@@ -843,7 +843,242 @@ let gen : typ -> unit = fun ty ->
 
 ## Inside the OCaml Type Checker
 ### Generalization with levels in OCaml
+
+ 여기서는 OCaml 타입 체커의 타입 레벨 구현과 효율적인 일반화에 대한
+ 적용을 설명한다.
+
+ OCaml의 타입 일반화 뒤에 있는 아이디어는 이전에 설명한
+ `sound_eager`와 `sound_lazy`와 같다. 이 코드들은 일부러 OCaml의 타입
+ 체커와 닮도록 구현했었다. OCaml 타입 체커는 `sound_eager` 알고리즘을
+ 구현했고 `sound_lazy` 에서 약간의 최적화를 적용했다. OCaml은 훨씬 더
+ 복잡하다: 토이 코드에서의 유니피케이션은 몇 줄 안되었지만, OCaml의
+ 유니피케이션 코드 (`ctype.ml`)는 1,634 줄이다. 그럼에도 불구하고 앞의
+ 핵심 아이디어를 이해하는 것은 OCaml 타입 체커를 해석하는데 도움이
+ 된다.
+
+ `sound_eager` 알고리즘과 마찬가지로 OCaml 타입 체커는 occurs check와
+ 레벨 업데이트를 각각의 자유 변수와의 유니피케이션에서
+ 수행한다. `Ctype.unify_var` 코드에서 확인할 수 있다. 반면에,
+ `sound_lazy`에서 했던 것처럼, OCaml 타입 체커는 모든 타입에 레벨을
+ 할당한다. `types.mli`의 `type_expr`에서 볼 수 있다. 이러는 이유는
+ 로컬 타입 생성자가 지역을 벗어나는 것을 감지하기 위함이다. 또
+ `sound_lazy`처럼, `generic_level`이 양화된 타입 변수와 양화된 변수를
+ 담고 있을 수 있는 타입을 구분한다. 즉, 이른바 제네릭 타입이라고
+ 불리는 녀석이다. 따라서, 스키마 인스턴스화 함수인 `Ctype.instance`와
+ `Ctype.copy`는 타입의 제네릭이 아닌 부분을 탐색하거나 복사하지 않고,
+ 그대로 리턴하여 공유를 개선한다. `generic_level`에 있는 타입 변수는
+ `'a`와 같이 출력된다. 다른 레벨은 `'_a`와 같이 출력된다. 우리의 토이
+ 알고리즘에서 봤듯이, 가변 글로벌 `Ctype.current_level`이 현재 레벨을
+ 추적하고 새롭게 생성된 타입이나 타입 변수에 할당된다. `Ctype.newty`와
+ `Ctype.newvar`에서 볼 수 있다. `current_level`은 `enter_def()` 함수로
+ 증가되고 `end_def()` 함수로 감소된다. `current_level` 외에도
+ `nongen_level`이라는 게 있는데, 클래스 정의를 타입 체킹할 때
+ 쓰인다. `global_level`은 타입 선언에 있는 타입 변수에 쓰인다.
+
+ `let x = e in body` 표현식을 타입 체킹하는 아주 단순화된 코드는
+ 다음과 같다.
+
+```ocaml
+let e_typed =
+    enter_def () ;
+    let r = type_check env e_source in
+    end_def () ;
+    r
+in
+generalize e_typed.exp_type ;
+let new_env = bind env x e_typed.exp_type in
+type_check new_env body_source
+```
+
+ 여기서 `e_source`는 AST 또는 `Parsetree.expression`인데 `e`를 위한
+ 표현식이다. `e_typed`는 `Typedtree.expression`으로 `exp_type` 필드로
+ 추론된 타입을 각 노드에 어노테이트하고 있는 AST이다.
+
+ 따라서, OCaml 타입 체커에서 자주 보이는 전체적인 타입 일반화 패턴은
+ 다음과 같다.
+
+```ocaml
+let ty =
+    enter_def () ;
+    let r = ... let tv = newvar () in ... ( ...tv ... )
+    end_def () ;
+    r in
+generalize ty
+```
+
+ 만약 `tv`가 `enter_def()` 이전에 타입 환경에 존재하는 다른 것과
+ 합쳐지지 않는다면, 변수는 일반화 될 것이다. 이 코드는 우리의 토이
+ 코드와 매우 닮았다.
+
+ 흥미롭게도, 레벨은 다른 용법이 있는데, 로컬 타입 선언을 위한 구역
+ 규칙을 강제하는 것이다.
+
 ### Type Regions
+
+ OCaml 타입 체커는 또한 타입이 선언되기 전에 쓰이지 않고 지역적으로
+ 도입된 타입이 더 넓은 범위로 빠져나가지 않도록 확인하기 위해서 타입
+ 레벨에 의존하고 있다. 대입 연산과 비슷하게, 유니피케이션은 두 가지를
+ 모두 용이하게 한다. 우리는 타입 레벨이 구역 기반 메모리 관리와 어떻게
+ 관계되어 있는지를 봤다. 그래서 레벨이 유니피케이션을 억제하는데
+ 도움이 되어서 자원의 잘못된 관리를 막는 것은 놀랍지 않다. 이번에는,
+ 타입 변수가 아니라 타입 상수일 뿐이다.
+
+ SML과 다르게 OCaml 에서는 로컬 모듈 또는 로컬 범위에 정의된 모듈을
+ 지원한다. 문법은 `let module` 형태이다. 로컬 모듈은 타입을 선언하거나
+ 심지어는 이 타입을 이스케이프하게 하기도 한다.
+
+```ocaml
+let y =
+    let module M = struct
+        type t = Foo
+        let x = Foo
+    end
+in M.x
+   ^^^
+Error: This expression has type M.t but an expression was expected of type 'a
+       The type constructor M.t would escape its scope
+```
+
+ 이런 이스케이프는 에러다. 그렇지 않으면 `y`는 `M.t` 타입을 받게
+ 되는데 `M.t`와 심지어 `M` 마저도 `y`의 범위에 있지 않게 된다. 이
+ 문제는 마치 C 함수에서 자동 지역 변수의 주소를 리턴하는 것과
+ 비슷하다.
+
+```c
+char * esc_res(void) {
+    char str [] = "local string";
+    return str;
+}
+```
+
+ 지역적으로 선언된 타입은 결과 타입 뿐만 아니라 존재하는 타입 변수와의
+ 유니피케이션을 통해서도 빠져나갈 수 있다.
+
+```ocaml
+fun y ->
+    let module M = struct
+        type t = Foo
+        let r = y Foo
+    end
+in ()
+                  ^^^
+Error: This expression has type t but an expression was expected of type 'a
+       The type constructor t would escape its scope
+```
+
+ 이런 종류의 에러는 C 프로그래머에게는 익숙할지도 모르겠다.
+
+```c
+char *y = (char*)0;
+void esc_ext(void) {
+    char str [] = "local string";
+    y = str;
+}
+```
+
+ 심지어 탑 레벨의 모듈도 타입이 빠져나가는 문제가 생길 수 있다. 다음
+ 예시는 OCaml 타입 체커 코드의 코멘트에서 가져왔다.
+
+```ocaml
+let x = ref []
+module M = struct
+    type t
+    let _ = (x : t list ref)
+end
+```
+
+ 변수 `x`는 제네릭이 아닌 타입 `'_a list ref`를 가지고 있다. 모듈
+ `M`은 로컬 타입 `t`를 정의한다. 타입 속성은 `t` 이전에 정의된 `x`를
+ 타입 `x : t list ref`를 갖게 만든다. `t`가 정의되기 전에 쓰인 것처럼
+ 보인다. 이런 타입 이스케이핑 문제는 심지어 모듈이 아니어도 발생할 수
+ 있다.
+
+```ocaml
+let r = ref []
+type t = Foo
+let () = r := [Foo]
+               ^^^
+Error: This expression has type t but an expression was expected of type 'weak1
+       The type constructor t would escape its scope
+```
+
+ OCaml은 이런 탈출을 그대로 내버려둘 수가 없다. 어떤 경우에도 타입
+ 생성자는 선언된 범위 밖에서 사용될 수 없다. 타입 레벨은 이런 구역
+ 같은 원칙을 타입 생성자에 강제한다.
+
+ OCaml 타입 체커는 이미 타입 일반화를 위해서 구역을 지원하는데,
+ `begin_def`로 새 구역에 진입하고 `end_def`로 새 구역을
+ 벗어난다(파괴한다). 그리고 구역의 소유자에게 타입을 연결해서
+ 유니피케이션이 수행되는 동안 소유권의 변경을 추적한다. 남은 것은 타입
+ 선언이 새 구역에 들어가고 선언된 타입 생성자가 이 구역과 연결하는
+ 것이다. 이 타입 생성자가 나타나는 모든 구역은 타입 선언 구역 내의
+ 구역에 속해야 한다. 타입 생성자의 선언은 모든 사용 이전에 나타나야
+ 한다(dominate).
+
+ 이전에 설명했듯이, 타입 구역은 양의 정수인 타입 레벨로 식별된다. 이는
+ 구역의 중첩된 깊이이다. 각각의 타입은 `level` 필드가 있어서 소유된
+ 구역의 레벨을 알 수 있다. 타입 생성자는 이거랑 비슷한 레벨
+ 어노테이션이 필요하다. OCaml의 다른 기능이 정확히 이 목적을
+ 제공한다는 것이 밝혀졌다. 타입 생성자, 데이터 생성자, 텀 변수는 OCaml
+ 프로그램 안에서 재정의 될 수 있다. 타입은 재선언될 수 있고, 변수는
+ 여러 번 다시 묶일 수 있다. OCaml은 *식별자(identifier)*
+ (`ident.ml`)에 의존하는데, 이를 통해 같은 이름으로 나타나지만
+ 실제로는 다르게 선언되거나 묶인 것들을 구별할 수 있다. 식별자는
+ 이름과 양의 정수인 타임 스탬프를 갖고 있다. 글로벌 가변
+ `Ident.currentstamp`는 현재 시간을 추적하고 새로운 식별자가 선언 또는
+ 바인딩으로 생성되면 이를 증가시킨다. 식별자의 타임스탬프는 따라서
+ 그게 바인딩 타임(binding time; 묶인 시간)이다. 바인딩 타임은 식별자를
+ 타입 구역에 연결하는 자연스러운 방법이다. 만약 현재 시간이 현재
+ 레벨로 설정되어 있다면, 새로운 식별자는 현재 레벨보다 더 작은 바인딩
+ 타임을 가질 수 없다. 이들은 현재 타입 구역에 소유된 것으로
+ 간주된다. 빠져나가지 않는다는 것(non-escaping)은 곧 타입의 레벨이
+ 타입 안에 있는 각각의 타입 생성자의 바인딩 타임보다 작지 않다는 것을
+ 뜻한다.
+
+ 유니피케이션, 구체적으로는 자유 타입 변수와의 유니피케이션은 할당과도
+ 비슷한데, 타입의 소유자를 바꿀 수 있어서 이에 따라 타입 레벨을
+ 업데이트 해줘야 한다. 동시에 이는 빠져나가지 않는 성질(non-escaping
+ property)가 여전히 유효한지 검사한다. `Ctype.update_level`에서 볼 수
+ 있다.
+
+ 이제 우리는 로컬 모듈, 즉 `let module name = modl in body` 표현식을
+ 타입 체킹하기 위한 OCaml 코드를 이해할 수 있다. `typecore.ml`에서
+ 발췌했다.
+
+```ocaml
+    | Pexp_letmodule(name, smodl, sbody) ->
+        let ty = newvar () in
+        (* remember the original level *)
+        begin_def () ;
+        Ident.set_current_time ty.level ;
+        let context = Typetexp.narrow () in
+        let modl = !type_module env smodl in
+        let (id, new_env) = Env.enter_module name.txt modl.mod_type env in
+        Ctype.init_def (Ident.current_time()) ;
+        Typetexp.widen context ;
+        let body = type_expect new_env sbody ty_expected in
+        (* go back to original level *)
+        end_def () ;
+        (* Check that the local types declared in modl don't escape
+           through the return type of body *)
+        begin try
+            Ctype.unify_var new_env ty body.exp_type
+        with Unify _ ->
+            raise (Error (loc, Scoping_let_module (name.txt, body.exp_type)))
+        end ;
+        re {
+            exp_desc = Texp_letmodule (id, name, modl, body) ;
+            exp_loc = loc ;
+            exp_extra = [] ;
+            exp_type = ty ;
+            exp_env = env }
+```
+
+ 타입 변수 `ty`는 표현식의 추론된 타입을 받기 위해서 생성된다. 변수는
+ 현재 구역에서 생성된다. 그러고 나면 `begin_def()`로 새로운 타입
+ 구역에 들어가게 되고 식별자 타임스탬프 클럭이 새로운
+ `current_level`로 지정된다.
+
 ### Discovery of levels
 ### Creating fresh type variables
 ### True complexity of generalization
