@@ -541,16 +541,309 @@ and tv = Unbound of string * level | Link of typ
 let newvar = fun () -> TVar (ref (Unbound (gensym (), !current_level)))
 ```
 
+ 대입 연산이 할당된 메모리 조각의 소유자를 바꿀 수 있는 것처럼,
+ 유니피케이션도 자유 타입 변수의 레벨(소유자)을 바꿀 수 있다. 예를
+ 들어, 만약 `ty_x` (레벨 1)과 `ty_y` (레벨 2)가 둘다 자유 변수이고
+ `ty_x`가 `TArrow(ty_y, ty_y)`와 합쳐진다면, 이 함수 타입과 그
+ 구성요소는 구역 1로 내보내지고 따라서 `ty_y`의 레벨이 1로 바뀐다. 이
+ 유니피케이션이 모든 `ty_x`가 나타나는 것을 `TArrow(ty_y, ty_y)`로
+ 바꾸는 것이라고 볼 수도 있다. `ty_x`가 더 작은 레벨을 가지고 있고
+ 따라서 안쪽 구역인 레벨 2의 `let`보다 더 바깥에 나타나기 때문에, 안쪽
+ `let` 표현식이 타입 체크되고 난 이후에도 `ty_y`는 해제되어서는
+ 안된다. `ty_y` 레벨이 업데이트되었다면 그렇지 않다. 대체로, 자유 타입
+ 변수 `ty_x`와 `t`를 합치려면 각각의 자유 타입 변수 `ty_y`의 레벨을
+ `ty_y`와 `ty_x` 레벨 중 작은 값으로 업데이트해야 한다. 자유 타입
+ 변수를 `t`와 합치려면 또한 occurs check도 해야하는데, 이것도 타입
+ 트리를 탐색한다. 이 두 탐색은 합쳐질 수 있다. 새로운 `occurs` 함수는
+ occurs check와 레벨 갱신을 동시에 한다.
 
+```ocaml
+let rec occurs : tv ref -> typ -> unit = fun tvr -> function
+    | TVar tvr' when tvr == tvr' -> failwith "occurs check"
+    | TVar ({contents= Unbound (name, l')} as tv) ->
+        let min_level =
+            (match !tvr with Unbound (_, l) -> min l l' | _ -> l') in
+        tv := Unbound (name, min_level)
+    | TVar {contents= Link ty} -> occurs tvr ty
+    | TArrow (t1, t2) -> occurs tvr t1 ; occurs tvr t2
+    | _ -> ()
+```
 
+ 원래의 `occurs`와 다른 부분은 두 번째 패턴 매치 부분
+ 뿐이다. 유니피케이션 코드는 수정될 필요가 전혀 없다. 마지막으로,
+ 일반화 함수를 수정해서 안전하게 만들자.
 
+```ocaml
+let rec gen : typ -> typ = function
+    | TVar {contents= Unbound (name, l)} when l > !current_level -> QVar name
+    | TVar {contents= Link ty} -> gen ty
+    | TArrow (ty1, ty2) -> TArrow (gen ty1, gen ty2)
+    | ty -> ty
+```
+
+ 아주 작은 수정인 `when l > !current_level` 조건만 추가되었다. 새로운
+ `typeof` 코드를 다시 떠올려 보자.
+
+```ocaml
+let rec typeof : env -> exp -> typ = fun env -> function
+    ...
+    | Let (x, e, e2) ->
+        enter_level () ;
+        let ty_e = typeof env e in
+        leave_level () ;
+        typeof ((x, gen ty_e) :: env) e2
+```
+
+ `e`의 타입 체킹을 위해서 만든 구역에서 빠져나간 이후에 `gen`을
+ 호출하고 있다. 그 구역이 여전히 소유하고 있는 자유 타입 변수는 현재
+ 레벨보다 더 큰 레벨을 가질 것이다. 구역이 이제 죽었기 때문에, 그러한
+ 자유 변수는 해제될 수 있는데, 이는 곧 양화될 수 있다는 뜻이다.
+
+ 이게 불안전했던 알고리즘을 수정한 `sound_eager`의 전부이다. 이제
+ 불안전한 타입 추론을 해결했다. 이전에 문제가 되었던 예시를 다시
+ 살펴보자.
+
+```ocaml
+fun x -> let y = x in y
+```
+
+ `TVar` 연산과 관련된 흐름을 보면 이제 문제가 없다.
+
+```ocaml
+1  1  ty_x/1 = newvar ()           (* fun x -> ... *)
+2  2    ty_e =                     (* let y = x in y *)
+3  2      inst ty_x/1              (* inferred for x, same as ty_x *)
+2  1    ty_y = gen ty_e            (* ty_x/1 remains free, but is level = current, can't quantify, can't dispose *)
+1  1  TArrow(ty_x/1, inst ty_y)    (* inferred for: fun x -> ... *)
+```
+
+ 한 가지 정보가 추가되었다. 컬럼의 첫 번째 숫자는 `typeof`의 재귀 깊이
+ 또는 아직 타입 체크되지 않은 AST 노드의 깊이를 나타내고, 두 번째
+ 숫자는 `current_level`, 즉 `let` 중첩 깊이를 나타낸다. 자유 타입
+ 변수의 레벨은 `ty_x/1`와 같이 슬래쉬 뒤에 표시한다. `ty_x/1`이 현재
+ 레벨, 즉 여전히 살아있는 구역 1에 속하기 때문에, 해당 변수는 더 이상
+ 깊이 2(레벨 1)의 `gen`에 의해 양화되지 않는다. 따라서, 추론된 타입은
+ 예상대로 `'a -> 'a`가 된다.
+
+ 좀더 복잡한 예시를 살펴보면
+
+```ocaml
+fun x -> let y = fun z -> x in y
+```
+
+ `x`의 타입을 위한 타입 변수 `ty_x`는 레벨 1에서 할당되는 반면,
+ `ty_z`는 레벨 2에서 할당된다. 안쪽의 구역 2인 `let`이 끝난 이후에,
+ `ty_z/2`는 양화되어 버려지지만, `ty_x/1`는 아니다. 따라서 추론된
+ 타입은 `'a -> 'b -> 'a`가 된다. 다이어그램을 그려보면 이게 안전하게
+ 추론된 타입이라는 것을 알 수 있다.
+
+ 레벨 추적은 레퍼런스 카운팅과 비슷하게 생겼을 수도 있다. 하지만, 자유
+ 타입 변수의 모든 사용자 수를 세는 것이 아니라, 우리는 딱 한명의
+ 유저만 추적하는데, 바로 가장 넓은 범위이다. 레벨 추적은 따라서 세대간
+ 가비지 콜렉션과 더 많이 닮아 있다: 메모리는 마이너 세대에서 할당되고,
+ 다른 부모가 할당되거나 스택이 참조하지 않는 이상 마이너 콜렉션에서
+ 한번에 버려진다. 메이저 세대는 새로운 세대에 대한 참조를 스캔할
+ 필요가 없는데, 왜냐하면 메이저 데이터 구조의 필드를 가리키는 마이너
+ 값(또는 이에 대한 포인터)의 대입 연산이 없는 이상 그런 참조는 없을
+ 것으로 예상되기 때문이다. OCaml GC와 같은 세대간 가비지 콜렉터는
+ 마이너 세대에서 메이저 세대로의 대입 연산을 추적한다. 마이너
+ 콜렉션에서, 메이저 데이터에서 참조된 마이너 데이터가 메이저 세대로
+ 승격된다. 타입 일반화는 실제로 마이너 GC와 매우 유사하다.
 
 ## Even more efficient level-based generalization
-## Type Regions
-## Discovery of levels
+
+ 여기서는 레미의 알고리즘의 핵심 아이디어를 계속해서 살펴보고
+ `sound_lazy`를 설명한다. 이는 이전 섹션에서 살펴본 `sound_eager`의
+ 최적화된 버전이다. `sound_lazy` 알고리즘은 유니피케이션, 일반화,
+ 인스턴스화 도중 발생하는 반복되는 불필요한 타입 탐색을 피하고,
+ 일반화하거나 인스턴스화 하기 위해 변수를 포함하지 않는 부분을
+ 복사하는 것을 피해서 데이터 공유를 개선한다. 이 알고리즘은 occurs
+ check과 레벨 갱신을 늦춰서 자유 타입 변수와의 유니피케이션이 상수
+ 시간이 걸리도록 한다. 레벨은 점진적으로 필요할 때에만
+ 갱신된다. `sound_lazy`는 레미의 알고리즘의 핵심 아이디어를 구현하고
+ 있다. 이 중 일부는 실제 OCaml 타입 체커에 구현되어 있다.
+
+ 최적화를 위해서 먼저 타입의 문법을 수정해야 한다. `sound_eager`에서는
+ 타입이 자유(`Unbound`) 또는 묶인(`Link`) 타입 변수 `TVar`,
+ (암묵적으로 보편적) 양화된 타입 변수 `QVar`, 그리고 함수 타입
+ `TArrow`로 구성되었던 것을 기억하자. 먼저, 겉보기에는 무의미한
+ 수정인데, `QVar`를 제거해서 별개의 대안인 아주 큰 양의 정수
+ `generic_level`을 도입하는데, 이는 접근할 수 없는 서수 $$ \omega $$를
+ 의미한다. `generic_level`에 있는 자유 타입 변수 `TVar` 양화된 타입
+ 변수로 간주된다. 그리고, 이제 자유 타입 변수뿐만 아니라 모든 타입이
+ 레벨을 갖는다. 복합 타입(우리의 경우 `TArrow`)의 레벨은, 반드시
+ 정확하지는 않지만, 그 구성 요소의 레벨의 상한(Upper Bound)이
+ 된다. 즉, 만약 타입이 살아있는 구역에 속해있다면, 그 구성 요소도 모두
+ 살아있어야 한다. 따라서 (복합) 타입이 `generic_level`에 있으면, 이는
+ 양화된 타입 변수를 포함할 수 있다. 반대로, 만약 타입이
+ `generic_level`에 없으면, 어떤 양화된 변수도 포함하지 않는다. 따라서,
+ 이런 타입을 인스턴스화 하면 타입을 탐색하지 않고 그대로 리턴해야
+ 한다. 마찬가지로, 타입의 레벨이 현재 레벨보다 더 크면, 일반화할 자유
+ 타입 변수를 포함하고 있을 수 있다. 반면에, 일반화 함수는 레벨이 현재
+ 레벨보다 작거나 같은 타입을 탐색해서는 안된다. 이것이 바로 레벨이
+ 어떻게 과도한 탐색과 타입의 재구축을 제거해서 공유를 개선하는데
+ 도움이 되는 첫 번째 예시이다.
+
+ 타입을 자유 타입 변수와 합칠 때는 타입의 레벨을 타입 변수의 레벨이 더
+ 작으면 해당 레벨로 업데이트해야 한다. 합성 타입에 대해서는 이런
+ 업데이트가 곧 타입의 모든 구성요소의 레벨을 재귀적으로 업데이트해야
+ 한다는 뜻이다. 이런 비싼 탐색을 늦추기 위해서, 우리는 합성 타입에 두
+ 개의 레벨을 저장해 둔다: `level_old`는 타입의 구성요소의 레벨에 대한
+ 상한이고; `level_new`는 `level_old`보다 작거나 같은 값으로 타입이
+ 업데이트 이후에 가져야하는 레벨 값이다. 만약 `level_new < level_old`
+ 라면, 타입은 보류 중인 레벨 갱신이 있다. `sound_lazy`의 타입 문법은
+ 따라서:
+
+```ocaml
+type level = int
+let generic_level = 100_000_000  (* as in OCaml typing/btype.ml *)
+let marked_level = -1            (* for marking a node, to check for cycles *)
+
+lype typ =
+    | TVar of tv ref
+    | TArrow of typ * typ * levels
+and tv = Unbound of string * level | Link of typ
+and levels = {mutable level_old: level; mutable level_new: level}
+```
+
+ 아직 `marked_level`은 설명하지 않았다. 각각의 자유 타입 변수와의
+ 유니피케이션에서 occurs check는 비싼 연산이라서 유니피케이션과 타입
+ 체킹 알고리즘의 복잡도를 올린다. 우리는 이제 이 체크를 전체 표현식이
+ 타입 체크될 때까지 늦출 것이다. 그러는 동안, 유니피케이션이 타입에서
+ 싸이클을 만들 수 있다. 타입 탐색은 이 싸이클을 탐색해야
+ 한다. `marked_level`은 임시로 합성 타입의 `level_new`로 할당되어
+ 타입이 탐색 중이라는 것을 알린다. 탐색 도중 `marked_level`을 만난다는
+ 것은 싸이클을 발견했다는 뜻이고, occurs check는 에러를
+ 알린다. 덧붙여서, OCaml 타입은 일반적으로 싸이클릭하다: 오브젝트와
+ 폴리모픽 배리언트를 타입 체킹할 때 재귀적인 타입이 발생하고,
+ `-rectypes` 컴파일러 옵션이 켜져있으면 된다. OCaml 타입 체커는
+ `marked_level`과 비슷한 트릭을 이용해서 싸이클을 찾아서 에러를
+ 막는다.
+
+ `sound_lazy`의 유니피케이션은 몇 가지 중요한 차이점이 있다:
+
+```ocaml
+let rec unify : typ -> typ -> unit = fun t1 t2 ->
+    if t1 == t2 then ()
+    else match (repr t1, repr t2) with
+    | (TVar ({contents= Unbound (_, l1)} as tv1) as t1,
+      (TVar ({contents= Unbound (_, l2)} as tv2) as t2)) ->
+          (* unify two free vars *)
+          if l1 > l2 then tv1 := Link t2 else tv2 := Link t1
+    | (TVar ({contents= Unbound (_, l)} as tv), t')
+    | (t', TVar ({contents= Unbound (_, l)} as tv)) ->
+        update_level l t' ;
+        tv := Link t'
+    | (TArrow (tyl1, tyl2, ll), TArrow (tyr1, tyr2, lr)) ->
+        if ll.level_new = marked_level || lr.level_new = marked_level then
+            failwith "cycle: occurs check" ;
+        let min_level = min ll.level_new lr.level_new in
+        ll.level_new <- marked_level ;
+        lr.level_new <- marked_level ;
+        unify_lev min_level tyl1 tyr1 ;
+        unify_lev min_level tyl2 tyr2 ;
+        ll.level_new <- min_level ;
+        lr.level_new <- min_level ;
+and unify_lev l ty1 ty2 =
+    let ty1 = repr ty1 in
+    update_level l ty1 ;
+    unify ty1 ty2
+```
+
+ 여기서 `repr`은 OCaml의 `Btype.repr`과 비슷하게 자유 변수 또는 생성된
+ 타입을 리턴하는 묶인 변수의 링크를 따라간다. OCaml과 다르게, 우리는
+ 경로 압축(유니온 파인드의 최적화 방법)을 적용한다. 유니피케이션
+ 함수는 더 이상 occurs check을 하지 않는다. 따라서, 우연히 만들어진
+ 싸이클을 찾도록 노력해야 한다. 자유 변수를 합치는 일은 이제 얕은
+ `update_level` 이후에 변수를 바인드하여 상수 시간이 걸린다.
+
+ `update_level` 함수는 최적화 알고리즘의 핵심 부분 중 하나이다. 이것은
+ 그저 타입의 레벨을 주어진 레벨로 업데이트할 것을 약속한다. 이것은
+ 상수 시간에 동작하고 타입 레벨이 오직 감소하기만 할 수 있는 불변식을
+ 유지한다. 타입 변수의 레벨은 즉각 갱신된다. 합성 타입에 대해서는
+ `level_new`가 필요한 새로운 (더 작은) 레벨로 업데이트된다. 추가로,
+ 만약 이전의 `level_new`와 `level_old`가 같다면, 타입은
+ `to_be_level_adjusted` 큐에 추가되어 구성 요소의 레벨을 나중에
+ 업데이트한다. 이런 작업 큐는 세대간 가비지 콜렉터의 마이너 세대로부터
+ 메이저 세대로의 대입 연산의 리스트와 닮아있다.
+
+```ocaml
+let to_be_level_adjusted = ref []
+
+let update_level : level -> typ -> unit = fun l -> function
+    | TVar ({contents= Unbound (n, l')} as tvr) ->
+        assert (not (l' = generic_level)) ;
+        if l < l' then tvr := Unbound (n, l)
+    | TArrow (_, _, ls) as ty ->
+        assert (not (ls.level_new = generic_level)) ;
+        if ls.level_new = marked_level then failwith "occurs check" ;
+        if l < ls.level_new then (
+            if ls.level_new = ls.level_old then
+                to_be_level_adujsted := ty :: !to_be_level_adjusted ;
+            ls.level_new <- l
+        )
+    | _ -> assert false
+```
+
+ 보류 중인 레벨 갱신은 반드시 일반화 이전에 수행되어야 한다. 결국 보류
+ 중인 갱신은 타입 변수의 레벨을 감소시킬 수 있는데, 즉 더 넓은
+ 구역으로 승격되어서 양화로부터 구해준다. 하지만 모든 보류 중인
+ 업데이트가 강제될 필요는 없다. 오직 `level_old > current_level` 인
+ 타입만 하면 된다. 그렇지 않으면, 타입은 현재 시점에서 일반화 가능한
+ 변수가 없게 되고, 레벨 갱신이 더 늦춰질 수 있다. 이런 강제된
+ 알고리즘은 `force_delayed_adjustments`에 구현되어 있다. 덧붙여, 만약
+ 합성 타입의 레벨 업데이트가 정말로 수행된다면, 타입은 탐색되어야
+ 한다. 두 `TArrow` 타입의 유니피케이션은 또한 이들을 탐색해야
+ 한다. 따라서, 유니피케이션은 원칙적으로는 그 과정에서 레벨을
+ 업데이트할 수도 있다. 하지만 해당 최적화는 구현되어 있지 않다.
+
+ 일반화 함수는 죽은 구역에 속한 (즉, 레벨이 현재 레벨보다 큰) 자유
+ `TVar`를 찾고 그들의 레벨을 `generic_level`로 설정해서 변수를
+ 양화한다. 함수는 오직 타입이 일반화 해야할 타입 변수를 담고 있을 수
+ 있는 부분만 탐색한다. 만약 타입이 (새로운) 현재 레벨 `current_level`
+ 또는 이보다 작은 레벨을 갖고 있다면, 그 타입의 모든 구성요소는
+ 살아있는 구역에 속해있고 따라서 일반화할 게 없다. 일반화가 끝난 뒤에
+ 만약 양화된 타입 변수를 담고 있으면 합성 타입은 `generic_level`을
+ 받는다. 나중에 인스턴스화 함수는 따라서 레벨이 `generic_level`인
+ 타입만 살펴보면 된다.
+
+```ocaml
+let gen : typ -> unit = fun ty ->
+    force_delayed_adjustments () ;
+    let rec loop ty =
+        match repr ty with
+        | TVar ({contents= Unbound (name, l)} as tvr) when l > !current_level ->
+            tvr := Unbound (name, generic_level)
+        | TArrow (ty1, ty2, ls) when ls.level_new > !current_level ->
+            let ty1 = repr ty1 and ty2 = repr ty2 in
+            loop ty1 ;
+            loop ty2 ;
+            let l = max (get_level ty1) (get_level ty2) in
+            (* set the exact level upper bound *)
+            ls.level_old <- l ;
+            ls.level_new <- l
+        | _ -> ()
+    in loop ty
+```
+
+ 테입 체커의 `typeof`는 수정하지 않아도 된다. 여전히 `let` 표현식을
+ 타입 체킹할 때 새로운 구역에 들어가야 한다.
+
+ 여기까지, 최적화된 `sound_lazy` 타입 일반화 알고리즘을 통해
+ 일반화마다 타입 환경 전체를 스캐닝 하지 않아도 될 뿐만 아니라 각각의
+ 자유 타입 변수와의 유니피케이션에서 occurs check도 피할 수
+ 있었다. 결과적으로 유니피케이션에 상수 시간이 소요된다. 알고리즘은
+ 불필요한 타입 탐색과 복사를 줄여서 시간과 공간을 절약했다. 자유 타입
+ 변수를 위한 타입 레벨 외에도 두 개의 아이디어가 최적화의 뿌리가
+ 된다. 하나는 합성 타입의 레벨을 배치해서 타입을 살펴보지 않고도
+ 타입이 무엇을 담고 있을지를 확인하는 것이다. 다른 하나는 비싼 연산인
+ 타입 탐색을 늦춰서 나중에 다른 작업이랑 같이 하는 것이다. 즉, 문제를
+ 해결하는 일이 충분히 미뤄진다면, 어쩌면 사라질 수도 있다: 미루는 것이
+ 때로는 도움이 된다.
 
 ## Inside the OCaml Type Checker
 ### Generalization with levels in OCaml
 ### Type Regions
+### Discovery of levels
 ### Creating fresh type variables
 ### True complexity of generalization
