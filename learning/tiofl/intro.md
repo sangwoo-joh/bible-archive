@@ -190,3 +190,28 @@ parent: The Implementation of Functional Languages
  - 챕터 9에서 타입 체커 구현
  - 챕터 17은 (파트 2이긴 하지만) 가비지 콜렉션 얘기..를 고작 10
    페이지에?!
+
+## ZINC
+
+ OCaml의 아버지 Xavier Leroy는 해답을 알고 있다. [The ZINC experiment:
+ an economical implementation of the ML
+ language](https://xavierleroy.org/bibrefs/Leroy-ZINC.html)의
+ Motivation 섹션에에 아예 이런 문장이 있다:
+
+> ... One of the best ways to really understand a language is to look
+> at an actual implementation. While, for instance, toy
+> implementations of Pascal abound in the literature, there is no work
+> describing in detail an actual implementation of ML. Peyton-Jone's
+> book [The Implementation of Functional Programming Languages] is an
+> excellent introductory text, but **not totally relevant to ML**,
+> since it uses Miranda, not ML, as its source language, and **it
+> focuses on lazy evaluation through graph reduction**, while ML
+> usually has strict semantics. A few papers on the Standard ML of New
+> Jersey implementation have been published, but they are fairly
+> high-level -- they don't show much of the code! And regarding the
+> CAML system, nothing has been published yet, Ascander Suarez's
+> thesis is still forthcoming, and in the meantime the curious mind is
+> left with 70,000 lines of very sparesly commented source code.
+
+그러니까 정확히 내가 원하는 것은 ZINC 시스템에 있다. ZINC는 "ZINC Is
+Not Caml"의 recursive acronym이고 이게 바로 OCaml의 근간이 된다.
