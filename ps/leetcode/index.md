@@ -136,7 +136,7 @@ has_toc: false
 
 ### DP
 
- - [ ] [Range Sum Query 2D Immutable](range-sum-query-2d-immutable)
+ - [x] [Range Sum Query 2D Immutable](range-sum-query-2d-immutable)
  - [ ] [Climbing Stairs](climbing-stairs)
  - [ ] [Coin Change](coin-change)
  - [ ] [Longest Increasing Subsequence](longest-increasing-subsequence)
