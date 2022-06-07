@@ -41,6 +41,7 @@ has_toc: false
  - [x] [Prison Cells after N Days](prison-cells-after-n-days)
  - [x] [Remove Duplicates from Sorted Array](remove-duplicates-from-sorted-array)
  - [x] [Shortest Unsorted Continuous Subarray](shortest-unsorted-continuous-subarray)
+ - [x] [Monotonic Array](monotonic-array)
 
 ### Graph
 
