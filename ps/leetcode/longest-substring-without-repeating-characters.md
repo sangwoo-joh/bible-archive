@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, leetcode, python, string, two-pointer]
+tags: [problem-solving, leetcode, python, string, two-pointers]
 title: Longest Substring Without Repeating Characters
 parent: LeetCode
 grand_parent: Problem Solving

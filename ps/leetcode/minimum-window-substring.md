@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, leetcode, python, string, two-pointer]
+tags: [problem-solving, leetcode, python, string, two-pointers]
 title: Minimum Window Substring
 parent: LeetCode
 grand_parent: Problem Solving

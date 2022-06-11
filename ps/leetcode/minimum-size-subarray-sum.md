@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, leetcode, python, two-pointer]
+tags: [problem-solving, leetcode, python, two-pointers]
 title: Minimum Size Subarray Sum
 parent: LeetCode
 grand_parent: Problem Solving
