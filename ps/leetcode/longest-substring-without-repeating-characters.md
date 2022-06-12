@@ -85,7 +85,7 @@ def longest_substring_without_repeating(s):
    해야한다. 왜냐하면, 예를 들어 "abba"의 경우,
      1. `a`, `b`를 거치면서 `occured_index = {'a': 0,
         'b': 1}`이 된다.
-     2. 두번째 `b`를 만나면 `start = 1`이 된다.
-     3. 두번째 `a`를 만나면 `start = 0`이 된다(??)
+     2. 두번째 `b`를 만나면 `start = 2`이 된다.
+     3. 두번째 `a`를 만나면 `start = 1`이 된다(??)
 
  이런 경우가 발생할 수 있기 때문이다.
