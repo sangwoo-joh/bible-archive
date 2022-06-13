@@ -151,5 +151,6 @@ has_toc: false
  - [ ] [House Robber II](house-robber-ii)
  - [x] [Decode Ways](decode-ways)
  - [x] [Unique Paths](unique-paths)
+ - [x] [Triangle](triangle)
  - [ ] [Jump Game](jump-game)
  - [x] [Minimum Difficulty of a Job Schedule](minimum-difficulty-of-a-job-schedule)
