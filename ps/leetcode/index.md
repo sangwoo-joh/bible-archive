@@ -91,6 +91,8 @@ has_toc: false
 
 ### String
 
+ - [x] [Longest Common Subsequence](longest-common-subsequence)
+ - [x] [Delete Operation for Two Strings](delete-operation-for-two-strings)
  - [x] [Longest Substring Without Repeating Characters](longest-substring-without-repeating-characters)
  - [ ] [Longest Repeating Character Replacement](longest-repeating-character-replacement)
  - [x] [Minimum Window Substring](minimum-window-substring)
