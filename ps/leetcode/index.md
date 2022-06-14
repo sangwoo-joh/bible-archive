@@ -43,7 +43,7 @@ has_toc: false
  - [x] [Shortest Unsorted Continuous Subarray](shortest-unsorted-continuous-subarray)
  - [x] [Monotonic Array](monotonic-array)
  - [x] [Minimum Operations to Reduce X to Zero](minimum-operations-to-reduce-x-to-zero)
- - [ ] [Maximum Size Subarray Sum Equals k](maximum-size-subarray-sum-equals-k)
+ - [x] [Maximum Size Subarray Sum Equals k](maximum-size-subarray-sum-equals-k)
  - [x] [Maximum Erasure Value](maximum-erasure-value)
 
 ### Graph
