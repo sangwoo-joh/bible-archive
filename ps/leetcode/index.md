@@ -156,3 +156,4 @@ has_toc: false
  - [x] [Triangle](triangle)
  - [ ] [Jump Game](jump-game)
  - [x] [Minimum Difficulty of a Job Schedule](minimum-difficulty-of-a-job-schedule)
+ - [x] [Longest String Chain](longest-string-chain)
