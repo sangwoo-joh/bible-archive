@@ -87,7 +87,7 @@ has_toc: false
  - [ ] [Set Matrix Zeroes](set-matrix-zeroes)
  - [ ] [Spiral Matrix](spiral-matrix)
  - [x] [Rotate Image](rotate-image)
- - [ ] [Word Search](word-search)
+ - [x] [Word Search](word-search)
 
 ### String
 
