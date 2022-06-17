@@ -123,6 +123,7 @@ has_toc: false
  - [x] [Word Search II](word-search-ii)
  - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
  - [x] [Design Search Autocomplete System](design-search-autocomplete-system)
+ - [x] [Binary Tree Cameras](binary-tree-cameras)
 
 
 ### Heap
