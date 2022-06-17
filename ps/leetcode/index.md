@@ -120,7 +120,7 @@ has_toc: false
  - [x] [Lowest Common Ancestor of a Binary Search Tree](lowest-common-ancestor-of-a-binary-search-tree)
  - [x] [Implement Trie](implement-trie)
  - [ ] [Add and Search Word](add-and-search-word)
- - [ ] [Word Search II](word-search-ii)
+ - [x] [Word Search II](word-search-ii)
  - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
  - [x] [Design Search Autocomplete System](design-search-autocomplete-system)
 
