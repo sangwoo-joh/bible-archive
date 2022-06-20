@@ -106,6 +106,7 @@ has_toc: false
  - [x] [Text Justification](text-justification)
  - [x] [Design Search Autocomplete System](design-search-autocomplete-system)
  - [x] [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure)
+ - [x] [Search Suggestions System](search-suggestions-system)
 
 ### Tree
 
