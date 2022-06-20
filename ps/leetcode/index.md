@@ -104,6 +104,8 @@ has_toc: false
  - [x] [Palindromic Substrings](palindromic-substrings)
  - [ ] [Encode and Decode Strings](encode-and-decode-strings)
  - [x] [Text Justification](text-justification)
+ - [x] [Design Search Autocomplete System](design-search-autocomplete-system)
+ - [ ] [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure)
 
 ### Tree
 
@@ -119,10 +121,8 @@ has_toc: false
  - [x] [Kth Smallest Element in a BST](kth-smallest-element-in-a-bst)
  - [x] [Lowest Common Ancestor of a Binary Search Tree](lowest-common-ancestor-of-a-binary-search-tree)
  - [x] [Implement Trie](implement-trie)
- - [ ] [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure)
  - [x] [Word Search II](word-search-ii)
  - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
- - [x] [Design Search Autocomplete System](design-search-autocomplete-system)
  - [x] [Binary Tree Cameras](binary-tree-cameras)
 
 
