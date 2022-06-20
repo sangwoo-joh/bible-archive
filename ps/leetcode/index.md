@@ -105,7 +105,7 @@ has_toc: false
  - [ ] [Encode and Decode Strings](encode-and-decode-strings)
  - [x] [Text Justification](text-justification)
  - [x] [Design Search Autocomplete System](design-search-autocomplete-system)
- - [ ] [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure)
+ - [x] [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure)
 
 ### Tree
 
