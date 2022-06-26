@@ -46,6 +46,7 @@ has_toc: false
  - [x] [Maximum Size Subarray Sum Equals k](maximum-size-subarray-sum-equals-k)
  - [x] [Maximum Erasure Value](maximum-erasure-value)
  - [x] [Non-decreasing Array](non-decreasing-array)
+ - [x] [Maximum Points You Can Obtain from Cards](maximum-points-you-can-obtain-from-cards)
 
 ### Graph
 
