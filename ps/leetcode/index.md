@@ -45,6 +45,7 @@ has_toc: false
  - [x] [Minimum Operations to Reduce X to Zero](minimum-operations-to-reduce-x-to-zero)
  - [x] [Maximum Size Subarray Sum Equals k](maximum-size-subarray-sum-equals-k)
  - [x] [Maximum Erasure Value](maximum-erasure-value)
+ - [x] [Non-decreasing Array](non-decreasing-array)
 
 ### Graph
 
