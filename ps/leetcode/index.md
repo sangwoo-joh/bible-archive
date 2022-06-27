@@ -70,7 +70,7 @@ has_toc: false
  - [x] [Merge Intervals](merge-intervals)
  - [x] [Non-overlapping Intervals](non-overlapping-intervals)
  - [x] [Meeting Rooms](meeting-rooms)
- - [ ] [Meeting Rooms II](meeting-rooms-ii)
+ - [x] [Meeting Rooms II](meeting-rooms#meeting-rooms-ii)
 
 
 ### Linked List
