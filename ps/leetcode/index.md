@@ -57,7 +57,7 @@ has_toc: false
  - [x] [Longest Consecutive Sequence](longest-consecutive-sequence)
  - [ ] [Alien Dictionay](alien-dictionay)
  - [x] [Graph Valid Tree](graph-valid-tree)
- - [ ] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
+ - [x] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
  - [x] [Critical Connections in a Network](critical-connections-in-a-network)
  - [x] [Number of Provinces](number-of-provinces)
  - [x] [Rotting Oranges](rotting-oranges)
