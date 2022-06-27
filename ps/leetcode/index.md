@@ -14,7 +14,7 @@ has_toc: false
 ### $$ \alpha $$
  - [x] [Basic Calculators](basic-calculators)
  - [x] [Evaluate Reverse Polish Notation](evaluate-reverse-polish-notation)
- - [ ] [Parsing A Boolean Expression](parsing-a-boolean-expression)
+ - [x] [Parsing A Boolean Expression](parsing-a-boolean-expression)
 
 
 ### $$ \beta $$
