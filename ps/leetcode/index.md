@@ -135,6 +135,7 @@ has_toc: false
  - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
  - [x] [Top K Frequent Elements](top-k-frequent-elements)
  - [x] [Find Median from Data Stream](find-median-from-data-stream)
+ - [x] [Minimum Deletions to Make Character Frequencies Unique](minimum-deletions-to-make-character-frequencies-unique)
 
 ### Binary
 
