@@ -105,7 +105,7 @@ def parseBoolExpr(expression):
  이용해서 `not &` 또는 `not |`으로 바꾸는 해킹을 하면 된다. 또한 닫힌
  괄호도 잘 바꿔주는 것을 잊지 말자.
 
-```
+```python
 def parseBoolExpr(expression):
     hacked = expression.replace('t', 'True').replace('f', 'False').replace('!', 'not &').replace('&(', 'all([').replace('|(', 'any([').replace(')', '])')
     return eval(hacked)
