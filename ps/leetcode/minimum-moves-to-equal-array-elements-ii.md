@@ -69,3 +69,50 @@ def minMoves2(nums):
     median = seq[len(nums)//2]
     return sum(abs(median - num) for num in nums)
 ```
+
+---
+
+## 번외: 왜 중위값일까?
+
+ 그럼 왜 "모든 원소를 같은 값으로 만들기 위한 최소의 연산"을 위해서
+ 모든 원소를 *중위값*으로 만들어야 할까? 여기에는 수학적인 증명이
+ 가능하다.
+
+ 먼저 다음과 같이 정의하자.
+ - `k`: 모든 원소가 같아질 값
+ - `count_before_k`: `k`보다 작은 원소의 수
+ - `count_after_k`: `k`보다 큰 원소의 수
+ - `sum_before_k`: `k`보다 작은 원소의 합
+ - `sum_after_k`: `k`보다 큰 원소의 합
+
+ 그러면 모든 원소를 `k`로 만들기 위해서 필요한 연산의 수는 다음과 같이
+ 계산할 수 있다:
+
+```
+number_of_moves = (k * count_before_k) - sum_before_k + (sum_after_k - (k * count_after_k))
+```
+
+ 즉, 아래 두 가지 경우에 대해서 case analysis를 한다고 하면:
+ - `k`보다 작은 원소를 `k`로 만들기 위해서는, `k`보다 작은 원소
+   수(`count_before_k`)를 `k` 만큼 곱한 값에서 `k`보다 작은 원소의
+   합(`sum_before_k`)을 뺀 것만큼의 연산이 필요하다. `k`보다 작은
+   원소의 합이 당연히 더 작을 것이기 때문에 합을 뺀다.
+ - 비슷하게, `k`보다 큰 원소를 `k`로 만들려면, `k`보다 큰 원소의
+   합(`sum_after_k`)에서 `k`보다 큰 원소를 `k`만큼 곱한 값에서 뺀
+   것만큼의 연산이 필요하다.
+
+ 이제 우리는 이 연산 수를 최소화하는 `k`를 찾으면 된다. 이를 위해서
+ 양변을 `k`로 미분해보자. 그러면
+
+```
+number_of_moves/dk = (k * count_before_k)/dk - sum_before_k/dk + sum_after_k/dk - (k * count_after_k)/dk
+
+                   = count_before_k - count_after_k
+```
+
+ 가 되고, 최소가 되려면 `number_of_moves/dk` 미분 값이 0이어야 하므로
+ 이는 곧 `count_before_k == count_after_k` 조건을 만족하는 `k`에
+ 대해서 `number_of_moves`가 최소값을 갖는다는 의미이다. 즉 어떤 수
+ `k`를 기준으로 `k`보다 작은 원소의 개수와 `k`보다 큰 원소의 개수가
+ 같도록 하는 `k`를 고르면 된다. 그리고 이 성질을 만족하는 `k`는 바로
+ 중위값이다.
