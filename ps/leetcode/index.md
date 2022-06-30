@@ -47,6 +47,7 @@ has_toc: false
  - [x] [Maximum Erasure Value](maximum-erasure-value)
  - [x] [Non-decreasing Array](non-decreasing-array)
  - [x] [Maximum Points You Can Obtain from Cards](maximum-points-you-can-obtain-from-cards)
+ - [x] [Minimum Moves to Equal Array Elements II](minimum-moves-to-equal-array-elements-ii)
 
 ### Graph
 
