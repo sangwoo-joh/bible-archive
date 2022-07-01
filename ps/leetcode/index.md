@@ -80,18 +80,6 @@ has_toc: false
  - [x] [Middle of the Linked List](middle-of-the-linked-list)
  - [x] [LRU Cache](lru-cache)
 
-### Matrix
-
- - [ ] [Set Matrix Zeroes](set-matrix-zeroes)
- - [ ] [Spiral Matrix](spiral-matrix)
- - [x] [Rotate Image](rotate-image)
-
-### Search
- - [x] [Word Search](word-search)
- - [x] [Word Search II](word-search-ii)
- - [ ] [Expression Add Operators](expression-add-operators)
-
-
 ### String
 
  - [x] [Longest Common Subsequence](longest-common-subsequence)
@@ -141,13 +129,17 @@ has_toc: false
  - [x] [Minimum Deletions to Make Character Frequencies Unique](minimum-deletions-to-make-character-frequencies-unique)
  - [x] [Maximum Units on a Truck](maximum-units-on-a-truck)
 
-### Bitwise Operation
+### Matrix
 
- - [ ] [Sum of Two Integers](sum-of-two-integers)
- - [ ] [Number of 1 Bits](number-of-1-bits)
- - [ ] [Counting Bits](counting-bits)
- - [ ] [Missing Number](missing-number)
- - [ ] [Reverse Bits](reverse-bits)
+ - [ ] [Set Matrix Zeroes](set-matrix-zeroes)
+ - [ ] [Spiral Matrix](spiral-matrix)
+ - [x] [Rotate Image](rotate-image)
+
+### Search
+ - [x] [Word Search](word-search)
+ - [x] [Word Search II](word-search-ii)
+ - [ ] [Expression Add Operators](expression-add-operators)
+ - [ ] [Sqrt(x)](sqrtx)
 
 
 ### DP
@@ -167,3 +159,13 @@ has_toc: false
  - [ ] [Jump Game](jump-game)
  - [x] [Minimum Difficulty of a Job Schedule](minimum-difficulty-of-a-job-schedule)
  - [x] [Longest String Chain](longest-string-chain)
+
+
+
+### Bitwise Operation
+
+ - [ ] [Sum of Two Integers](sum-of-two-integers)
+ - [ ] [Number of 1 Bits](number-of-1-bits)
+ - [ ] [Counting Bits](counting-bits)
+ - [ ] [Missing Number](missing-number)
+ - [ ] [Reverse Bits](reverse-bits)
