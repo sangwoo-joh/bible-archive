@@ -139,7 +139,7 @@ has_toc: false
  - [x] [Minimum Deletions to Make Character Frequencies Unique](minimum-deletions-to-make-character-frequencies-unique)
  - [x] [Maximum Units on a Truck](maximum-units-on-a-truck)
 
-### Binary
+### Bitwise Operation
 
  - [ ] [Sum of Two Integers](sum-of-two-integers)
  - [ ] [Number of 1 Bits](number-of-1-bits)
