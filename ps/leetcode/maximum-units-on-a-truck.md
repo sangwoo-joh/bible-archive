@@ -31,7 +31,7 @@ nav_exclude: true
  그리디하게 가장 많은 유닛이 들어있는 박스부터 채워넣으면 된다. 그럼
  가장 먼저 떠올릴 수 있는 방법은 정렬하는 것이다.
 
-```
+```python
 def maximumUnits(boxTypes, truckSize):
     units = 0
     for box, unit in sorted(boxTypes, key=lambda x: -x[1]):
