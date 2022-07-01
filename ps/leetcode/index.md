@@ -11,17 +11,10 @@ has_toc: false
 
 ## [Blind 75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU) + $$ \alpha $$
 
-### $$ \alpha $$
+### Language
  - [x] [Basic Calculators](basic-calculators)
  - [x] [Evaluate Reverse Polish Notation](evaluate-reverse-polish-notation)
  - [x] [Parsing A Boolean Expression](parsing-a-boolean-expression)
-
-
-### $$ \beta $$
- - [ ] [Expression Add Operators](expression-add-operators)
- - [x] [Walking Robot Simulation](walking-robot-simulation)
- - [x] [Stream of Characters](stream-of-characters)
- - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
 
 
 ### Array
@@ -48,6 +41,8 @@ has_toc: false
  - [x] [Non-decreasing Array](non-decreasing-array)
  - [x] [Maximum Points You Can Obtain from Cards](maximum-points-you-can-obtain-from-cards)
  - [x] [Minimum Moves to Equal Array Elements II](minimum-moves-to-equal-array-elements-ii)
+ - [x] [Walking Robot Simulation](walking-robot-simulation)
+
 
 ### Graph
 
@@ -90,7 +85,12 @@ has_toc: false
  - [ ] [Set Matrix Zeroes](set-matrix-zeroes)
  - [ ] [Spiral Matrix](spiral-matrix)
  - [x] [Rotate Image](rotate-image)
+
+### Search
  - [x] [Word Search](word-search)
+ - [x] [Word Search II](word-search-ii)
+ - [ ] [Expression Add Operators](expression-add-operators)
+
 
 ### String
 
@@ -111,6 +111,8 @@ has_toc: false
  - [x] [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure)
  - [x] [Search Suggestions System](search-suggestions-system)
  - [x] [Short Encoding of Words](short-encoding-of-words)
+ - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
+
 
 ### Tree
 
@@ -126,9 +128,9 @@ has_toc: false
  - [x] [Kth Smallest Element in a BST](kth-smallest-element-in-a-bst)
  - [x] [Lowest Common Ancestor of a Binary Search Tree](lowest-common-ancestor-of-a-binary-search-tree)
  - [x] [Implement Trie](implement-trie)
- - [x] [Word Search II](word-search-ii)
  - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
  - [x] [Binary Tree Cameras](binary-tree-cameras)
+ - [x] [Stream of Characters](stream-of-characters)
 
 
 ### Heap
