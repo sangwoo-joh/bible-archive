@@ -139,7 +139,7 @@ has_toc: false
  - [x] [Word Search](word-search)
  - [x] [Word Search II](word-search-ii)
  - [ ] [Expression Add Operators](expression-add-operators)
- - [ ] [Sqrt(x)](sqrtx)
+ - [x] [Sqrt(x)](sqrtx)
 
 
 ### DP
