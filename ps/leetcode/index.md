@@ -137,6 +137,7 @@ has_toc: false
  - [x] [Top K Frequent Elements](top-k-frequent-elements)
  - [x] [Find Median from Data Stream](find-median-from-data-stream)
  - [x] [Minimum Deletions to Make Character Frequencies Unique](minimum-deletions-to-make-character-frequencies-unique)
+ - [x] [Maximum Units on a Truck](maximum-units-on-a-truck)
 
 ### Binary
 
