@@ -42,6 +42,7 @@ has_toc: false
  - [x] [Maximum Points You Can Obtain from Cards](maximum-points-you-can-obtain-from-cards)
  - [x] [Minimum Moves to Equal Array Elements II](minimum-moves-to-equal-array-elements-ii)
  - [x] [Walking Robot Simulation](walking-robot-simulation)
+ - [x] [Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts](maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts)
 
 
 ### Graph
