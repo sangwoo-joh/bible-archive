@@ -46,21 +46,8 @@ has_toc: false
  - [x] [Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts](maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts)
  - [x] [Candy](candy)
  - [x] [Queue Reconstruction by Height](queue-reconstruction-by-height)
-
-
-### Graph
-
- - [x] [Clone Graph](clone-graph)
- - [x] [Course Schedule](course-schedule)
- - [x] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
- - [x] [Number of Islands](number-of-islands)
- - [ ] [Alien Dictionay](alien-dictionay)
- - [x] [Graph Valid Tree](graph-valid-tree)
- - [x] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
- - [x] [Critical Connections in a Network](critical-connections-in-a-network)
- - [x] [Number of Provinces](number-of-provinces)
- - [x] [Rotting Oranges](rotting-oranges)
- - [x] [Is Graph Bipartite?](is-graph-bipartite)
+ - [ ] [Snapshot Array](snapshot-array)
+ - [ ] [Minimum Difference Between Largest and Smallest Value in Three Moves](minimum-difference-between-largest-and-smallest-value-in-three-moves)
 
 
 ### Interval
@@ -104,6 +91,23 @@ has_toc: false
  - [x] [Search Suggestions System](search-suggestions-system)
  - [x] [Short Encoding of Words](short-encoding-of-words)
  - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
+ - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
+
+
+### Graph
+
+ - [x] [Clone Graph](clone-graph)
+ - [x] [Course Schedule](course-schedule)
+ - [x] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
+ - [x] [Number of Islands](number-of-islands)
+ - [ ] [Alien Dictionay](alien-dictionay)
+ - [x] [Graph Valid Tree](graph-valid-tree)
+ - [x] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
+ - [x] [Critical Connections in a Network](critical-connections-in-a-network)
+ - [x] [Number of Provinces](number-of-provinces)
+ - [x] [Rotting Oranges](rotting-oranges)
+ - [x] [Is Graph Bipartite?](is-graph-bipartite)
+ - [ ] [The Most Similar Path in a Graph](the-most-similar-path-in-a-graph)
 
 
 ### Tree
@@ -123,6 +127,8 @@ has_toc: false
  - [x] [Convert Sorted List to BST](convert-sorted-list-to-bst)
  - [x] [Binary Tree Cameras](binary-tree-cameras)
  - [x] [Stream of Characters](stream-of-characters)
+ - [ ] [Find Leaves of Binary Tree](find-leaves-of-binary-tree)
+ - [ ] [Step-By-Step Directions From a Binary Tree Node to Another](step-by-step-directions-from-a-binary-tree-node-to-another)
 
 
 ### Heap
@@ -138,6 +144,7 @@ has_toc: false
  - [ ] [Set Matrix Zeroes](set-matrix-zeroes)
  - [ ] [Spiral Matrix](spiral-matrix)
  - [x] [Rotate Image](rotate-image)
+ - [ ] [Shortest Path in a Grid with Obstacles Elimination](shortest-path-in-a-grid-with-obstacles-elimination)
 
 ### Search
  - [x] [Word Search](word-search)
@@ -145,6 +152,7 @@ has_toc: false
  - [ ] [Expression Add Operators](expression-add-operators)
  - [x] [Sqrt(x)](sqrtx)
  - [x] [Pow(x, n)](powx-n)
+ - [ ] [Guess the Word](guess-the-word)
 
 
 ### DP
@@ -165,6 +173,7 @@ has_toc: false
  - [x] [Minimum Difficulty of a Job Schedule](minimum-difficulty-of-a-job-schedule)
  - [x] [Longest String Chain](longest-string-chain)
  - [x] [Wiggle Subsequence](wiggle-subsequence)
+ - [ ] [Race Car](race-car)
 
 
 
