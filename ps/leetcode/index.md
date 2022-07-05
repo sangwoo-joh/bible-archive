@@ -188,7 +188,7 @@ has_toc: false
 
 ### Workbook
 
- - [ ] [Find And Replace in String](find-and-replace-in-string)
+ - [x] [Find And Replace in String](find-and-replace-in-string)
  - [ ] [Maximum Number of Visible Points](maximum-number-of-visible-points)
  - [ ] [Car Fleet II](car-fleet-ii)
  - [ ] [Random Pick with Weight](random-pick-with-weight)
