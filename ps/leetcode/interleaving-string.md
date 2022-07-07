@@ -76,7 +76,8 @@ def isInterleave(s1, s2, s3):
         if i2 == len(s2):
             return s1[i1:] == s3[i3:]
 
-        return (s1[i1] == s3[i3] and check(i1 + 1, i2, i3 + 1)) or (s2[i2] == s3[i3] and check(i1, i2 + 1, i3 + 1))
+        return (s1[i1] == s3[i3] and check(i1 + 1, i2, i3 + 1)) \
+            or (s2[i2] == s3[i3] and check(i1, i2 + 1, i3 + 1))
 
     return check(0, 0, 0)
 ```
@@ -136,7 +137,8 @@ def isInterleave(s1, s2, s3):
             return s1[i1:] == s3[i3:]
         if (i1, i2) in memo:
             return memo[(i1, i2)]
-        res = (s1[i1] == s3[i3] and check(i1+1, i2, i3+1)) or (s2[i2] == s3[i3] and check(i1, i2+1, i3+1))
+        res = (s1[i1] == s3[i3] and check(i1+1, i2, i3+1)) \
+            or (s2[i2] == s3[i3] and check(i1, i2+1, i3+1))
         memo[(i1, i2)] = res
         return res
     return check(0, 0, 0)
