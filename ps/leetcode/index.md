@@ -175,6 +175,9 @@ has_toc: false
  - [x] [Wiggle Subsequence](wiggle-subsequence)
  - [ ] [Race Car](race-car)
  - [x] [Interleaving String](interleaving-string)
+ - [x] [Paint House](paint-house)
+ - [x] [Paint House II](paint-house/#paint-house-ii)
+ - [x] [Paint House III](paint-house/#paint-house-iii)
 
 ### Bitwise Operation
 
