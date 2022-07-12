@@ -178,6 +178,7 @@ has_toc: false
  - [x] [Paint House](paint-house)
  - [x] [Paint House II](paint-house/#paint-house-ii)
  - [x] [Paint House III](paint-house/#paint-house-iii)
+ - [x] [Matchsticks to Square](matchsticks-to-square)
 
 ### Bitwise Operation
 
