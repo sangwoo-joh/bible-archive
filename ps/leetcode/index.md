@@ -47,7 +47,7 @@ has_toc: false
  - [x] [Candy](candy)
  - [x] [Queue Reconstruction by Height](queue-reconstruction-by-height)
  - [x] [Snapshot Array](snapshot-array)
- - [ ] [Minimum Difference Between Largest and Smallest Value in Three Moves](minimum-difference-between-largest-and-smallest-value-in-three-moves)
+ - [x] [Minimum Difference Between Largest and Smallest Value in Three Moves](minimum-difference-between-largest-and-smallest-value-in-three-moves)
 
 
 ### Interval
