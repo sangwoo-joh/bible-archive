@@ -108,7 +108,7 @@ def buildTree(preorder, inorder):
         inorder_index_of[val] = idx
 
     preorder_index = 0
-    def preorder(left, right):
+    def pre_order(left, right):
         nonlocal inorder_index_of
         nonlocal preorder_index
 
@@ -119,10 +119,10 @@ def buildTree(preorder, inorder):
         root = TreeNode(root_value)
         preorder_index += 1
 
-        root.left = preorder(left, inorder_index_of[root_value] - 1)
-        root.right = preorder(inorder_index_of[root_value] + 1, right)
+        root.left = pre_order(left, inorder_index_of[root_value] - 1)
+        root.right = pre_order(inorder_index_of[root_value] + 1, right)
         return root
-    return preorder(0, len(preorder)-1)
+    return pre_order(0, len(preorder)-1)
 ```
 
  - 일종의 이분 탐색이라고 봐도 되겠다. Preorder에서 루트 노드의
