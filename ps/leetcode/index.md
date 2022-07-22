@@ -64,6 +64,7 @@ has_toc: false
 
  - [x] [Reverse Linked List](reverse-linked-list)
  - [x] [Reverse Linked List II](reverse-linked-list#reverse-linked-list-ii)
+ - [x] [Partition List](partition-list)
  - [x] [Linked List Cycle](linked-list-cycle)
  - [x] [Merge Two Sorted Lists](merge-two-sorted-lists)
  - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
