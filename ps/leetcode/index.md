@@ -159,6 +159,7 @@ has_toc: false
 
 ### DP
 
+ - [x] [Pascal's Triangle](pascals-triangle)
  - [x] [Range Sum Query 2D Immutable](range-sum-query-2d-immutable)
  - [x] [Climbing Stairs](climbing-stairs)
  - [ ] [Coin Change](coin-change)
