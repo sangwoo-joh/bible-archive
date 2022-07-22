@@ -212,7 +212,7 @@ has_toc: false
  - [ ] [Longest Line of Consecutive One in Matrix](longest-line-of-consecutive-one-in-matrix)
  - [ ] [Stock Price Fluctuation](stock-price-fluctuation)
  - [ ] [Range Module](range-module)
- - [ ] [RLE Iterator](rle-iterator)
+ - [x] [RLE Iterator](rle-iterator)
  - [ ] [New 21 Game](new-21-game)
  - [ ] [Robot Room Cleaner](robot-room-cleaner)
  - [ ] [Find All Possible Recipes from Given Supplies](find-all-possible-recipes-from-given-supplies)
