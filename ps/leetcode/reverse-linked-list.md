@@ -82,3 +82,71 @@ def reverseList(head):
    `prev`가 새로운 루트 노드가 되면 된다.
  - 위의 (2) 케이스에서 `prev`가 적절한 값을 리턴하기 위해서, `reverse`
    함수를 처음 호출할 때에는 `prev`를 `None`으로 준다.
+
+# [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
+
+ 싱글 링크드 리스트의 루트 노드 `head`와 두 개의 정수 `left`,
+ `right`가 주어지고 `left <= right`를 항상 만족한다. 이때, `left`
+ 위치부터 `right` 위치까지를 뒤집자.
+
+ 리스트 노드의 개수는 1~500 이고 노드의 값은 -500~500이다.
+
+ 예를 들어 `1 -> 2 -> 3 -> 4 -> 5`가 있고 `left = 2`, `right = 4`일
+ 때, 두 번째 노드부터 네 번째 노드까지를 뒤집은 결과 리스트는 `1 -> 4
+ -> 3 -> 2 -> 5`가 된다.
+
+## 스택을 이용하기
+
+ 두 노드 `prev -> cur`가 있다고 하자. 그러면 이 두 노드를 뒤집는 것은
+ `cur.next = prev`면 된다. `left`부터 `right` 구간 까지를 다 뒤집어야
+ 하므로, `prev`의 이전 노드를 또 찾아서 `prev.next = prevprev`와 같이
+ 뒤집어 줘야 한다. 이렇게 쭉 따라가다보면 결국 원하는 구간 내의 모든
+ 노드를 뒤집을 수 있다. 여기까지만 하면, 구간은 뒤집어졌지만 싸이클이
+ 발생한다. 바로 `prev <-> cur`와 같은 상황이 생기는 것이다. 따라서,
+ 구간 내의 노드를 다 뒤집고 나면, 두 가지를 해줘야 한다: 구간의 시작
+ 위치(`left`)의 노드는 구간이 끝난 위치 다음 노드를 가리키도록
+ 해야하고, 구간의 끝 위치(`right`)의 노드는 구간이 시작하기 직전
+ 노드가 가리키도록 해야한다. 이를 그림으로 나타내면 다음과 같다.
+
+```
+original:  .. prev.. -> left -> ... -> right -> ..remainings..
+reversed:  .. prev.. -> right -> ... -> left -> ..remainings..
+```
+
+ 뒤집기 연산을 가장 쉽게 할 수 있는 데이터 타입은 바로
+ 스택이다. 따라서, 여기서는 다음과 같은 단계를 따른다.
+ 1. `left`, `right` 구간에 속한 노드를 차례로 스택에 넣는다. 이때,
+    구간에 진입하기 직전 노드(`prev`)와, 구간이 끝난 바로 다음
+    노드(`remaining`)도 유지한다.
+ 2. 스택에 있는 노드를 하나 씩 뒤집는다.
+ 3. `prev` 노드와 `remaining` 노드를 구간에 알맞게 이어준다.
+
+```python
+def reverseBetween(head, left, right):
+    if left == right:
+        return head
+    node, prev = head, ListNode(next=head)
+    i = 1
+    stack = []
+    while node:
+        if i == left:
+            while i <= right:
+                stack.append(node)
+                node = node.next
+                i += 1
+            break
+        i += 1
+        prev, node = node, node.next
+
+    # prev -> stack[:] -> node
+    prev.next = stack[-1]
+    while stack:
+        top = stack.pop()
+        top.next = stack[-1] if stack else node
+    return prev.next if left == 1 else head
+```
+
+ - 주의해야 할 코너케이스는 바로 `left = 1`인 경우이다. 이때는 `prev`
+   노드가 `head`의 바로 직전을 가리키는 센티넬 노드인 채로 루프가
+   끝나기 때문에, 스택의 꼭대기가 새로운 루트 노드가 되어야
+   한다. 따라서 이때는 `head`가 `prev.next`와 같다.
