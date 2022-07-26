@@ -9,16 +9,13 @@ has_toc: false
 
 # Leetcode
 
-## [Blind 75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU) + $$ \alpha $$
-
-### Language
+## Language
  - [x] [Basic Calculators](basic-calculators)
  - [x] [Evaluate Reverse Polish Notation](evaluate-reverse-polish-notation)
  - [x] [Parsing A Boolean Expression](parsing-a-boolean-expression)
 
 
-### Array
-
+## Array
  - [x] [Minimum Size Subarray Sum](minimum-size-subarray-sum)
  - [x] [Two Sum](two-sum)
  - [x] [Best Time to Buy and Sell Stock](best-time-to-buy-and-sell-stock)
@@ -49,9 +46,7 @@ has_toc: false
  - [x] [Snapshot Array](snapshot-array)
  - [x] [Minimum Difference Between Largest and Smallest Value in Three Moves](minimum-difference-between-largest-and-smallest-value-in-three-moves)
 
-
-### Interval
-
+## Interval
  - [x] [Insert Interval](insert-interval)
  - [x] [Merge Intervals](merge-intervals)
  - [x] [Non-overlapping Intervals](non-overlapping-intervals)
@@ -60,8 +55,7 @@ has_toc: false
  - [x] [Count Odd Numbers in an Interval Range](count-odd-numbers-in-an-interval-range)
 
 
-### Linked List
-
+## Linked List
  - [x] [Reverse Linked List](reverse-linked-list)
  - [x] [Reverse Linked List II](reverse-linked-list#reverse-linked-list-ii)
  - [x] [Partition List](partition-list)
@@ -73,8 +67,7 @@ has_toc: false
  - [x] [Middle of the Linked List](middle-of-the-linked-list)
  - [x] [LRU Cache](lru-cache)
 
-### String
-
+## String
  - [x] [Longest Common Subsequence](longest-common-subsequence)
  - [x] [Delete Operation for Two Strings](delete-operation-for-two-strings)
  - [x] [Longest Substring Without Repeating Characters](longest-substring-without-repeating-characters)
@@ -96,8 +89,7 @@ has_toc: false
  - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
 
 
-### Graph
-
+## Graph
  - [x] [Clone Graph](clone-graph)
  - [x] [Course Schedule](course-schedule)
  - [x] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
@@ -112,8 +104,7 @@ has_toc: false
  - [ ] [The Most Similar Path in a Graph](the-most-similar-path-in-a-graph)
 
 
-### Tree
-
+## Tree
  - [x] [Maximum Depth of Binary Tree](maximum-depth-of-binary-tree)
  - [x] [Same Tree](same-tree)
  - [x] [Invert/Flip Binary Tree](invert-flip-binary-tree)
@@ -133,22 +124,20 @@ has_toc: false
  - [ ] [Step-By-Step Directions From a Binary Tree Node to Another](step-by-step-directions-from-a-binary-tree-node-to-another)
 
 
-### Heap
-
+## Heap
  - [x] [Merge K Sorted Lists](merge-k-sorted-lists)
  - [x] [Top K Frequent Elements](top-k-frequent-elements)
  - [x] [Find Median from Data Stream](find-median-from-data-stream)
  - [x] [Minimum Deletions to Make Character Frequencies Unique](minimum-deletions-to-make-character-frequencies-unique)
  - [x] [Maximum Units on a Truck](maximum-units-on-a-truck)
 
-### Matrix
-
+## Matrix
  - [ ] [Set Matrix Zeroes](set-matrix-zeroes)
  - [ ] [Spiral Matrix](spiral-matrix)
  - [x] [Rotate Image](rotate-image)
  - [ ] [Shortest Path in a Grid with Obstacles Elimination](shortest-path-in-a-grid-with-obstacles-elimination)
 
-### Search
+## Search
  - [x] [Word Search](word-search)
  - [x] [Word Search II](word-search-ii)
  - [ ] [Expression Add Operators](expression-add-operators)
@@ -157,8 +146,7 @@ has_toc: false
  - [ ] [Guess the Word](guess-the-word)
 
 
-### DP
-
+## DP
  - [x] [Pascal's Triangle](pascals-triangle)
  - [x] [Range Sum Query 2D Immutable](range-sum-query-2d-immutable)
  - [x] [Climbing Stairs](climbing-stairs)
@@ -183,8 +171,8 @@ has_toc: false
  - [x] [Paint House III](paint-house/#paint-house-iii)
  - [x] [Matchsticks to Square](matchsticks-to-square)
 
-### Bitwise Operation
 
+## Bitwise Operation
  - [ ] [Sum of Two Integers](sum-of-two-integers)
  - [ ] [Number of 1 Bits](number-of-1-bits)
  - [ ] [Counting Bits](counting-bits)
@@ -194,8 +182,7 @@ has_toc: false
 
 ---
 
-### Workbook
-
+## Workbook
  - [x] [Find And Replace in String](find-and-replace-in-string)
  - [ ] [Maximum Number of Visible Points](maximum-number-of-visible-points)
  - [ ] [Car Fleet II](car-fleet-ii)
