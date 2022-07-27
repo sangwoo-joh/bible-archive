@@ -46,6 +46,9 @@ has_toc: false
  - [x] [Snapshot Array](snapshot-array)
  - [x] [Minimum Difference Between Largest and Smallest Value in Three Moves](minimum-difference-between-largest-and-smallest-value-in-three-moves)
 
+## Sorting
+ - [x] [Sort an Array](sort-an-array)
+
 ## Interval
  - [x] [Insert Interval](insert-interval)
  - [x] [Merge Intervals](merge-intervals)
