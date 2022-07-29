@@ -98,7 +98,7 @@ has_toc: false
  - [x] [Course Schedule](course-schedule)
  - [x] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
  - [x] [Number of Islands](number-of-islands)
- - [ ] [Alien Dictionay](alien-dictionay)
+ - [ ] [Alien Dictionary](alien-dictionary)
  - [x] [Graph Valid Tree](graph-valid-tree)
  - [x] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
  - [x] [Critical Connections in a Network](critical-connections-in-a-network)
