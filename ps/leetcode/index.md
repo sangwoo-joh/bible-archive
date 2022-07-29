@@ -90,6 +90,7 @@ has_toc: false
  - [x] [Short Encoding of Words](short-encoding-of-words)
  - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
  - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
+ - [x] [Find and Replace Pattern](find-and-replace-pattern)
 
 
 ## Graph
