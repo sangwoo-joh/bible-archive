@@ -171,8 +171,8 @@ has_toc: false
  - [ ] [Race Car](race-car)
  - [x] [Interleaving String](interleaving-string)
  - [x] [Paint House](paint-house)
- - [x] [Paint House II](paint-house/#paint-house-ii)
- - [x] [Paint House III](paint-house/#paint-house-iii)
+ - [x] [Paint House II](paint-house#paint-house-ii)
+ - [x] [Paint House III](paint-house#paint-house-iii)
  - [x] [Matchsticks to Square](matchsticks-to-square)
 
 
