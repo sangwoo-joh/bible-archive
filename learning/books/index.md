@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Books
-nav_order: 3
+parent: Learning
 has_children: true
-parent: And So On
+nav_order: 3
 ---

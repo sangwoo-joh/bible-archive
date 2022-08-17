@@ -2,7 +2,7 @@
 layout: page
 tags: [translation, tips]
 title: Why numbering should start at zero
-parent: Translations
+parent: Learning
 ---
 
 # [왜 인덱스는 0에서 시작해야 하는가?](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)

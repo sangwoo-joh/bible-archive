@@ -2,7 +2,7 @@
 layout: page
 tags: [translation]
 title: x86 Assembly Guide
-parent: Translations
+parent: Learning
 ---
 
 # [x86 어셈블리 가이드](http://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
