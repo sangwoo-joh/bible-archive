@@ -55,6 +55,15 @@ function initNav() {
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
 
+  document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    if (name == '/') {
+      event.preventDefault();
+      mainHeader.classList.add('nav-open');
+      searchInput.focus();
+    }
+  }, false);
+
   jtd.addEvent(searchButton, 'click', function(e){
     e.preventDefault();
 
