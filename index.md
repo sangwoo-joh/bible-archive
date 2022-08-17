@@ -15,7 +15,7 @@ permalink: /
 
 ### Personal Trainings
  - [Python](python/)
- - [Problem Solving](ps/)
+ - [Leetcode](ps/leetcode)
 
 ### [Learning](learning/)
 
