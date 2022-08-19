@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Baekjoon
-permalink: /boj/
+nav_order: 2
 parent: Problem Solving
 has_children: true
 ---
