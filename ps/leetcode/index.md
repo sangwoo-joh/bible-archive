@@ -91,6 +91,7 @@ has_toc: false
  - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
  - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
  - [x] [Find and Replace Pattern](find-and-replace-pattern)
+ - [x] [Roman to Integer](roman-to-integer)
 
 
 ## Graph
