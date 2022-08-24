@@ -75,7 +75,7 @@ has_toc: false
  - [x] [Reorder List](reorder-list)
  - [x] [Middle of the Linked List](middle-of-the-linked-list)
  - [x] [LRU Cache](lru-cache)
- - [ ] [Palindrome Linked List](palindrome-linked-list)
+ - [x] [Palindrome Linked List](palindrome-linked-list)
 
 ## String
  - [x] [Longest Common Subsequence](longest-common-subsequence)
