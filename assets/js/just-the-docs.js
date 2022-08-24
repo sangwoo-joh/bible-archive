@@ -50,6 +50,10 @@ function initNav() {
       mainHeader.classList.remove('nav-open');
     }
   });
+  const clicked = document.getElementsByClassName('nav-list-link active');
+  if (clicked.length === 1) {
+      clicked[0].scrollIntoView({block: 'center'});
+  }
 
   {%- if site.search_enabled != false and site.search.button %}
   const searchInput = document.getElementById('search-input');
