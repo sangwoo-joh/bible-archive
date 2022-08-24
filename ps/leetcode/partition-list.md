@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, linked-list]
 title: Partition List
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Partition List](https://leetcode.com/problems/partition-list/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Subtree of Another Tree
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/)

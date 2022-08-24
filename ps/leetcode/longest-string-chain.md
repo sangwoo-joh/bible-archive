@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string, dynamic-programming]
 title: Longest String Chain
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Longest String Chain](https://leetcode.com/problems/longest-string-chain/)

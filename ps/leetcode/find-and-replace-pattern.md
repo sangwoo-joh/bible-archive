@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string]
 title: Find and Replace Pattern
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Find and Replace Pattern](https://leetcode.com/problems/find-and-replace-pattern/)

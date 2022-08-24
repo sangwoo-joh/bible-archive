@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, dynamic-programming, backtracking]
 title: Matchsticks to Square
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square/)

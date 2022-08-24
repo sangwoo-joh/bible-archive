@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Serialize and Deserialize Binary Tree
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)

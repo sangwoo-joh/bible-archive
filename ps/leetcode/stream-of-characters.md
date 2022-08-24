@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, trie]
 title: Stream of Characters
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Stream of Characters](https://leetcode.com/problems/stream-of-characters/)

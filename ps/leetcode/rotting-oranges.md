@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph, simulation]
 title: Rotting Oranges
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)

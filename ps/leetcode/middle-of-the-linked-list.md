@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, linked-list]
 title: Middle of the Linked List
 grand_parent: Middle of the Linked List
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)

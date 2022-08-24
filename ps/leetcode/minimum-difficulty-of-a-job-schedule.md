@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, dynamic-programming, lru-cache]
 title: Minimum Difficulty of a Job Schedule
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Minimum Difficulty of a Job Schedule](https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/)

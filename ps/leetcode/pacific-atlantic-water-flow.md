@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph]
 title: Pacific Atlantic Water Flow
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/)

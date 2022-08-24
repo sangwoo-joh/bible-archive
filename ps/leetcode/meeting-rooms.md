@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, interval]
 title: Meeting Rooms
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)

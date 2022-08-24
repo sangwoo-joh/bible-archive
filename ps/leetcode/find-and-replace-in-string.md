@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python]
 title: Find And Replace in String
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Find And Replace in String](https://leetcode.com/problems/find-and-replace-in-string/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, stack]
 title: Basic Calculators
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # Basic Calculators

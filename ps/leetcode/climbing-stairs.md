@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, dynamic-programming]
 title: Climbing Stairs
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)

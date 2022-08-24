@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Product of Array Except Self
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)

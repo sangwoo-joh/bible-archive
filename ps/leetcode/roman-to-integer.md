@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string]
 title: Roman to Integer
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Roman to Integer](https://leetcode.com/problems/roman-to-integer/)

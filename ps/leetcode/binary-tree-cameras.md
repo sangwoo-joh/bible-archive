@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Binary Tree Cameras
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Binary Tree Cameras](https://leetcode.com/problems/binary-tree-cameras/)

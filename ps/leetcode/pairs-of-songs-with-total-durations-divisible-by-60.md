@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, hash-table]
 title: Pairs of Songs With Total Durations Divisible by 60
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Pairs of Songs With Total Durations Divisible by 60](https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/)

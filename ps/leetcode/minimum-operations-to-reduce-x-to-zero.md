@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, two-pointers]
 title: Minimum Operations to Reduce X to Zero
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/)

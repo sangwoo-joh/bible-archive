@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, hash-table]
 title: Two Sum
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Two Sum](https://leetcode.com/problems/two-sum/)

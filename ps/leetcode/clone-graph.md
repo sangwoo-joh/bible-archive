@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph]
 title: Clone Graph
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Clone Graph](https://leetcode.com/problems/clone-graph/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, binary-search]
 title: Snapshot Array
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Snapshot Array](https://leetcode.com/problems/snapshot-array/)

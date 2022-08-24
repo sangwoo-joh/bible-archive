@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Non-decreasing Array
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array/)

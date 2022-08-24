@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string]
 title: Search Suggestions System
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/)

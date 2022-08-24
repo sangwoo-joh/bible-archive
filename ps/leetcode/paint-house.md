@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, dynamic-programming]
 title: Paint House
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Paint House](https://leetcode.com/problems/paint-house/)

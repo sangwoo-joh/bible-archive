@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, binary-search]
 title: Pow(x, n)
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Pow(x, n)](https://leetcode.com/problems/powx-n/)

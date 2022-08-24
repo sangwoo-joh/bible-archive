@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, binary-search]
 title: Find Minimum in Rotated Sorted Array
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)

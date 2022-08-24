@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Same Tree
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Same Tree](https://leetcode.com/problems/same-tree/)

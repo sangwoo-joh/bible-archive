@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, hash-table]
 title: Remove Duplicates from Sorted Array
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)

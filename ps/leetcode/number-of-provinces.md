@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph]
 title: Number of Provinces
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Number of Provinces](https://leetcode.com/problems/number-of-provinces/)

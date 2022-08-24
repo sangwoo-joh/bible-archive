@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, heap]
 title: Maximum Units on a Truck
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph, tree, cycle, disjoint-set]
 title: Graph Valid Tree
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, dynamic-programming]
 title: Range Sum Query 2D Immutable
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Range Sum Query 2D Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/)

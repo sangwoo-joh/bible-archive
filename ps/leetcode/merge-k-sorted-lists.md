@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, linked-list, heap]
 title: Merge k Sorted Lists
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)

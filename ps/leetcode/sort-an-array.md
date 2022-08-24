@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, sorting]
 title: Sort an Array
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Sort an Array](https://leetcode.com/problems/sort-an-array/)

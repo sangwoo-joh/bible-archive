@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Shortest Unsorted Continous Subarray
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Shortest Unsorted Continous Subarray](https://leetcode.com/problems/shortest-unsorted-continous-subarray/)

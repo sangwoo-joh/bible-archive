@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Binary Tree - Maximum Path Sum
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Binary Tree - Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string]
 title: Palindromic Substrings
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, dynamic-programming]
 title: Pascal's Triangle
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, linked-list]
 title: Merge Two Sorted Lists
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)

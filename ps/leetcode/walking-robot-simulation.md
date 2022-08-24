@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Walking Robot Simulation
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Walking Robot Simulation](https://leetcode.com/problems/walking-robot-simulation/)

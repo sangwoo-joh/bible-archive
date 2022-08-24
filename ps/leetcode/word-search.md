@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string, matrix, backtracking]
 title: Word Search
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Word Search](https://leetcode.com/problems/word-search/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Maximum Depth of Binary Tree
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)

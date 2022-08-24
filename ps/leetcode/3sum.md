@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: 3Sum
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [3Sum](https://leetcode.com/problems/3sum/)

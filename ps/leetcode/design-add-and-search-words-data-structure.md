@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree, string]
 title: Design Add and Search Words Data Structure
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)

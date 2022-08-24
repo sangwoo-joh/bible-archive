@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Search in Rotated Sorted Array
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)

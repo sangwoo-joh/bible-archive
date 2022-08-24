@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python]
 title: Parsing a Boolean Expression
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Parsing a Boolean Expression](https://leetcode.com/problems/parsing-a-boolean-expression/)

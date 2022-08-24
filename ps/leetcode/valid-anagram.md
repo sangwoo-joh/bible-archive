@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string]
 title: Valid Anagram
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Valid Anagram](https://leetcode.com/problems/valid-anagram/)

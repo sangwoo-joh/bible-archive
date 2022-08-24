@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Binary Tree Level Order Traversal
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)

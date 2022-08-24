@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree, trie]
 title: Implement Trie
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/)

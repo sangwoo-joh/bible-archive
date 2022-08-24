@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Container with Most Water
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Container with Most Water](https://leetcode.com/problems/container-with-most-water/)

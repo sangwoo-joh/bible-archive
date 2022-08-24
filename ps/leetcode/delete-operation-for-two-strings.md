@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string, dynamic-programming]
 title: Delete Operation for Two Strings
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/)

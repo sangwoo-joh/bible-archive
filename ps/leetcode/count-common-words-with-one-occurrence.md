@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python]
 title: Count Common Words with One Occurrence
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Count Common Words with One Occurrence](https://leetcode.com/problems/count-common-words-with-one-occurrence/)

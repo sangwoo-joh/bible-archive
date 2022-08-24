@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, heap]
 title: Find Median from Data Stream
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)

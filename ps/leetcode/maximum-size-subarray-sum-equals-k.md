@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, two-pointers]
 title: Maximum Size Subarray Sum Equals k
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Maximum Size Subarray Sum Equals k](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/)

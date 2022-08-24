@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, dynamic-programming]
 title: Wiggle Subsequence
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/)

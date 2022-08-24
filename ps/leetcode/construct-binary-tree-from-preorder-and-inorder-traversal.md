@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Construct Binary Tree from Preorder and Inorder Traversal
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)

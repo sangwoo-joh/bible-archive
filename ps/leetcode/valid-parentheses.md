@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string]
 title: Valid Parentheses
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)

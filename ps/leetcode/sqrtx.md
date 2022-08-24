@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, binary-search]
 title: Sqrt(x)
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Sqrt(x)](https://leetcode.com/problems/sqrtx/)

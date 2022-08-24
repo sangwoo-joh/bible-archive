@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string, dynamic-programming]
 title: Longest Common Subsequence
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)

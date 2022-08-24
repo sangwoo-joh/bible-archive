@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Maximum Subarray
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)

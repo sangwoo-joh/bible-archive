@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Monotonic Array
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Monotonic Array](https://leetcode.com/problems/monotonic-array/)

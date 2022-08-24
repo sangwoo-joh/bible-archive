@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, linked-list]
 title: Reverse Linked List
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 

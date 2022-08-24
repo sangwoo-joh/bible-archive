@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Minimum Moves to Equal Array Elements II
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/)

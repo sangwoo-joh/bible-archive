@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string, two-pointer]
 title: Longest Repeating Character Replacement
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)

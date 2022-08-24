@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph, disjoint-set]
 title: Number of Connected Components in an Undirected Graph
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)

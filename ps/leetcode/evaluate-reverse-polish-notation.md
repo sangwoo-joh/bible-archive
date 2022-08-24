@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, stack]
 title: Evaluate Reverse Polish Notation
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)

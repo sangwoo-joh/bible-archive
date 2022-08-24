@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, heap]
 title: Top K Frequent Elements
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)

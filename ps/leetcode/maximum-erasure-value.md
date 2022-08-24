@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, two-pointers, hash-table]
 title: Maximum Erasure Value
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Maximum Erasure Value](https://leetcode.com/problems/maximum-erasure-value/)

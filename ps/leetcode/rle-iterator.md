@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python]
 title: RLE Iterator
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [RLE Iterator](https://leetcode.com/problems/rle-iterator/)

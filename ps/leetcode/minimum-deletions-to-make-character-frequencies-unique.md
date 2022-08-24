@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, heap]
 title: Minimum Deletions to Make Character Frequencies Unique
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Minimum Deletions to Make Character Frequencies Unique](https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/)

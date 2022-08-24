@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, interval]
 title: Non-overlapping Intervals
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)

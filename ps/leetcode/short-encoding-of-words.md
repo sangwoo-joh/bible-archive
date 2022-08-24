@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, string, hash-table, trie]
 title: Short Encoding of Words
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Short Encoding of Words](https://leetcode.com/problems/short-encoding-of-words/)

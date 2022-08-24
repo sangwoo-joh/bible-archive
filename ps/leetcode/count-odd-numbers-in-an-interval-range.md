@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array, interval]
 title: Count Odd Numbers in an Interval Range
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Count Odd Numbers in an Interval Range](https://leetcode.com/problems/count-odd-numbers-in-an-interval-range/)

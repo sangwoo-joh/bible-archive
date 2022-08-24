@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, linked-list]
 title: Remove Nth Node from End of List
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Remove Nth Node from End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)

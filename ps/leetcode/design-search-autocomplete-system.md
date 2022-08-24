@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree, trie]
 title: Design Search Autocomplete System
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/)

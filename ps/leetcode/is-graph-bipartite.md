@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph]
 title: Is Graph Bipartite?
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/)

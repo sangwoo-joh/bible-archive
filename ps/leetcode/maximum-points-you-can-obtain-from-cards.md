@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Maximum Points You Can Obtain from Cards
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Maximum Points You Can Obtain from Cards](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)

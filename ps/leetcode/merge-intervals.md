@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, interval]
 title: Merge Intervals
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Merge Intervals](https://leetcode.com/problems/merge-intervals/)

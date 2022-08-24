@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, graph]
 title: Course Schedule
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Course Schedule](https://leetcode.com/problems/course-schedule/)

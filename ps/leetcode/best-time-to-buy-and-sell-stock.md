@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, hash-table]
 title: Best Time to Buy and Sell Stock
 parent: LeetCode
 grand_parent: Problem Solving
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)

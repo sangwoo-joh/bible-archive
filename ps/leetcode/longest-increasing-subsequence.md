@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, binary-search]
 title: Longest Increasing Subsequence
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)

@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Invert/Flip Binary Tree
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Invert/Flip Binary Tree](https://leetcode.com/problems/invert-binary-tree/)

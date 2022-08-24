@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree]
 title: Lowest Common Ancestor of a Binary Search Tree
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)

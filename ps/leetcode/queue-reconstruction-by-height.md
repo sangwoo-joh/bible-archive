@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, array]
 title: Queue Reconstruction by Height
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/)

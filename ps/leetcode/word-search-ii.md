@@ -4,7 +4,7 @@ tags: [problem-solving, leetcode, python, tree, string, trie, backtracking]
 title: Word Search II
 grand_parent: Problem Solving
 parent: LeetCode
-nav_exclude: true
+nav_exclude: false
 ---
 
 # [Word Search II](https://leetcode.com/problems/word-search-ii/)
