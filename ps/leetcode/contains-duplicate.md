@@ -15,14 +15,9 @@ nav_exclude: false
  배열 크기는 1~100,000 이다.
 
 ## 해시 셋
-
- 꼼수가 통하지 않는 정통 문제다. 그냥 원소 개수를 세는 수 밖에
- 없다. 여러가지 방법이 있겠지만 여기서는 해시 셋을 이용해서 개수를
- 비교해보려고 한다.
+ - 그냥 셈
 
 ```python
 def containsDuplicate(nums):
     return len(nums) != len(set(nums))
 ```
-
- - 파이썬의 `len`은 O(1)이 보장되는 연산이라서 마음껏 사용하면 된다.
