@@ -192,6 +192,10 @@ has_toc: false
  - [ ] [Reverse Bits](reverse-bits)
 
 
+## Math
+ - [x] [Power of Three](power-of-three)
+
+
 ---
 
 ## Workbook
