@@ -151,7 +151,7 @@ has_toc: false
 
 ## Search
  - [x] [Word Search](word-search)
- - [x] [Word Search II](word-search-ii)
+ - [x] [Word Search II](word-search#word-search-ii)
  - [ ] [Expression Add Operators](expression-add-operators)
  - [x] [Sqrt(x)](sqrtx)
  - [x] [Pow(x, n)](powx-n)
