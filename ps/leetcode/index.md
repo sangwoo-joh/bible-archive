@@ -9,7 +9,7 @@ has_toc: false
 
 {: .no_toc }
 # Leetcode
-## Table of Contents
+## Categories
 {: .no_toc .text-delta }
 - TOC
 {:toc}
