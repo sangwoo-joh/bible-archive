@@ -78,7 +78,7 @@ has_toc: false
  - [x] [Reverse Linked List](reverse-linked-list)
 
 ## String
- - [ ] [Encode and Decode Strings](encode-and-decode-strings)
+ - [x] [Encode and Decode Strings](encode-and-decode-strings)
  - [ ] [Group Anagrams](group-anagrams)
  - [ ] [Longest Palindromic Substring](longest-palindromic-substring)
  - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
