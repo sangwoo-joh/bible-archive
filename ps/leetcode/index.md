@@ -80,7 +80,7 @@ has_toc: false
 ## String
  - [x] [Encode and Decode Strings](encode-and-decode-strings)
  - [x] [Group Anagrams](group-anagrams)
- - [ ] [Longest Palindromic Substring](longest-palindromic-substring)
+ - [x] [Longest Palindromic Substring](longest-palindromic-substring)
  - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
  - [ ] [Valid Palindrome](valid-palindrome)
  - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
