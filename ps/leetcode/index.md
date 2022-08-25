@@ -79,7 +79,7 @@ has_toc: false
 
 ## String
  - [x] [Encode and Decode Strings](encode-and-decode-strings)
- - [ ] [Group Anagrams](group-anagrams)
+ - [x] [Group Anagrams](group-anagrams)
  - [ ] [Longest Palindromic Substring](longest-palindromic-substring)
  - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
  - [ ] [Valid Palindrome](valid-palindrome)
