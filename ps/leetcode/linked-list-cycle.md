@@ -15,11 +15,9 @@ nav_exclude: false
 
  노드 개수는 최대 10000개 이다.
 
-## 방문 확인하면서 DFS 하기
-
- 싸이클 여부를 "확인"만 하는 데에는 DFS 만한 것이 없다. 깊이 우선
- 탐색으로 노드를 쭉 방문하다가, 이미 방문한 노드를 다시 만났다면 해당
- 그래프에는 싸이클이 있는 것이다.
+## 접근 1 - DFS
+ - DFS 하다가 이전에 방문한 적 있는 노드를 또 방문한 경우 싸이클이다.
+ - 공간, 시간 복잡도 모두 O(N)
 
 
 ```python
@@ -46,8 +44,20 @@ def hasCycle(head):
     return False
 ```
 
+## 접근 2 - 거북이와 토끼 포인터
+ - 거북이 포인터와 토끼 포인터를 동시에 리스트를 여행할 때, 만약
+   싸이클이 있으면 둘은 항상 만나게 된다.
+ - 공간 복잡도가 O(1)
 
- - 이전에 방문한 거 확인하자마자 리턴하면 된다.
- - 입력으로 빈 리스트가 들어올 수 있으므로 함수 초입에서 체크해준다.
- - 노드를 방문한 후에 다음 노드를 스택에 쌓을 때 널 체크를 해주면 스택
-   크기를 좀 덜 크게 가져갈 수 있다.
+```python
+def hasCycle(head):
+    if not head:
+        return False
+    fast, slow = head, head
+    while fast.next and fast.next.next:
+        fast = fast.next.next
+        slow = slow.next
+        if slow == fast:
+            return True
+    return False
+```
