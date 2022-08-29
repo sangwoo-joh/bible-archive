@@ -1,7 +1,7 @@
 ---
 layout: page
 tags: [problem-solving, python, tips]
-title: Short Tips
+title: Python Tips
 parent: Problem Solving
 ---
 
@@ -12,9 +12,7 @@ parent: Problem Solving
 {:toc}
 
 
-# 파이썬 특화
-
-## `map`, `filter`
+# `map`, `filter`
  적용할 함수가 먼저 온다. 어떻게 생각하면 되냐면 `map(f, x) --> f(x)`
  라고 생각하면 된다.
 
@@ -23,14 +21,14 @@ map(lambda x: x, seq)
 filter(lambda x: return True, seq)
 ```
 
-## `pow`
+# `pow`
  세 번째 파라미터 `mod`를 넘겨주는게 직접 계산하는 것보다 효율적임.
 
 ```python
 pow(base, exp, mod) == pow(base, exp) % mod
 ```
 
-## `sorted`, `.sort()`
+# `sorted`, `.sort()`
  `sorted`는 새로운 시퀀스를 만들어서 정렬하고, `sort`는 제자리
  정렬이다.
 
@@ -41,7 +39,7 @@ seq = sorted(seq)
 
  둘 다 정렬 비교에 쓰일 `key` 함수를 named parameter로 넘겨줄 수 있다.
 
-## `all`, `any`
+# `all`, `any`
  모든 시퀀스 안의 원소를 **전부 다** 평가한 다음, $$ \forall $$ 또는
  $$ \exists $$ 를 계산한다. 문제는 모든 원소를 전부 다 평가하기 때문에
  Short-Circuit 최적화의 혜택을 받지 못해서 `any`는 대부분의 경우 훨씬
@@ -56,7 +54,7 @@ any([True, False]) == True
 any([]) == False
 ```
 
-## String
+# String
  별의 별 희한한 것까지 다 표준 라이브러리 함수로 들어있어서 구현하긴 편하다.
 
 ```python
@@ -69,9 +67,9 @@ str.count(substring)
 str.find(substring)
 ```
 
-## collections
+# collections
 
-### defaultdict
+## defaultdict
 
 ```python
 from collections import defaultdict
@@ -85,7 +83,7 @@ di[0] += 1  # not exception!
 print(di[100])  # also not exception! shows 0
 ```
 
-### Counter
+## Counter
 
 ```python
 from collections import Counter
@@ -100,7 +98,8 @@ c.most_common()  # return a list of n most common elements and their counts
 c.most_common(1)  # top most common elements as list, so [('a', 5)]
 ```
 
-### Deque
+## Deque
+
 ```python
 from collections import deque
 dq = deque()
@@ -113,7 +112,7 @@ dq.rotate(n=1) == dq.appendleft(dq.pop())
 dq.count(x)
 ```
 
-## Heapq
+# Heapq
 
 ```python
 import heapq
@@ -125,7 +124,7 @@ heapq.nlargest(n, l, key=None) == sorted(l, key=None, reverse=True)[:n]
 heapq.nsmallest(n, l, key=None) == sorted(l, key=None)[:n]
 ```
 
-## Random
+# Random
 
 ```python
 import random
@@ -135,39 +134,13 @@ random.shuffle(l)  # shuffle l in-place
 random.uniform(a, b)  # pick random **float x** in a <= x <= b
 ```
 
-## Bisect
+# Bisect
 
 ```python
 import bisect
 
 bisect.bisect_left(l, x)
 bisect.bisect_right(l, x) == bisect.bisect(l, x)
-```
-
-## 정리
-
----
-
-```python
-from collections import defaultdict
-from collections import OrderedDict
-from collections import Counter
-from collections import deque
-
-import heapq
-
-from functools import cache, lru_cache
-
-from itertools import accumulate
-from itertools import chain
-from itertools import compress
-from itertools import groupby
-from itertools import combinations
-from itertools import product
-
-import random
-
-import bisect
 ```
 
 ---
