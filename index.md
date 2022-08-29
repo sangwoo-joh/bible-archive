@@ -13,11 +13,6 @@ permalink: /
 
 ## Table of Contents
 
-### Personal Trainings
- - [Python](python/)
  - [Leetcode](ps/leetcode)
-
-### [Learning](learning/)
-
-### [Translations](translations)
- - [x86 Assembly Guide](translations/x86-assembly-guide/)
+ - [PS Theory](ps/theory): background theory about problem solving
+ - [Work in progress](wip/): always work in progress status
