@@ -15,7 +15,8 @@ parent: Problem Solving
 # 파이썬 특화
 
 ## `map`, `filter`
- 적용할 함수가 먼저 온다. 즉,
+ 적용할 함수가 먼저 온다. 어떻게 생각하면 되냐면 `map(f, x) --> f(x)`
+ 라고 생각하면 된다.
 
 ```python
 map(lambda x: x, seq)
@@ -30,7 +31,8 @@ pow(base, exp, mod) == pow(base, exp) % mod
 ```
 
 ## `sorted`, `.sort()`
- 아래 두 연산은 같은 의미이다.
+ `sorted`는 새로운 시퀀스를 만들어서 정렬하고, `sort`는 제자리
+ 정렬이다.
 
 ```python
 seq.sort()
@@ -40,6 +42,11 @@ seq = sorted(seq)
  둘 다 정렬 비교에 쓰일 `key` 함수를 named parameter로 넘겨줄 수 있다.
 
 ## `all`, `any`
+ 모든 시퀀스 안의 원소를 **전부 다** 평가한 다음, $$ \forall $$ 또는
+ $$ \exists $$ 를 계산한다. 문제는 모든 원소를 전부 다 평가하기 때문에
+ Short-Circuit 최적화의 혜택을 받지 못해서 `any`는 대부분의 경우 훨씬
+ 느리다. `all`이 필요한게 아니거나 모든 원소가 평가될 게 아니라면
+ `any`는 되도록 쓰지말자.
 
 ```python
 all([True, True]) == True
@@ -50,6 +57,7 @@ any([]) == False
 ```
 
 ## String
+ 별의 별 희한한 것까지 다 표준 라이브러리 함수로 들어있어서 구현하긴 편하다.
 
 ```python
 str.isalpha(), str.isdecimal(), str.isdigit(), str.isalnum(), str.isnumeric()
