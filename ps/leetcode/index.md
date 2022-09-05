@@ -191,6 +191,7 @@ has_toc: false
  - [ ] [Number of 1 Bits](number-of-1-bits)
  - [ ] [Reverse Bits](reverse-bits)
  - [ ] [Sum of Two Integers](sum-of-two-integers)
+ - [x] [Single Number](single-number)
 
 
 ## Math
