@@ -41,11 +41,9 @@ matrix = list(zip(*matrix[::-1]))
    회전한 결과와 같다.
 
 ## O(1) Space의 경우
- 제자리에서 하려면 어떻게 해야할까? 위의 O(N) Space의 힌트를
- 활용해보자.
-
- 일단 `matrix[::-1]`을 제자리에서 해보자. 이건 2차원 배열도 아니고
- 1차원 배열을 뒤집는거나 다름 없기 때문에 다음과 같이 할 수 있다:
+ - O(N) 연산을 쪼개서 차근차근하면 된다.
+ - `matrix[::-1]`는 행렬의 행(Row)을 뒤집는 연산이다. 따라서 다음과
+   같이 하면 된다.
 
 ```python
 def reverse(matrix):
@@ -54,11 +52,13 @@ def reverse(matrix):
     matrix[i], matrix[n-1-i] = matrix[n-1-i], matrix[i]
 ```
 
- 즉, 반절 뚝 떼서 앞부분(i)이랑 끝부분(n-1-i)을 스왑하면
- 된다. 인덱스기 때문에 `n-i`가 아니라 `n-1-i`인 점에 주의하면 된다.
+ - 중요한 건 **절반**만 Iterate 해야 한다는 것이다. 끝까지 다
+   바꿔버리면 원래 행렬이랑 똑같다.
 
- 나머지 `zip(*)` 부분을 잘 살펴보면 이게 결국 행렬을 Transpose하는
- 것과 같다는 것을 알 수 있다. 즉 이걸 제자리에서 하면 다음과 같다.
+ - `zip(*)` 연산은 전치 행렬(Transpose)을 구하는 연산이다.
+ - 대각선을 기준으로 바꾼다. `(i, i)` 위치가 대각선임을 기억하자.
+ - 그러면 `i`번째 Row에서는 `i`부터 Column을 살펴보면 된다.
+ - 그 외엔 단순히 `(x, y)`를 `(y, x)`로 스왑하는 연산이다.
 
 ```python
 def transpose(matrix):
@@ -68,30 +68,11 @@ def transpose(matrix):
       matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 ```
 
- 즉 단순히 (i, j) 랑 (j, i)를 스왑하면 되는데, 이때 j를 0부터
- 시작해버리면 원본 그대로가 되므로 i부터 (즉, 대각선) 스왑해주기만
- 하면 된다.
-
- 이 두 가지를 이용하면 90도 회전은 곧 다음과 같다:
+ - 이 두 가지를 조합한 O(1) 공간 복잡도의 회전 연산은 다음과
+   같다. **순서**에 주의하자.
 
 ```python
 def rotate(matrix):
   reverse(matrix)
   transpose(matrix)
 ```
-
- 이 외에도 유사한 많은 알고리즘들이 있다. 예를 들면 여기서는 reverse를
- 행 단위(i)로 했지만, 열 단위(j)로 하고 transpose를 먼저 해도
- 된다. 혹은 다음과 같이 4각 꼭지점에 있는 애들의 인덱스를 각각 구해서
- 원소 4개를 회전시켜도 된다.
-
-```python
-def rotate(matrix):
-  n = len(matrix)
-  for i in range(n//2 + n%2):
-    for j in range(n//2):
-      matrix[i][j], matrix[n-1-j][i], matrix[n-1-i][n-1-j], matrix[j][n-1-i] = \
-        matrix[n-1-j][i], matrix[n-1-i][n-1-j], matrix[j][n-1-i], matrix[i][j]
-```
-
- 하지만 제일 덜 복잡해보이는 방법(...)이 이거라서 이걸로 풀어봤다.
