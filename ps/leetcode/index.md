@@ -111,6 +111,7 @@ has_toc: false
  - [x] [Is Graph Bipartite?](is-graph-bipartite)
  - [x] [Number of Connected Components in an Undirected Graph](number-of-connected-components-in-an-undirected-graph)
  - [x] [Number of Islands](number-of-islands)
+ - [x] [Number of Distinct Islands](number-of-distinct-islands)
  - [x] [Number of Provinces](number-of-provinces)
  - [x] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
  - [x] [Rotting Oranges](rotting-oranges)
