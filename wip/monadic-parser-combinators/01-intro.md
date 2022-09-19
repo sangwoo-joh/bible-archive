@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction
+title: 1. Introduction
 grand_parent: Work In Progress
 parent: Monadic Parser Combinators
 ---
