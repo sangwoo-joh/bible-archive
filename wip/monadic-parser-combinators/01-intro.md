@@ -5,7 +5,7 @@ grand_parent: Work In Progress
 parent: Monadic Parser Combinators
 ---
 
-# 소개
+# 1. 소개
 
  함수형 프로그래밍에서 재귀 하향식 파서를 만드는 대중적인 방법은
  파서를 *함수*로 모델링하고, 고차 함수(또는 *컴비네이터*)를 정의해서
