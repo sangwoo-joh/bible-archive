@@ -19,22 +19,22 @@ parent: Monadic Parser Combinators
 type parser = string -> tree
 ```
 
- 하지만 일반적으로 파서는 입력 문자열을 전부 소모(consume)하지 않을
- 수도 있는데, 그러므로 트리만 리턴하는 것보다는 입력 문자열에서 아직
- 소모되지 않은 접두사 부분을 같이 리턴하자. 따라서 파서의 타입은
- 다음과 같다.
+ 첫 번째 아이디어는 바로 파서가 입력 문자열을 전부 소모(consume)하지
+ 않을 수도 있다는 것이다. 그러므로, 결과 트리만 리턴하기 보다는 입력
+ 문자열에서 **아직 소모되지 않은 접두사 부분**을 같이 리턴할 수
+ 있다. 따라서 파서의 타입은 다음과 같다.
 
 ```ocaml
-type parser = string -> (tree * string)
+type parser = string -> (string * tree)
 ```
 
- 또 잘 생각해보면, 파서는 어떤 입력 문자열에 대해서 실패할 수도
- 있다. 이럴 때 런타임 에러를 던지는 것보다는, 파서가 어느 부분에서
- 어떻게 실패했는지를 알려주면 좋을 것 같다. `Result` 타입을 이용하면
- 좋을 것 같다.
+ 두 번째 아이디어는 바로 파서가 어떤 입력 문자열에 대해서는 *실패*할
+ 수도 있다는 것이다. 이럴 때 런타임 에러를 던지는 것보다는, 파서가
+ 어느 부분에서 왜 실패했는지를 알려주면 디버깅에 유용할
+ 것이다. `Result` 타입을 이용하면 좋을 것 같다.
 
 ```ocaml
-type parser = string -> (tree * string) result
+type parser = string -> string * (tree, string) result
 ```
 
  명시적인 *실패* 표현을 가지며 입력 문자열에서 *소모되지 않은 부분*을
@@ -46,12 +46,10 @@ type parser = string -> (tree * string) result
  좋다.
 
 ```ocaml
-type 'a parser = string -> ('a * string) result
+type 'a parser = string -> string * ('a * string) result
 ```
 
- 그리고 남은 입력을 계속 문자열로 리턴하게 되면 불필요한 복사가 많아질
- 수 있다. 따라서, 입력 문자열에서 어디까지 진행했는지를 기록하기 위한
- 위치 인덱스를 함께 갖고 있으면 좋을 것 같다.
+ 입력을 좀더 세분화해서 "어디까지"를 같이 기록하면 좋을 것 같다.
 
 ```ocaml
 type input =
@@ -60,44 +58,66 @@ type input =
   }
 ```
 
+ 마지막으로, 우리는 파서가 항상 클로저를 갖고 있길 원한다. 따라서
+ 최종적인 우리의 파서 타입은 다음과 같다.
+
+```ocaml
+type 'a parser =
+  { run : input -> input * ('a, string) result
+  }
+```
+
 ## 2.2. 원시(Primitive) 파서
- 여기서 정의할 세 개의 원시 파서는 컴비네이터 파싱의 기본 구성
- 요소이다. 첫 번째 파서는 `result v`로 입력 문자열을 아무것도 소모하지
- 않고 성공하고 하나의 결과 `v`를 리턴한다.
+ 컴비네이터 파싱의 기본 구성 요소인 세 개의 원시 파서를 볼 것이다. 첫
+ 번째 파서는 `return v`로 입력 문자열을 아무것도 소모하지 않고
+ 성공하고 하나의 결과 `v`를 리턴한다.
 
 ```ocaml
-let result : 'a -> 'a parser = fun v -> fun input -> [(v, input)]
+let return (v: 'a) : 'a parser = { run = fun input -> input, Ok v }
 ```
 
- `result v`는 문자열 `input`을 입력으로 받아서 원소가 하나인 리스트
- `[(v, input)]`을 리턴하는 함수다.
-
- 듀얼하게 파서 `zero`는 입력 문자열과 상관없이 항상 실패하는 파서이다.
+ 비슷하게 항상 실패하는 파서 `fail`도 정의할 수 있다. 디버깅을 위한
+ 에러 메시지를 함께 받는다.
 
 ```ocaml
-let zero : 'a parser = fun input -> []
+let fail (err: string) : 'a parser = { run = fun input -> input, Error err }
 ```
 
- 마지막 프리미티브는 `item`인데 입력 문자열에 대해서 첫 번째 글자를
- 성공적으로 소모하거나, 문자열이 비어있으면 실패하는 함수이다.
+ 마지막 프리미티브는 `peek_char`으로, 입력 문자열에 대해서 첫 번째
+ 글자를 성공적으로 소모하거나, 문자열이 비어있으면 실패하는
+ 함수이다. 우리의 입력 타입인 `input`을 좀더 손쉽게 다루기 위해서 먼저
+ 입력에서 일부만 소모하는 함수 `consume_input`을
+ 만들자. `consume_input input pos len`은 주어진 입력 `input`의
+ `text`의 `pos`부터 `len`만큼의 문자를 소모하고 남은 입력을 리턴한다.
 
 ```ocaml
-let item : char parser =
-    fun input -> if input = "" then [] else (
-        let x = String.get input 0 in
-        let remain = String.sub input 1 (String.length input - 1) in
-        [(x, remain)]
-    )
+let consume_input (input: input) (pos: int) (len: int) : input =
+  { text = String.sub (input.text) pos len
+  ; pos = input.pos + pos
+  }
+```
+
+ 이를 이용해 `peek_char`를 구현할 수 있다.
+
+```ocaml
+let peek_char : char parser = {
+  run = fun input ->
+    let n = String.length input.text in
+    try
+      consume_input 1 (n - 1) input, Ok (String.get input.text 0)
+    with Invalid_argument _ -> input, Error "expected any character"
+}
 ```
 
 ## 2.3. 파서 컴비네이터
  앞서 정의한 원시 파서들은 그 자체로는 그다지 쓸모있지는
  않다. 여기서는 이 파서를 어떻게 이어 붙여서(glue) 더 유용한 파서를
- 만들 수 있을지 살펴본다. 먼저 문법을 지정하기 위한 BNF 표기법에서,
- 함수 적용이랑 비슷한 *시퀀싱(sequencing)* 연산자와 `|`로 표시되는
- *선택(choice)* 연산자를 이용해서 작은 문법으로부터 더 큰 문법을
- 만드는 것을 살펴볼 것이다. 이렇게 정의된 연산자는 실제 문법의 구조와
- 밀접한 방식으로 파서를 합치는 것을 도와준다.
+ 만들 수 있을지 살펴본다. 먼저 문법을 지정하기 위한 BNF 표기법에서
+ 함수 적용과 유사한 *시퀀싱(sequencing; 여러 개의 함수를 연달아 적용)*
+ 연산자와 *선택(choice; 여러 개의 함수 중 성공한 것을 적용)* 연산자를
+ 이용해서 작은 문법으로부터 더 큰 문법을 만드는 것을 살펴볼
+ 것이다. 이렇게 정의된 연산자는 실제 문법의 구조와 밀접한 방식으로
+ 파서를 합치는 것을 도와준다.
 
  모나드 방식이 아닌 초창기의 컴비네이터 파싱에서, 파서의 시퀀싱 연산은
  보통 다음 타입을 가졌었다:
@@ -116,6 +136,29 @@ let seq : 'a parser -> 'b parser -> ('a * 'b) parser
  처리해서 파서들을 시퀀싱하여 합치는 방식이다.
 
 ```ocaml
-
-
+let bind (p: 'a parser) (f: 'a -> 'b parser) : 'b parser =
+  { run = fun input ->
+      match p.run input with
+      | input', Ok x -> (f x).run input'
+      | input', Error err -> input', Error err
+  }
 ```
+
+ `bind`의 정의는 다음과 같이 이해할 수 있다. 먼저, 파서 `p`를 입력
+ 문자열에 적용해서 결과로 소모되지 않은 입력과 결과 값을
+ 가져온다. 만약 실패했다면 (`match`의 `Error err` 케이스), 실패를
+ 그대로 리턴한다. 성공했다면 `'a` 타입의 값을 얻을텐데 (`match`의 `Ok
+ x` 케이스), `f`가 `'a` 타입의 값을 받아 `'b` 타입의 파서를 리턴하는
+ 함수이므로 이제 `x`에 `f`를 적용해서 새로운 파서를 만들 수 있다. 이때
+ 남은 입력에 대해서 적용해야 함을 잊지말자.
+
+ 참고로 `bind` 컴비네이터는 `bind` 라는 함수 그 자체로 호출되기 보다는
+ 주로 다음과 같이 중위 연산자로 재정의 되어 쓰이는 것이 일반적이다.
+
+```ocaml
+let (>>=) = bind
+```
+
+ `bind` 컴비네이터는 결과의 중첩된 튜플 문제를 피하게 해준다. 왜냐하면
+ 첫 번째 파서의 결과가 나중에 처리될 결과와 튜플로 묶이지 않고 곧바로
+ 두 번째 파서에 의해서 처리될 수 있기 때문이다.
