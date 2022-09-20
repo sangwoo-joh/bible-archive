@@ -125,7 +125,7 @@ let lift4 f m1 m2 m3 m4 = f <$> m1 <*> m2 <*> m3 <*> m4
    types such as sequences, trees, etc. Consider for example the
    implementation of the [many] combinator:
 
-{[let many p = fix (fun m -> (cons <$> p <*> m) <|> return [])]}
+{[let many p = fix (fun m -> ((List.cons <$> p <*> m) <|> return [])]}
 
    [many p] is a parser that will run [p] zero or more times,
    accumulating the result of every run into a list, returning the
@@ -164,3 +164,5 @@ let fix (f : 'a parser -> 'a parser) : 'a parser =
   and r = { run = (fun input -> (Lazy.force p).run input) } in
   r
 ;;
+
+let many p = fix (fun m -> List.cons <$> p <*> m <|> return [])
