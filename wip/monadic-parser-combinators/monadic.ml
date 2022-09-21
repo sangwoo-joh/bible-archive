@@ -180,6 +180,7 @@ let fix (f : 'a parser -> 'a parser) : 'a parser =
 ;;
 
 let many p = fix (fun m -> List.cons <$> p <*> m <|> return [])
+let pair p = lift2 (fun e1 e2 -> e1, e2) p p
 
 let parse_string p str =
   match p.run (input_of str) with
@@ -233,7 +234,7 @@ let eval s =
 
 (** Example of boolean expression *)
 type expr =
-  | Variable of char
+  | Variable of int
   | And of expr * expr
   | Or of expr * expr
   | Xor of expr * expr
@@ -247,26 +248,118 @@ let neg_of x = Neg x
 let parenthized p = char '(' *> p <* char ')'
 
 (* parsers *)
-let var = lower >>| var_of
+let id = ref (-1)
+
+let get_id () =
+  incr id;
+  !id
+;;
+
+let reset_id () = id := -1
+
+let var ~occur =
+  lower
+  >>| fun var ->
+  match Hashtbl.find_opt occur var with
+  | Some id -> var_of id
+  | None ->
+    let id = get_id () in
+    Hashtbl.add occur var id;
+    var_of id
+;;
+
 let and_ = char '&' *> return and_of
 let or_ = char '|' *> return or_of
 let xor = char '^' *> return xor_of
 let neg p = char '~' *> (p >>| neg_of)
 
 (**
+   Precedence: ~ > & > ^ > |
+            not > and > xor > or
    Boolean expression parser.
-   EXPR := TERM and TERM
-         | TERM or TERM
-         | TERM xor TERM
-         | TERM
-   TERM := FACTOR
+   EXPR := FA or FA
+         | EXPR
+   FA := FB xor FB
+       | FA
+   FB := FC and FC
+       | FB
+   FB := FACTOR
    FACTOR := VAR
          | ( EXPR )
          | not FACTOR
 *)
-let expr : expr parser =
+let expr ~occur : expr parser =
   fix (fun (expr : expr parser) ->
-    let factor = fix (fun factor -> parens expr <|> neg factor <|> var) in
-    let term = factor in
-    chainl1 term (and_ <|> or_ <|> xor))
+    let factor = fix (fun factor -> neg factor <|> parens expr <|> var ~occur) in
+    let fb = chainl1 factor and_ in
+    let fb = chainl1 fb xor in
+    let fa = chainl1 fb or_ in
+    fa)
 ;;
+
+let remove_blanks s = Seq.filter (fun c -> c <> ' ') (String.to_seq s) |> String.of_seq
+
+let get_exprs s =
+  let occur = Hashtbl.create 26 in
+  reset_id ();
+  let s = remove_blanks s in
+  match (pair (expr ~occur)).run (input_of s) with
+  | _, Ok r -> r, Hashtbl.length occur
+  | _, Error msg -> failwith msg
+;;
+
+let eval ~f exp =
+  let rec aux = function
+    | Variable x -> f x
+    | Or (e1, e2) -> aux e1 || aux e2
+    | And (e1, e2) -> aux e1 && aux e2
+    | Xor (e1, e2) ->
+      let v1 = aux e1 in
+      let v2 = aux e2 in
+      ((not v1) && v2) || (v1 && not v2)
+    | Neg e -> not (aux e)
+  in
+  aux exp
+;;
+
+let check e1 e2 n =
+  let f x = n land (1 lsl x) = 0 in
+  let v1 = eval ~f e1 in
+  let v2 = eval ~f e2 in
+  v1 = v2
+;;
+
+let my_for : int -> int -> int -> (int -> 'a) -> 'a list =
+ fun st ed step func ->
+  let rec inner st l =
+    if st >= ed
+    then List.rev l
+    else (
+      let v = func st in
+      inner (st + step) (v :: l))
+  in
+  inner st []
+;;
+
+let solve s case =
+  let (e1, e2), total = get_exprs s in
+  let res =
+    List.for_all
+      (fun n ->
+        let v1 = eval e1 ~f:(fun m -> n land (1 lsl m) = 0) in
+        let v2 = eval e2 ~f:(fun m -> n land (1 lsl m) = 0) in
+        v1 = v2)
+      (my_for 0 (1 lsl total) 1 (fun n -> n))
+  in
+  Printf.printf "Data set %d: %s\n" case (if res then "Equivalent" else "Different")
+;;
+
+let main () =
+  let total_case = read_int () in
+  for case = 1 to total_case do
+    let input = read_line () in
+    solve input case
+  done
+;;
+
+let () = main ()
