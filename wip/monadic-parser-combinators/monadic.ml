@@ -207,6 +207,17 @@ let chainl1 e op =
   e >>= fun init -> go init
 ;;
 
+(**
+   Arithmetic expression parser.
+   EXPR := TERM + TERM
+         | TERM - TERM
+         | TERM
+   TERM := FACTOR * FACTOR
+         | FACTOR / FACTOR
+         | FACTOR
+   FACTOR := ( EXPR )
+           | INTEGER
+*)
 let expr : int parser =
   fix (fun expr ->
     let factor = parens expr <|> integer in
