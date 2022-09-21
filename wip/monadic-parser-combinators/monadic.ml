@@ -230,3 +230,43 @@ let eval s =
   | Ok v -> v
   | Error msg -> failwith msg
 ;;
+
+(** Example of boolean expression *)
+type expr =
+  | Variable of char
+  | And of expr * expr
+  | Or of expr * expr
+  | Xor of expr * expr
+  | Neg of expr
+
+let var_of x = Variable x
+let and_of x y = And (x, y)
+let or_of x y = Or (x, y)
+let xor_of x y = Xor (x, y)
+let neg_of x = Neg x
+let parenthized p = char '(' *> p <* char ')'
+
+(* parsers *)
+let var = lower >>| var_of
+let and_ = char '&' *> return and_of
+let or_ = char '|' *> return or_of
+let xor = char '^' *> return xor_of
+let neg p = char '~' *> (p >>| neg_of)
+
+(**
+   Boolean expression parser.
+   EXPR := TERM and TERM
+         | TERM or TERM
+         | TERM xor TERM
+         | TERM
+   TERM := FACTOR
+   FACTOR := VAR
+         | ( EXPR )
+         | not FACTOR
+*)
+let expr : expr parser =
+  fix (fun (expr : expr parser) ->
+    let factor = fix (fun factor -> parens expr <|> neg factor <|> var) in
+    let term = factor in
+    chainl1 term (and_ <|> or_ <|> xor))
+;;
