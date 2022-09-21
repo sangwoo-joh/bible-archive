@@ -93,6 +93,20 @@ let take_while (f : char -> bool) : string parser =
   }
 ;;
 
+let take_while1 (f : char -> bool) : string parser =
+  { run =
+      (fun input ->
+        let n = String.length input.text in
+        let i = ref 0 in
+        while !i < n && f (String.get input.text !i) do
+          incr i
+        done;
+        if n < 1 || !i < 1
+        then input, Error "take_while1 takes at least one"
+        else consume_input input !i (n - !i), Ok (String.sub input.text 0 !i))
+  }
+;;
+
 (** [p >>| f] creates a parser that will run [p], and if it succeeds
    with result [v], will return [f v] *)
 let ( >>| ) m f = m >>= fun x -> return (f x)
@@ -166,3 +180,42 @@ let fix (f : 'a parser -> 'a parser) : 'a parser =
 ;;
 
 let many p = fix (fun m -> List.cons <$> p <*> m <|> return [])
+
+let parse_string p str =
+  match p.run (input_of str) with
+  | _, Ok x -> Ok x
+  | _, Error err -> Error err
+;;
+
+(** Example of expr *)
+
+let parens p = char '(' *> p <* char ')'
+let add = char '+' *> return ( + )
+let sub = char '-' *> return ( - )
+let mul = char '*' *> return ( * )
+let div = char '/' *> return ( / )
+
+let integer =
+  take_while1 (function
+    | '0' .. '9' -> true
+    | _ -> false)
+  >>| int_of_string
+;;
+
+let chainl1 e op =
+  let rec go acc = lift2 (fun f x -> f acc x) op e >>= go <|> return acc in
+  e >>= fun init -> go init
+;;
+
+let expr : int parser =
+  fix (fun expr ->
+    let factor = parens expr <|> integer in
+    let term = chainl1 factor (mul <|> div) in
+    chainl1 term (add <|> sub))
+;;
+
+let eval s =
+  match parse_string expr s with
+  | Ok v -> v
+  | Error msg -> failwith msg
+;;
