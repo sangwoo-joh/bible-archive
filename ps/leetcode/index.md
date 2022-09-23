@@ -153,6 +153,7 @@ has_toc: false
 ## Search
  - [ ] [Expression Add Operators](expression-add-operators)
  - [ ] [Guess the Word](guess-the-word)
+ - [x] [Combination Sum](combination-sum)
  - [x] [Pow(x, n)](powx-n)
  - [x] [Sqrt(x)](sqrtx)
  - [x] [Word Search II](word-search#word-search-ii)
@@ -160,8 +161,6 @@ has_toc: false
 
 
 ## DP
- - [x] [Coin Change](coin-change)
- - [ ] [Combination Sum](combination-sum)
  - [ ] [House Robber II](house-robber-ii)
  - [ ] [House Robber](house-robber)
  - [ ] [Jump Game](jump-game)
@@ -169,6 +168,7 @@ has_toc: false
  - [ ] [Race Car](race-car)
  - [ ] [Word Break Problem](word-break-problem)
  - [x] [Climbing Stairs](climbing-stairs)
+ - [x] [Coin Change](coin-change)
  - [x] [Decode Ways](decode-ways)
  - [x] [Interleaving String](interleaving-string)
  - [x] [Longest Increasing Subsequence](longest-increasing-subsequence)
