@@ -178,6 +178,7 @@ has_toc: false
  - [x] [Paint House III](paint-house#paint-house-iii)
  - [x] [Paint House II](paint-house#paint-house-ii)
  - [x] [Paint House](paint-house)
+ - [x] [Partition Equal Subset Sum](partition-equal-subset-sum)
  - [x] [Pascal's Triangle](pascals-triangle)
  - [x] [Range Sum Query 2D Immutable](range-sum-query-2d-immutable)
  - [x] [Triangle](triangle)
