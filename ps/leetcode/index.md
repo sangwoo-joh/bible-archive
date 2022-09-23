@@ -160,7 +160,7 @@ has_toc: false
 
 
 ## DP
- - [ ] [Coin Change](coin-change)
+ - [x] [Coin Change](coin-change)
  - [ ] [Combination Sum](combination-sum)
  - [ ] [House Robber II](house-robber-ii)
  - [ ] [House Robber](house-robber)
