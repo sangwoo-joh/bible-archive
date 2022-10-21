@@ -117,7 +117,7 @@ has_toc: false
 
 
 ## Tree
- - [ ] [Find Leaves of Binary Tree](find-leaves-of-binary-tree)
+ - [x] [Find Leaves of Binary Tree](find-leaves-of-binary-tree)
  - [ ] [Step-By-Step Directions From a Binary Tree Node to Another](step-by-step-directions-from-a-binary-tree-node-to-another)
  - [x] [Binary Tree Cameras](binary-tree-cameras)
  - [x] [Binary Tree Level Order Traversal](binary-tree-level-order-traversal)
