@@ -26,7 +26,6 @@ has_toc: false
  - [x] [Best Time to Buy and Sell Stock](best-time-to-buy-and-sell-stock)
  - [x] [Candy](candy)
  - [x] [Container With Most Water](container-with-most-water)
- - [x] [Contains Duplicate](contains-duplicate)
  - [x] [Find Minimum in Rotated Sorted Array](find-minimum-in-rotated-sorted-array)
  - [x] [Longest Consecutive Sequence](longest-consecutive-sequence)
  - [x] [Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts](maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts)
@@ -158,6 +157,7 @@ has_toc: false
  - [x] [Sqrt(x)](sqrtx)
  - [x] [Word Search II](word-search#word-search-ii)
  - [x] [Word Search](word-search)
+ - [x] [Contains Duplicate](contains-duplicate)
 
 
 ## DP
