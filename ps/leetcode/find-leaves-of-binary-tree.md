@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, leetcode, python, ]
+tags: [problem-solving, leetcode, python, tree]
 title: Find Leaves of Binary Tree
 parent: LeetCode
 grand_parent: Problem Solving
