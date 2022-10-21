@@ -80,8 +80,7 @@ has_toc: false
  - [x] [Encode and Decode Strings](encode-and-decode-strings)
  - [x] [Group Anagrams](group-anagrams)
  - [x] [Longest Palindromic Substring](longest-palindromic-substring)
- - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
- - [ ] [Valid Palindrome](valid-palindrome)
+ - [x] [Valid Palindrome](valid-palindrome)
  - [x] [Count Common Words With One Occurrence](count-common-words-with-one-occurrence)
  - [x] [Delete Operation for Two Strings](delete-operation-for-two-strings)
  - [x] [Design Add and Search Words Data Structure](design-add-and-search-words-data-structure)
@@ -162,6 +161,7 @@ has_toc: false
 
 
 ## DP
+ - [ ] [Minimum Window Subsequence](minimum-window-subsequence)
  - [ ] [House Robber II](house-robber-ii)
  - [ ] [House Robber](house-robber)
  - [ ] [Jump Game](jump-game)
