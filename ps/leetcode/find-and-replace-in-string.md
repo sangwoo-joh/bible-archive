@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, leetcode, python]
+tags: [problem-solving, leetcode, python, string]
 title: Find And Replace in String
 grand_parent: Problem Solving
 parent: LeetCode
