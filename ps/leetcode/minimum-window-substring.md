@@ -12,19 +12,13 @@ nav_exclude: false
  부분 문자열(window) 중 가장 짧은 것을 구하는 문제다. 없으면 ""를
  리턴.
 
- 참고로 최소 길이의 윈도우는 항상 1개만 존재하도록 보장된다.
+ 최소 길이의 윈도우는 항상 1개만 존재하도록 보장된다. `t`에는 중복이
+ 있을 수도 있기 때문에 `t`의 글자 수도 맞아야 한다.
 
- `s`, `t`의 범위는 `[1, 10^5]` 이고 영어 알파벳만 담고 있다.
-
- 예를 들면 `s = "ADOBECODEBANC"`, `t = "ABC"` 일 때, `s`의 부분문자열
- 중에서 `ABC`를 포함하는 가장 짧은 문자열은 마지막 네 글자인
- `BANC`이다.
+ - `s`, `t`의 길이는 1~100,000
+ - `s`, `t` 모두 대소문자 알파벳만 포함한다.
 
 ## 슬라이딩 윈도우
- 딱 봐도 슬라이딩 윈도우를 적용해야 하는 문제다. 이놈의 문자열은
- 슬라이딩 윈도우를 너무 좋아해서 문제다. 계속 풀어서 익숙해지는 수
- 밖에 없는 것 같다.
-
  암튼 어떻게 슬라이딩 윈도우를 적용해야 할지 고민해보자. `end`
  인덱스를 계속 늘려가면서 윈도우를 키운다. 윈도우가 조건인 `t`의 모든
  문자를 담게 되면, 그 다음 "더 잘 할 수 있나?" 를 확인해 가면서 윈도우
@@ -39,9 +33,6 @@ nav_exclude: false
 from collections import Counter
 
 def min_window(s, t):
-    if not t or not s:
-        return ""
-
     # requirements
     requirement = Counter(t)
     required_alphas = len(requirement)
@@ -53,7 +44,7 @@ def min_window(s, t):
 
     # for answer
     min_len = float('inf')
-    min_substring = None
+    answer = ""
 
     for end in range(len(s)):
         cur = s[end]
@@ -82,7 +73,7 @@ def min_window(s, t):
 
             start += 1
 
-    return "" if min_len == float('inf') else min_substring
+    return answer
 ```
  - 먼저 만족해야 하는 조건인 `requirement`를 `Counter` 모듈로
    만들어둔다. 그리고 미리 조건의 알파벳 개수를 계산해둔다.
