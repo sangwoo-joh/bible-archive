@@ -114,6 +114,7 @@ has_toc: false
  - [x] [Number of Provinces](number-of-provinces)
  - [x] [Pacific Atlantic Water Flow](pacific-atlantic-water-flow)
  - [x] [Rotting Oranges](rotting-oranges)
+ - [x] [Minimum Genetic Mutation](minimum-genetic-mutation)
 
 
 ## Tree
