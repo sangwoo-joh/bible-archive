@@ -98,6 +98,7 @@ has_toc: false
  - [x] [Valid Anagram](valid-anagram)
  - [x] [Valid Parentheses](valid-parentheses)
  - [x] [Find And Replace in String](find-and-replace-in-string)
+ - [x] [Longest Palindrome by Concatenating Two Letter Words](longest-palindrome-by-concatenating-two-letter-words)
 
 
 ## Graph
