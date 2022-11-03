@@ -18,6 +18,7 @@ description: A Very Personal Bible
 # url: "https://sangwoo-joh.github.io/bible" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
+author: Sangwoo Joh
 
 # Regression tests
 # By default, the pages in /docs/tests are excluded when the ste is built.
@@ -77,7 +78,7 @@ nav_sort: case_insensitive # Capital letters sorted before lowercase
 back_to_top: false
 back_to_top_text: "Back to top"
 
-footer_content: "Copyright &copy; 2021 Sangwoo joh. Distributed by an <a href=\"https://github.com/sangwoo-joh/bible/tree/master/LICENSE\">MIT license.</a>"
+footer_content: "Distributed by an <a href=\"https://github.com/sangwoo-joh/bible/tree/master/LICENSE\">MIT license.</a>"
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
