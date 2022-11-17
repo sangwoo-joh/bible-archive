@@ -1,6 +1,6 @@
 ---
 layout: page
-tags: [problem-solving, leetcode, python, ]
+tags: [problem-solving, leetcode, python, math]
 title: Power of Three
 parent: LeetCode
 grand_parent: Problem Solving
