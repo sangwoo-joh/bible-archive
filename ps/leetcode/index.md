@@ -201,3 +201,4 @@ has_toc: false
 ## Math
  - [x] [Power of Three](power-of-three)
  - [x] [RLE Iterator](rle-iterator)
+ - [x] [Rectangle Area](rectangle-area)
