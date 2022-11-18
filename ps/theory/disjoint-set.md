@@ -75,9 +75,11 @@ class DisjointSet:
 ```
 
  위의 구현은 서로소 집합의 개수 `_count`와 각 집합의 원소 정보
- `_elts_`도 같이 추적한다. 이 두 가지를 추적하지 않는 경우 `find`와
- `union`의 시간 복잡도는 아커만 함수로 거의 선형 시간이다. `_count`는
- 복잡도에 영향을 주지 않는다. `_elts`를 추적하는 경우는 항상 작은 쪽에
- 합치는 구현을 하면 `union`의 복잡도는 `O(n*logn)`이 된다.
+ `_elts_`도 같이
+ 추적한다([출처](https://pstopia.github.io/notes/data-structure/disjoint-set/)). 이
+ 두 가지를 추적하지 않는 경우 `find`와 `union`의 시간 복잡도는 아커만
+ 함수로 거의 선형 시간이다. `_count`는 복잡도에 영향을 주지
+ 않는다. `_elts`를 추적하는 경우는 항상 작은 쪽에 합치는 구현을 하면
+ `union`의 복잡도는 `O(n*logn)`이 된다.
 
  `union`의 리턴 값은 두 원소가 합쳐졌는지 아닌지 여부다.
