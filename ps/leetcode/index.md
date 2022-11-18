@@ -202,3 +202,4 @@ has_toc: false
  - [x] [Power of Three](power-of-three)
  - [x] [RLE Iterator](rle-iterator)
  - [x] [Rectangle Area](rectangle-area)
+ - [x] [Ugly Number](ugly-number)
