@@ -75,7 +75,7 @@ def numIslands(grid):
         q.append((x, y))
 
         while q:
-            cx, cy = q.pop()
+            cx, cy = q.popleft()
             for nx, ny in [(cx+1, cy), (cx-1, cy), (cx, cy+1), (cx, cy-1)]:
                 if 0 <= nx < m and 0 <= ny < n and grid[nx][ny] == '1' and (nx, ny) not in visited:
                     visited.add((nx, ny))
