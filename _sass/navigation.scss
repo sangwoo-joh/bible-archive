@@ -10,12 +10,12 @@
   list-style: none;
 
   .nav-list-item {
-    @include fs-4;
+    @include fs-3;
     position: relative;
     margin: 0;
 
     @include mq(md) {
-      @include fs-3;
+      @include fs-2;
     }
 
     .nav-list-link {

@@ -21,18 +21,19 @@ $body-heading-line-height: 1.25 !default;
 // `-sm` suffix is the size at the small (and above) media query
 //
 
-$font-size-1: 12px !default;
 $font-size-1-sm: 10px !default;
-$font-size-2: 14px !default; //h4 - uppercased!, h6 not uppercased, text-small
-$font-size-3: 16px !default; //h5
-$font-size-4: 18px !default;
-$font-size-5: 20px !default; //h3
-$font-size-6: 24px !default; //h2
-$font-size-7: 24px !default;
-$font-size-8: 32px !default; //h1
+$font-size-1: 12px !default;
+$font-size-2: 14px !default;
+$font-size-3: 16px !default;
+$font-size-4: 18px !default; // inherit - fs-3
+$font-size-5: 20px !default;
+$font-size-6: 24px !default;
+$font-size-7: 28px !default;
+$font-size-8: 32px !default;
 $font-size-9: 36px !default;
-$font-size-10: 42px !default;
-$font-size-10-sm: 48px !default;
+$font-size-10-sm: 42px !default;
+$font-size-10: 48px !default;
+
 
 //
 // Colors
