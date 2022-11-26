@@ -1,15 +1,17 @@
 @mixin fs-1 {
-  font-size: $font-size-1 !important;
+  // Default screen - mobile
+  font-size: $font-size-1-sm !important;
 
-  @include mq(sm) {
-    font-size: $font-size-1-sm !important;
+  // Media queries - min-width
+  @include mq(md){
+    font-size: $font-size-1 !important;
   }
 }
 
 @mixin fs-2 {
   font-size: $font-size-2 !important;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-3 !important;
   }
 }
@@ -17,7 +19,7 @@
 @mixin fs-3 {
   font-size: $font-size-3 !important;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-4 !important;
   }
 }
@@ -25,7 +27,7 @@
 @mixin fs-4 {
   font-size: $font-size-4 !important;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-5 !important;
   }
 }
@@ -33,7 +35,7 @@
 @mixin fs-5 {
   font-size: $font-size-5 !important;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-6 !important;
   }
 }
@@ -41,7 +43,7 @@
 @mixin fs-6 {
   font-size: $font-size-6 !important;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-7 !important;
     line-height: $body-heading-line-height;
   }
@@ -51,7 +53,7 @@
   font-size: $font-size-7 !important;
   line-height: $body-heading-line-height;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-8 !important;
   }
 }
@@ -60,7 +62,7 @@
   font-size: $font-size-8 !important;
   line-height: $body-heading-line-height;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-9 !important;
   }
 }
@@ -69,7 +71,7 @@
   font-size: $font-size-9 !important;
   line-height: $body-heading-line-height;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-10 !important;
   }
 }
@@ -78,7 +80,7 @@
   font-size: $font-size-10 !important;
   line-height: $body-heading-line-height;
 
-  @include mq(sm) {
+  @include mq(md){
     font-size: $font-size-10-sm !important;
   }
 }
