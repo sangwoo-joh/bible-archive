@@ -75,7 +75,7 @@ nav_sort: case_insensitive # Capital letters sorted before lowercase
 # appears at the bottom of every page's main content
 
 # Back to top link
-back_to_top: false
+back_to_top: true
 back_to_top_text: "Back to top"
 
 footer_content: "Distributed by an <a href=\"https://github.com/sangwoo-joh/bible/tree/master/LICENSE\">MIT license.</a>"
