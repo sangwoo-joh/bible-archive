@@ -209,8 +209,8 @@
   h5,
   h6 {
     position: relative;
-    margin-top: 1.5em;
-    margin-bottom: 0.25em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 
     &:first-child {
       margin-top: $sp-2;
@@ -224,7 +224,7 @@
     }
 
     + p {
-      margin-top: 0;
+      margin-top: 0.5em;
     }
   }
 }
