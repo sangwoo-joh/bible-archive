@@ -5,10 +5,25 @@ nav_order: 2
 parent: Problem Solving
 has_children: true
 has_toc: false
+last_update: 2022-12-15 15:23:24
 ---
 
 {: .no_toc }
 # Leetcode
+
+{: .no_toc .text-delta }
+### Omakase
+<div class="omakase"></div>
+<script>
+  $(document).ready( () => {
+    const problems = document.getElementsByClassName("task-list-item");
+    const omakase = document.getElementsByClassName("omakase")[0];
+    const sampled = problems[Math.floor(Math.random() * problems.length)];
+    omakase.appendChild(sampled.children[1]);
+    console.log(sampled.children[1]);
+  });
+</script>
+
 ## Categories
 {: .no_toc .text-delta }
 - TOC
