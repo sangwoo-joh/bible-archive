@@ -19,7 +19,10 @@ h3,
   @include fs-5;
 }
 
-h4,
+h4 {
+  @include fs-4;
+}
+
 .text-delta {
   @include fs-4;
   font-weight: 400;
