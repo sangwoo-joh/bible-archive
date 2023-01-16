@@ -95,6 +95,7 @@ disqus: blog-utrcmpd2xa
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-org
 
 kramdown:
   syntax_highlighter_opts:
