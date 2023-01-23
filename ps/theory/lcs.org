@@ -1,0 +1,10 @@
+#+title: Lcs
+#+last_update: 2023-01-24 00:08:14
+#+layout: page
+#+parent: Theory
+#+grand_parent: Problem Solving
+
+* Longest Common Subsequence
+
+** 응용 문제
+ - [[https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/description/][Minimum Steps]]
